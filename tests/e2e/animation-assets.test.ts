@@ -37,11 +37,24 @@ test('animation MCP import, single-card GIF viewer, source open, Skill update/cl
   const port = await freePort();
   writeFileSync(path.join(root, 'mcp-settings.json'), JSON.stringify({ version: 1, preferences: { enabled: true, autoStart: true, port } }));
   const applicationDirectory = process.env.SERPENT_E2E_APP_DIRECTORY ?? process.cwd();
-  const launch = () => electron.launch({
-    args: [applicationDirectory], cwd: applicationDirectory, executablePath: resolveElectronExecutablePath(),
-    env: electronLaunchEnv({ SERPENT_E2E: '1', SERPENT_E2E_USER_DATA_PATH: root,
-      SERPENT_E2E_CREATE_PARENT_PATH: parent, SERPENT_E2E_OPEN_LIBRARY_PATH: path.join(parent, name) }),
-  });
+  const launch = async () => {
+    const application = await electron.launch({
+      args: [applicationDirectory], cwd: applicationDirectory, executablePath: resolveElectronExecutablePath(),
+      env: electronLaunchEnv({ SERPENT_E2E: '1', SERPENT_E2E_USER_DATA_PATH: root,
+        SERPENT_E2E_CREATE_PARENT_PATH: parent, SERPENT_E2E_OPEN_LIBRARY_PATH: path.join(parent, name) }),
+    });
+    // Shipped builds intentionally ignore the unpackaged native-dialog seam.
+    // Match packaged-startup's dialog stub when testing the real app bundle.
+    await application.evaluate(({ app, dialog }, paths) => {
+      if (!app.isPackaged) return;
+      dialog.showOpenDialog = async (...args: unknown[]) => {
+        const options = args.at(-1) as { title?: string };
+        const isCreate = options.title === 'Create Library' || options.title === '创建资源库';
+        return { canceled: false, filePaths: [isCreate ? paths.parent : paths.libraryPath] };
+      };
+    }, { parent, libraryPath: path.join(parent, name) });
+    return application;
+  };
   let application = await launch();
   let client: Client | undefined;
   try {
@@ -49,6 +62,8 @@ test('animation MCP import, single-card GIF viewer, source open, Skill update/cl
     await window.getByRole('button', { name: '创建资源库', exact: true }).click();
     await window.getByRole('textbox', { name: '名称', exact: true }).fill(name);
     await window.getByRole('button', { name: '创建', exact: true }).click();
+    await expect(window.getByRole('button', { name: `当前资源库 ${name}`, exact: true }))
+      .toBeVisible({ timeout: 15_000 });
     await window.evaluate(async () => {
       const response = await (globalThis as unknown as { serpent: { mcp: SerpentMcpSettingsApi } }).serpent.mcp.request({ type: 'create-client-config', input: { format: 'generic-json' } });
       if (!response.ok) throw new Error('Cannot create isolated MCP credential');
