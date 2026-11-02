@@ -193,11 +193,11 @@ test("generates a decoded thumbnail and keeps asset viewer context coherent", as
     await expect
       .poll(() => thumbnail.getAttribute("src"))
       .toMatch(/^serpent:\/\/preview\//);
-    // Islands justified slots fill the frame (cover) so rounded corners do not
-    // show a 1–2px letterbox. The inspector preview below stays contain.
+    // Gallery previews keep the complete image visible, including sprite
+    // sheets and multi-style animation boards. Inspector previews also contain.
     expect(
       await thumbnail.evaluate((image) => getComputedStyle(image).objectFit),
-    ).toBe("cover");
+    ).toBe("contain");
 
     // Import reveal selects the imported batch and reapplies it once the
     // debounced browse refresh settles. Clear that intentional reveal before

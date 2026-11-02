@@ -7,7 +7,7 @@ import {
 describe("estimateMasonryPreviewHeightPx", () => {
   it("preserves landscape natural height", () => {
     expect(estimateMasonryPreviewHeightPx(1920, 1080, 200)).toBeCloseTo(
-      198 * (1080 / 1920),
+      200 * (1080 / 1920),
       5,
     );
   });
@@ -16,28 +16,28 @@ describe("estimateMasonryPreviewHeightPx", () => {
     // A fixed max-height with the same full column width creates horizontal
     // letterboxing in the contain-fit preview.
     expect(estimateMasonryPreviewHeightPx(230, 512, 200)).toBeCloseTo(
-      198 * (512 / 230),
+      200 * (512 / 230),
       5,
     );
   });
 
   it("falls back when dimensions are missing", () => {
     expect(estimateMasonryPreviewHeightPx(null, null, 160)).toBeCloseTo(
-      158 / 1.3,
+      160 / 1.3,
       5,
     );
   });
 
   it("matches the CSS .asset-preview placeholder ratio so unlocked cards cannot drift", () => {
     expect(estimateMasonryPreviewHeightPx(null, null, 280)).toBeCloseTo(
-      278 / 1.3,
+      280 / 1.3,
       5,
     );
   });
 
   it("uses the font specimen ratio when a font has no resolution", () => {
     expect(estimateMasonryPreviewHeightPx(null, null, 160, "font")).toBeCloseTo(
-      158 / (16 / 9),
+      160 / (16 / 9),
       5,
     );
   });
