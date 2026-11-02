@@ -31605,7 +31605,11 @@ export class LibraryService {
         `SELECT file_path
            FROM revision_artifacts
           WHERE file_path IS NOT NULL
-            AND invalidated_at IS NULL`,
+            AND invalidated_at IS NULL
+          ${hasTable(openLibrary.connection, 'animation_assets')
+            ? `UNION SELECT preview_path AS file_path FROM animation_assets
+               UNION SELECT poster_path AS file_path FROM animation_assets`
+            : ''}`,
       )
       .all() as Array<{ file_path: string }>;
     for (const row of rows) {

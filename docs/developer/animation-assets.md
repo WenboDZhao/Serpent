@@ -8,7 +8,7 @@
 - [共享契约](../../src/shared/animation-assets.ts)约束最多四种组合、两种动作，明确帧号、时长、层级路径及固定裁切。各格共用时间轴，配置通过规范化 JSON 的 SHA-256 判断变化。
 - Gateway Registry → Worker 协议 → [动画 handler](../../src/worker/handlers/animation-assets.ts) → [Worker repository](../../src/worker/animation-assets.ts)。只有 Worker 访问文件和 SQLite；写命令持有每库 writer lease，查询走 automation-readonly dispatcher，不排媒体任务。
 - 新增迁移 v60，保留既有迁移及 checksum。`animation_assets` 用 asset ID 关联最后成功 GIF、PNG 封面、配置和生成记录；`animation_requests` 保存幂等请求；`animation_preview_staging` 保存上传进度。源沿用普通托管导入和文件操作恢复，复制至 `Assets/`；GIF 和封面写入 `.serpent/artifacts/`，不会作为第二项被扫描入库。
-- 预览生命周期属于资产，独立于通常按 revision 失效的缓存。源版本变化时卡片标记「预览待更新」，继续服务上次成功的 GIF/封面。重命名和托管移动不会丢失关联。已永久删除的资产不再解析预览 URL。
+- 预览生命周期属于资产，独立于通常按 revision 失效的缓存。源版本变化时卡片标记「预览待更新」，继续服务上次成功的 GIF/封面。重命名和托管移动不会丢失关联。已永久删除的资产不再解析预览 URL。后台孤立文件清理同时读取动画关联中的 GIF 和封面路径，不能仅依据 `revision_artifacts` 判断引用。
 - 替换预览先写入并 flush 不可变文件，再在事务内切换关联、配置、生成记录和完成收据。旧文件进入 `animation_retired_files`，发布后清理；锁定的文件保留记录，下一次发布重试。源资产永久删除也会把关联文件加入该队列。
 
 ## 公开接口
@@ -48,3 +48,9 @@ macOS arm64，Aseprite 1.3.18.6：Skill 验证通过；Python 5 项测试通过�
 隔离 Electron E2E 1 项通过，使用指定 human v1.0 原文件制作四种发型、idle/walk 两种动作的唯一 GIF：17 帧、1280ms。原文件及托管源摘要均保持 `95eca6266c76c029798e85896a1173134cadd915b3fc73170848553b25768259`。真实 MCP 验证了导入、分块回读、未变化跳过、配置变化更新、更新后悬停缓存失效、外部源路径、清理及进程重启；工作目录清理后正式关联仍可读取。额外核验四格像素各不相同且时间轴有实际帧变化。
 
 未覆盖 Windows/Linux、NAS、发行包和真实系统编辑器启动；未批量迁移 Sunnyside_World。整个仓库的全部测试未运行，以上为本次相关测试集合。
+
+## 试用修复（2026-11-03）
+
+打开放置超过五分钟的样板库时，发现孤立文件清理只识别 `revision_artifacts`，会删除 `animation_assets` 持有的正式 GIF 和封面。修复将两类引用合并为同一保护集合，不改变孤立文件的清理范围和旧库降级规则。
+
+新增回归将 GIF、封面和一个未引用文件都设为十分钟前，关闭重开并等待完整后台 reconciliation：正式动画保留，真正的孤立文件删除。旧实现可复现失败；修复后动画与 reconciliation 回归共 15 项通过。通过现有 MCP 客户端和项目 Skill 恢复了样板预览，并在真实开发版界面确认封面和 GIF 播放控制正常。源文件、资产 ID 及人工元数据保留，临时生成目录已核验后清理。

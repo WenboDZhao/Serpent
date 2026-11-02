@@ -1,5 +1,5 @@
 import { randomBytes, randomUUID } from 'node:crypto';
-import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync, utimesSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import sharp from 'sharp';
@@ -43,6 +43,23 @@ async function stage(f: Awaited<ReturnType<typeof fixture>>, assetId: string, da
   return input;
 }
 describe('managed animation assets', () => {
+  it('retains aged animation files through the actual background orphan sweep after reopening', async () => {
+    const f = await fixture();
+    const info = await f.repo().importBundle(f.input);
+    const paths = [info.previewArtifactId, info.posterArtifactId].map((id) =>
+      f.service.getArtifactAbsolutePath(f.library.libraryId, id, 'preview'));
+    const orphan = path.join(f.library.libraryPath, '.serpent', 'artifacts', 'unreferenced.gif');
+    writeFileSync(orphan, 'orphan');
+    const oldTime = new Date(Date.now() - 10 * 60_000);
+    for (const filePath of [...paths, orphan]) utimesSync(filePath, oldTime, oldTime);
+    f.service.closeAll();
+    f.service.openLibrary(f.library.libraryPath);
+    await f.service.runOpenBackgroundReconciliation(f.library.libraryId);
+    expect(existsSync(orphan)).toBe(false);
+    expect(paths.map(existsSync)).toEqual([true, true]);
+    expect(animationFileSha256(paths[0]!)).toBe(f.input.previewSha256);
+    expect(f.repo().info(info.assetId)?.previewMissing).toBe(false);
+  });
   it('imports one card, retries without scratch, serves still/GIF, and survives rename and restart', async () => {
     const f = await fixture();
     const info = await f.repo().importBundle(f.input);
