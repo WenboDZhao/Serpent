@@ -85,11 +85,18 @@ test('animation MCP import, single-card GIF viewer, source open, Skill update/cl
     } else {
       const source = path.join(root, 'character.aseprite'); writeFileSync(source, 'opaque Aseprite source');
       const gif = path.join(root, 'preview.gif');
-      await sharp({ create: { width: 8, height: 8, channels: 4, background: '#ef5623' } }).gif().toFile(gif);
+      // Exercise the animated viewer with two distinct frames. A one-frame
+      // GIF correctly opens in the static image viewer instead.
+      const pixels = Buffer.from(Array.from({ length: 128 }, (_, pixel) =>
+        pixel < 64 ? [239, 86, 35, 255] : [35, 86, 239, 255],
+      ).flat());
+      await sharp(pixels, { raw: { width: 8, height: 16, channels: 4, pageHeight: 8 } })
+        .gif({ delay: [80, 80], loop: 0 }).toFile(gif);
+      expect((await sharp(gif, { animated: true }).metadata()).pages).toBe(2);
       sourceHash = sha(source);
       const info = await call('serpent_animation_import', { libraryId, sourcePath: source, previewPath: gif, sourceSha256: sourceHash,
         previewSha256: sha(gif), generatorVersion: 'e2e/1', idempotencyKey: 'e2e-import',
-        recipe: { version: 1, actions: [{ name: 'idle', frames: [1], durationsMs: [80] }], combinations: [{ name: 'authored' }],
+        recipe: { version: 1, actions: [{ name: 'idle', frames: [1, 2], durationsMs: [80, 80] }], combinations: [{ name: 'authored' }],
           crop: { x: 0, y: 0, width: 8, height: 8 }, layout: { columns: 1, scale: 1, padding: 0 }, posterFrame: 0 },
       }) as { assetId: string };
       assetId = info.assetId;
@@ -139,7 +146,10 @@ test('animation MCP import, single-card GIF viewer, source open, Skill update/cl
     application = await launch(); window = await application.firstWindow();
     const openLibrary = window.getByRole('button', { name: '打开资源库', exact: true });
     const allAssets = window.getByRole('button', { name: '所有资产', exact: true });
-    await expect.poll(async () => await openLibrary.isVisible() || await allAssets.isVisible()).toBe(true);
+    // The startup shell renders disabled navigation before it resolves the
+    // start screen. Only enabled navigation means the library is ready.
+    await expect.poll(async () => await openLibrary.isVisible() ||
+      (await allAssets.isVisible() && await allAssets.isEnabled())).toBe(true);
     if (await openLibrary.isVisible()) await openLibrary.click();
     await allAssets.click();
     await expect(window.locator('.asset-card')).toHaveCount(1);
