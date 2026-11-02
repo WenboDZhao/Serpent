@@ -11,18 +11,19 @@
 - [环境搭建](setup.md)——依赖、首次构建、开发环境
 - [构建与打包](build-packaging.md)——package / make / 发布流水线 / 签名
 - [架构](architecture.md)——进程模型、目录结构、关键设计
+- [需求代码导航](architecture-code-map.zh-CN.md)——按需求定位源码入口、关联影响与测试
 - [测试](testing.md)——测试体系与运行方式
 - [新增媒体格式支持](media-format-support.md)——从共享注册表到导入、预览、过滤、协议和验收
 - [分支与开发工作流](workflow.md)——分支策略、开源贡献流程与维护者工作纪律
 - [贡献指南](contributing.md)——开源协作、Pull Request 与代码门禁要求
-- [贡献者名单](https://github.com/dolag233/Serpent/blob/main/CONTRIBUTORS.md)——已被项目接受并合并的贡献列表
+- [贡献者名单](../../CONTRIBUTORS.md)——已被项目接受并合并的贡献列表
 
 其他软件文档（内部记录在 `dolag_dev`，网站不发布）：
 
-- [开发流程](https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/development-process.md)——切片流程与质量门禁
-- [领域模型](https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/domain-model.md) / [术语表](../glossary.md)
-- [架构决策记录](https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/adr)——ADR-0000 起
-- [实施规格](https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/implementation)——切片规格
+- [开发流程](../internal/development-process.md)——切片流程与质量门禁
+- [领域模型](../internal/domain-model.md) / [术语表](../glossary.md)
+- [架构决策记录](../internal/adr/_index.md)——ADR-0000 起
+- [实施规格](../internal/implementation/_index.md)——切片规格
 
 ## 第二部分：扩展开发
 

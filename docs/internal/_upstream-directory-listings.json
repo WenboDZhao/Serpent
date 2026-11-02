@@ -1,0 +1,4189 @@
+{
+  "repository": "dolag233/Serpent",
+  "commit": "2cd268085915a400c9d696313f8b2bc9e35a76ec",
+  "directories": [
+    {
+      "path": "docs/internal",
+      "entries": [
+        {
+          "name": "README.md",
+          "path": "docs/internal/README.md",
+          "sha": "28fa608c7888d59165cde3ce05db69e379506323",
+          "size": 797,
+          "type": "file"
+        },
+        {
+          "name": "adr",
+          "path": "docs/internal/adr",
+          "sha": "c41199b88bcf9882d3ca189db31c9ae217572418",
+          "size": 0,
+          "type": "dir"
+        },
+        {
+          "name": "agent-plugin-playbook.md",
+          "path": "docs/internal/agent-plugin-playbook.md",
+          "sha": "fdff5dea0994cba3e60f54761e43abf5df91a7f7",
+          "size": 4677,
+          "type": "file"
+        },
+        {
+          "name": "agent-work-queue.md",
+          "path": "docs/internal/agent-work-queue.md",
+          "sha": "300e33fee255a8af168b5fe6ac2ceabee8719c20",
+          "size": 7984,
+          "type": "file"
+        },
+        {
+          "name": "development-process.md",
+          "path": "docs/internal/development-process.md",
+          "sha": "3b9c6b8719883e3145600ac93a6006cc470c0e9d",
+          "size": 15001,
+          "type": "file"
+        },
+        {
+          "name": "development",
+          "path": "docs/internal/development",
+          "sha": "b2a0771e5c02c744506fb2c8ab53310e7bdc74d3",
+          "size": 0,
+          "type": "dir"
+        },
+        {
+          "name": "domain-model.md",
+          "path": "docs/internal/domain-model.md",
+          "sha": "91c40a374f63b5a0a047e96dc1b1ad0afe1d3dbb",
+          "size": 21196,
+          "type": "file"
+        },
+        {
+          "name": "handoff-2026-07-14.md",
+          "path": "docs/internal/handoff-2026-07-14.md",
+          "sha": "380d6cd6d1977f9e5cec63518f6820a133cf5139",
+          "size": 7036,
+          "type": "file"
+        },
+        {
+          "name": "implementation",
+          "path": "docs/internal/implementation",
+          "sha": "476cc7a360f4f1755bc1035514fe76b13ab76e98",
+          "size": 0,
+          "type": "dir"
+        },
+        {
+          "name": "project-status.md",
+          "path": "docs/internal/project-status.md",
+          "sha": "2fd51e30487404b40fe46600c12e091517256e6f",
+          "size": 119444,
+          "type": "file"
+        },
+        {
+          "name": "qa",
+          "path": "docs/internal/qa",
+          "sha": "179a4cb967806a6649db197f554c04db858636d5",
+          "size": 0,
+          "type": "dir"
+        },
+        {
+          "name": "research",
+          "path": "docs/internal/research",
+          "sha": "4d9c101ed723d47cfea2d56683cd99ceb7ba93b3",
+          "size": 0,
+          "type": "dir"
+        },
+        {
+          "name": "reviews",
+          "path": "docs/internal/reviews",
+          "sha": "5408c5a9806609ca5d5c027613b34b08771033b8",
+          "size": 0,
+          "type": "dir"
+        },
+        {
+          "name": "skills",
+          "path": "docs/internal/skills",
+          "sha": "3d05b174d63ca815f6f6b439f6496ab9d1ca63ea",
+          "size": 0,
+          "type": "dir"
+        },
+        {
+          "name": "superpowers",
+          "path": "docs/internal/superpowers",
+          "sha": "558c2c577c4608997d156afe27c88c2632e60ae9",
+          "size": 0,
+          "type": "dir"
+        },
+        {
+          "name": "tickets",
+          "path": "docs/internal/tickets",
+          "sha": "7ab7de1e1603bfc34c48f2acd7feac01796c7600",
+          "size": 0,
+          "type": "dir"
+        },
+        {
+          "name": "ui",
+          "path": "docs/internal/ui",
+          "sha": "78916f49e0ad90e5747a49b4b21cc6afe2190094",
+          "size": 0,
+          "type": "dir"
+        },
+        {
+          "name": "前端参考",
+          "path": "docs/internal/前端参考",
+          "sha": "b127916e427354fb2e20b0bb4aa83f12bbf3a7d4",
+          "size": 0,
+          "type": "dir"
+        }
+      ]
+    },
+    {
+      "path": "docs/internal/adr",
+      "entries": [
+        {
+          "name": "0000-record-architecture-decisions.md",
+          "path": "docs/internal/adr/0000-record-architecture-decisions.md",
+          "sha": "ed30c6776e96c2e4d06c92ad714ae02dd5736946",
+          "size": 737,
+          "type": "file"
+        },
+        {
+          "name": "0001-file-centric-assets.md",
+          "path": "docs/internal/adr/0001-file-centric-assets.md",
+          "sha": "dcef055ea8c2513a05e39ad0fb8b03919f485a9c",
+          "size": 1739,
+          "type": "file"
+        },
+        {
+          "name": "0002-mvp-product-boundary.md",
+          "path": "docs/internal/adr/0002-mvp-product-boundary.md",
+          "sha": "f5d28ecbdb5a51fbad064efa408bbedada266575",
+          "size": 2125,
+          "type": "file"
+        },
+        {
+          "name": "0003-plugin-permission-model.md",
+          "path": "docs/internal/adr/0003-plugin-permission-model.md",
+          "sha": "82f82081cb8433dcc6c4fada8c8e3980e8cc55d7",
+          "size": 1072,
+          "type": "file"
+        },
+        {
+          "name": "0004-revision-ready-storage-foundation.md",
+          "path": "docs/internal/adr/0004-revision-ready-storage-foundation.md",
+          "sha": "e7b24b2f1ba3382a52599d22bc6285894daf1193",
+          "size": 2809,
+          "type": "file"
+        },
+        {
+          "name": "0005-pluggable-local-and-cloud-ai.md",
+          "path": "docs/internal/adr/0005-pluggable-local-and-cloud-ai.md",
+          "sha": "9dc476971d0e9ad1f3eee19c0ab42755d5ec68b9",
+          "size": 3475,
+          "type": "file"
+        },
+        {
+          "name": "0006-multiple-libraries-and-database-metadata.md",
+          "path": "docs/internal/adr/0006-multiple-libraries-and-database-metadata.md",
+          "sha": "3bab70abed4874445dd6dd3423217793b64fb0c1",
+          "size": 2499,
+          "type": "file"
+        },
+        {
+          "name": "0007-original-file-change-and-deletion.md",
+          "path": "docs/internal/adr/0007-original-file-change-and-deletion.md",
+          "sha": "2e9272771f8032603dc128d820970cd959a0480c",
+          "size": 3193,
+          "type": "file"
+        },
+        {
+          "name": "0008-asset-organization-and-duplicate-handling.md",
+          "path": "docs/internal/adr/0008-asset-organization-and-duplicate-handling.md",
+          "sha": "ffcd5febed5fe5df225f15746af6c56356cab256",
+          "size": 1732,
+          "type": "file"
+        },
+        {
+          "name": "0009-unified-weighted-search.md",
+          "path": "docs/internal/adr/0009-unified-weighted-search.md",
+          "sha": "31007b69b92a1651cee83f69c8953e7e69f916ae",
+          "size": 1977,
+          "type": "file"
+        },
+        {
+          "name": "0010-progressive-loading-and-preview-interactions.md",
+          "path": "docs/internal/adr/0010-progressive-loading-and-preview-interactions.md",
+          "sha": "62c5764980039568e534439cced8bfb605b358b6",
+          "size": 3049,
+          "type": "file"
+        },
+        {
+          "name": "0011-defer-vector-search.md",
+          "path": "docs/internal/adr/0011-defer-vector-search.md",
+          "sha": "f0039cd12120e22921decaca1cb4ded11971efc5",
+          "size": 1716,
+          "type": "file"
+        },
+        {
+          "name": "0012-mit-license-and-dependency-policy.md",
+          "path": "docs/internal/adr/0012-mit-license-and-dependency-policy.md",
+          "sha": "ad3d661057ab186192480def867430677d09fc69",
+          "size": 796,
+          "type": "file"
+        },
+        {
+          "name": "0013-resource-folders-map-to-disk.md",
+          "path": "docs/internal/adr/0013-resource-folders-map-to-disk.md",
+          "sha": "b98d78a76ff5f3daa3d05db1c8aa5adaa5d4098e",
+          "size": 2045,
+          "type": "file"
+        },
+        {
+          "name": "0014-short-lived-write-and-operation-locks.md",
+          "path": "docs/internal/adr/0014-short-lived-write-and-operation-locks.md",
+          "sha": "49854554b3eba419bde258d4916f35d3bdb6c698",
+          "size": 2171,
+          "type": "file"
+        },
+        {
+          "name": "0015-electron-typescript-desktop-stack.md",
+          "path": "docs/internal/adr/0015-electron-typescript-desktop-stack.md",
+          "sha": "4225897d53bade512e68236109ca0a74d302c01a",
+          "size": 960,
+          "type": "file"
+        },
+        {
+          "name": "0016-cloud-ai-byok-for-mvp.md",
+          "path": "docs/internal/adr/0016-cloud-ai-byok-for-mvp.md",
+          "sha": "142fe127d7baf55efe73fcf6fc943ef1ca62bfec",
+          "size": 3183,
+          "type": "file"
+        },
+        {
+          "name": "0017-no-telemetry-in-mvp.md",
+          "path": "docs/internal/adr/0017-no-telemetry-in-mvp.md",
+          "sha": "09fef4246ddf6351267f476bd432c23ce2e49702",
+          "size": 590,
+          "type": "file"
+        },
+        {
+          "name": "0018-electron-background-process-architecture.md",
+          "path": "docs/internal/adr/0018-electron-background-process-architecture.md",
+          "sha": "2ee9a6919c3221cac56ff20257de777bec395556",
+          "size": 2128,
+          "type": "file"
+        },
+        {
+          "name": "0019-sqlite-fts-and-single-app-process.md",
+          "path": "docs/internal/adr/0019-sqlite-fts-and-single-app-process.md",
+          "sha": "eb22c76d2811fdced6c0a03718418cf84a9a6ccc",
+          "size": 2779,
+          "type": "file"
+        },
+        {
+          "name": "0020-media-preview-technology-stack.md",
+          "path": "docs/internal/adr/0020-media-preview-technology-stack.md",
+          "sha": "53af8341325004b5ccc41ed27078120acfb5f629",
+          "size": 2156,
+          "type": "file"
+        },
+        {
+          "name": "0021-independent-first-party-clients.md",
+          "path": "docs/internal/adr/0021-independent-first-party-clients.md",
+          "sha": "923b50cb0a3289fc852f7f9880a00fbb20397a7e",
+          "size": 3548,
+          "type": "file"
+        },
+        {
+          "name": "0022-retire-asset-label.md",
+          "path": "docs/internal/adr/0022-retire-asset-label.md",
+          "sha": "36f33f71bdfce63a58f7c1de051d224c65dbba48",
+          "size": 1259,
+          "type": "file"
+        },
+        {
+          "name": "0023-contextual-substring-search.md",
+          "path": "docs/internal/adr/0023-contextual-substring-search.md",
+          "sha": "b5a2a15d897d4ce9fa77cdae105abfc197e026e3",
+          "size": 1220,
+          "type": "file"
+        },
+        {
+          "name": "0024-image-sequences-as-asset-groups.md",
+          "path": "docs/internal/adr/0024-image-sequences-as-asset-groups.md",
+          "sha": "cf5ceddce91159df9f1c9793a0c8b295b5bce8b7",
+          "size": 1331,
+          "type": "file"
+        },
+        {
+          "name": "0025-automation-core-script-runtime-and-mcp.md",
+          "path": "docs/internal/adr/0025-automation-core-script-runtime-and-mcp.md",
+          "sha": "8b771b61ace9ab22441df84f1c8b1bc52b2b75ed",
+          "size": 8312,
+          "type": "file"
+        },
+        {
+          "name": "0026-plugin-runtime-installation-and-trust.md",
+          "path": "docs/internal/adr/0026-plugin-runtime-installation-and-trust.md",
+          "sha": "be5850b90080ea65341e7d619320a125768e47eb",
+          "size": 3483,
+          "type": "file"
+        },
+        {
+          "name": "0027-plugin-instance-lifecycle-and-interaction-context.md",
+          "path": "docs/internal/adr/0027-plugin-instance-lifecycle-and-interaction-context.md",
+          "sha": "8ea2c2949ab2f270002025a7e323c777a3e6c3a0",
+          "size": 4793,
+          "type": "file"
+        },
+        {
+          "name": "0028-schema-compatibility-read-only-degrade.md",
+          "path": "docs/internal/adr/0028-schema-compatibility-read-only-degrade.md",
+          "sha": "91e29a09d73fc69554fddb811bf7b5679ec19e88",
+          "size": 4996,
+          "type": "file"
+        },
+        {
+          "name": "0029-embedded-loopback-http-mcp-server.md",
+          "path": "docs/internal/adr/0029-embedded-loopback-http-mcp-server.md",
+          "sha": "64131b8ae269308baf81ad76cfc89bf8ef70e708",
+          "size": 1794,
+          "type": "file"
+        },
+        {
+          "name": "0030-mcp-permission-policy-and-critical-confirmation.md",
+          "path": "docs/internal/adr/0030-mcp-permission-policy-and-critical-confirmation.md",
+          "sha": "4913753fcdd14a710198f1520a5c8a1c394f1465",
+          "size": 3981,
+          "type": "file"
+        },
+        {
+          "name": "0031-stateless-unattended-mcp.md",
+          "path": "docs/internal/adr/0031-stateless-unattended-mcp.md",
+          "sha": "acbfa2b4a95343711f7ba9516635a8c919439771",
+          "size": 4985,
+          "type": "file"
+        },
+        {
+          "name": "0032-worker-owned-unified-operation-history.md",
+          "path": "docs/internal/adr/0032-worker-owned-unified-operation-history.md",
+          "sha": "95dda858153bd70d62971d3c1c05265bc96c22fa",
+          "size": 9492,
+          "type": "file"
+        },
+        {
+          "name": "0033-isolated-catalog-reads.md",
+          "path": "docs/internal/adr/0033-isolated-catalog-reads.md",
+          "sha": "590764f8fb3bb4beb2c0906586cd223521977942",
+          "size": 1889,
+          "type": "file"
+        },
+        {
+          "name": "0034-worker-owned-semantic-index.md",
+          "path": "docs/internal/adr/0034-worker-owned-semantic-index.md",
+          "sha": "605fb134e44019f6b2e6275cdcd7a63c55bc9c5d",
+          "size": 2627,
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "path": "docs/internal/implementation",
+      "entries": [
+        {
+          "name": "0001-library-shell-vertical-slice.md",
+          "path": "docs/internal/implementation/0001-library-shell-vertical-slice.md",
+          "sha": "f9eeb472c6fb67d556c7d987fe7758bd09a5a66e",
+          "size": 10877,
+          "type": "file"
+        },
+        {
+          "name": "0002-asset-ingestion-vertical-slice.md",
+          "path": "docs/internal/implementation/0002-asset-ingestion-vertical-slice.md",
+          "sha": "52b7b98acdd96c8b1e6edf7fa67e9c941d7ce8f3",
+          "size": 7030,
+          "type": "file"
+        },
+        {
+          "name": "0003-linked-folders-vertical-slice.md",
+          "path": "docs/internal/implementation/0003-linked-folders-vertical-slice.md",
+          "sha": "280602c6d0486beac5dd8502f5300dc65b720122",
+          "size": 9022,
+          "type": "file"
+        },
+        {
+          "name": "0004-tags-collections-metadata-vertical-slice.md",
+          "path": "docs/internal/implementation/0004-tags-collections-metadata-vertical-slice.md",
+          "sha": "98c4e03becf246e08cb4f9561879315044348603",
+          "size": 12634,
+          "type": "file"
+        },
+        {
+          "name": "0005-search-filter-sort-smart-collections-vertical-slice.md",
+          "path": "docs/internal/implementation/0005-search-filter-sort-smart-collections-vertical-slice.md",
+          "sha": "a36d8827b919b9b2488f635483c57147c72657ff",
+          "size": 14605,
+          "type": "file"
+        },
+        {
+          "name": "0006-thumbnails-preview-format-decoding-vertical-slice.md",
+          "path": "docs/internal/implementation/0006-thumbnails-preview-format-decoding-vertical-slice.md",
+          "sha": "2bd79a4c65a4284fb865196d8f1bfc337bc6e84c",
+          "size": 13032,
+          "type": "file"
+        },
+        {
+          "name": "0007-trash-relink-batch-relocate-vertical-slice.md",
+          "path": "docs/internal/implementation/0007-trash-relink-batch-relocate-vertical-slice.md",
+          "sha": "8454984be873fecb587e40391d86c1f618341f68",
+          "size": 17543,
+          "type": "file"
+        },
+        {
+          "name": "0008-browser-extension-collection-vertical-slice.md",
+          "path": "docs/internal/implementation/0008-browser-extension-collection-vertical-slice.md",
+          "sha": "cb14a3988c0be67c1c1ee7adffdea273a0d8aee0",
+          "size": 15783,
+          "type": "file"
+        },
+        {
+          "name": "0009-cloud-ai-auto-classification-vertical-slice.md",
+          "path": "docs/internal/implementation/0009-cloud-ai-auto-classification-vertical-slice.md",
+          "sha": "f11d5f30de34e47e493f1f2307eae46202e6b80b",
+          "size": 19114,
+          "type": "file"
+        },
+        {
+          "name": "0010-library-import-export-vertical-slice.md",
+          "path": "docs/internal/implementation/0010-library-import-export-vertical-slice.md",
+          "sha": "14ee590cc01c350781eb52c63b63c82d81852757",
+          "size": 13399,
+          "type": "file"
+        },
+        {
+          "name": "0011-agent-native-cli-vertical-slice.md",
+          "path": "docs/internal/implementation/0011-agent-native-cli-vertical-slice.md",
+          "sha": "a495c6190daf98004cf66b74c40cd17369a64255",
+          "size": 14427,
+          "type": "file"
+        },
+        {
+          "name": "0012-asset-canvas-views-and-card-display-vertical-slice.md",
+          "path": "docs/internal/implementation/0012-asset-canvas-views-and-card-display-vertical-slice.md",
+          "sha": "c486726ec2b35a29d4d04842fecff2de33f40af5",
+          "size": 2756,
+          "type": "file"
+        },
+        {
+          "name": "0012-design-decisions-2026-07-14.md",
+          "path": "docs/internal/implementation/0012-design-decisions-2026-07-14.md",
+          "sha": "1e5507f0c93b26b893468e4c84256c9e5166e14c",
+          "size": 6080,
+          "type": "file"
+        },
+        {
+          "name": "0013-asset-viewer-navigation-and-gestures-vertical-slice.md",
+          "path": "docs/internal/implementation/0013-asset-viewer-navigation-and-gestures-vertical-slice.md",
+          "sha": "f8d7ab849771a70670234d2c43f9e0d3935efec5",
+          "size": 7298,
+          "type": "file"
+        },
+        {
+          "name": "0014-asset-selection-and-context-actions-vertical-slice.md",
+          "path": "docs/internal/implementation/0014-asset-selection-and-context-actions-vertical-slice.md",
+          "sha": "c2a22ca011f4467eb26c2ae400fa330eebba561e",
+          "size": 4659,
+          "type": "file"
+        },
+        {
+          "name": "0016-0018-wave2-sidebar-dnd-filters-spec.md",
+          "path": "docs/internal/implementation/0016-0018-wave2-sidebar-dnd-filters-spec.md",
+          "sha": "9ee18610180f340babc36d2589de2f9fbaf8237c",
+          "size": 7758,
+          "type": "file"
+        },
+        {
+          "name": "0016-a-shell-navigation-slice.md",
+          "path": "docs/internal/implementation/0016-a-shell-navigation-slice.md",
+          "sha": "a5aa0b7d46596560e967de56ed60806bde7e0fe7",
+          "size": 1855,
+          "type": "file"
+        },
+        {
+          "name": "0021-windows-native-typography-vertical-slice.md",
+          "path": "docs/internal/implementation/0021-windows-native-typography-vertical-slice.md",
+          "sha": "b6b9c78c8a3ba1f79f2b04203401d5000a009a7f",
+          "size": 5188,
+          "type": "file"
+        },
+        {
+          "name": "0022-image-sequences-and-viewer-transforms.md",
+          "path": "docs/internal/implementation/0022-image-sequences-and-viewer-transforms.md",
+          "sha": "d77e4e2ae7a6ae25c59d1469e23d77ae4f68a94d",
+          "size": 4754,
+          "type": "file"
+        },
+        {
+          "name": "0023-automation-scripting-mcp-framework.md",
+          "path": "docs/internal/implementation/0023-automation-scripting-mcp-framework.md",
+          "sha": "ac5315df9c0c3dd37e723864b1a72537e03cb377",
+          "size": 25785,
+          "type": "file"
+        },
+        {
+          "name": "0024-script-plugin-platform.md",
+          "path": "docs/internal/implementation/0024-script-plugin-platform.md",
+          "sha": "354910a8d8b4fa338e62fb0dbbbbe59f7727dd0c",
+          "size": 31129,
+          "type": "file"
+        },
+        {
+          "name": "0028-ui-standardization-and-plugin-ui.md",
+          "path": "docs/internal/implementation/0028-ui-standardization-and-plugin-ui.md",
+          "sha": "d1d8711cd652e9e871800e127c1f3a2bc790ac36",
+          "size": 29992,
+          "type": "file"
+        },
+        {
+          "name": "0029-ui-standardization-execution-and-plugin-ui-contract.md",
+          "path": "docs/internal/implementation/0029-ui-standardization-execution-and-plugin-ui-contract.md",
+          "sha": "43c868afeab714dcb226d340e1acb7ab0b031682",
+          "size": 28787,
+          "type": "file"
+        },
+        {
+          "name": "0030-3d-model-preview-slice.md",
+          "path": "docs/internal/implementation/0030-3d-model-preview-slice.md",
+          "sha": "38b8e11b5bf555f59828e166823e7eb7212b05e6",
+          "size": 16780,
+          "type": "file"
+        },
+        {
+          "name": "0031-schema-compatibility-guarantee.md",
+          "path": "docs/internal/implementation/0031-schema-compatibility-guarantee.md",
+          "sha": "b23dda658ca588313d9aa2230826fd95f9c4eedd",
+          "size": 7083,
+          "type": "file"
+        },
+        {
+          "name": "0032-library-performance-architecture.md",
+          "path": "docs/internal/implementation/0032-library-performance-architecture.md",
+          "sha": "2135688e6b135e463f8c8b951162d8be1fb7fcac",
+          "size": 41151,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-11-large-batch-import-reliability.md",
+          "path": "docs/internal/implementation/2026-09-11-large-batch-import-reliability.md",
+          "sha": "7b1ce7b03493b7a8fcefa1572955609969cbfb8f",
+          "size": 13343,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-11-webdav-sync-followups.md",
+          "path": "docs/internal/implementation/2026-09-11-webdav-sync-followups.md",
+          "sha": "aa28f52739e6de8cacb754dd2ce96dca018008c6",
+          "size": 13683,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-workspace-tab-navigation-algorithm.md",
+          "path": "docs/internal/implementation/2026-09-12-workspace-tab-navigation-algorithm.md",
+          "sha": "348413aebfc227ced81755ba9d1d04064364e411",
+          "size": 16465,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-workspace-tabs.md",
+          "path": "docs/internal/implementation/2026-09-12-workspace-tabs.md",
+          "sha": "5aa891ab5bd7eba2ffc055d954154a1f36e506a2",
+          "size": 5303,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-13-interactive-performance-design.md",
+          "path": "docs/internal/implementation/2026-09-13-interactive-performance-design.md",
+          "sha": "c2a6e1ab5161ad1f53de30808e7caf590f4322a1",
+          "size": 28382,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-14-folder-switch-and-resource-loading-optimization.md",
+          "path": "docs/internal/implementation/2026-09-14-folder-switch-and-resource-loading-optimization.md",
+          "sha": "f10a1754319c958559aa13740e4428d9170d0e91",
+          "size": 28274,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-15-collection-root-and-sort.md",
+          "path": "docs/internal/implementation/2026-09-15-collection-root-and-sort.md",
+          "sha": "447d57fe07e161e2c2157dcbf89d96b8c8cdf5c2",
+          "size": 2290,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-16-folder-collection-appearance.md",
+          "path": "docs/internal/implementation/2026-09-16-folder-collection-appearance.md",
+          "sha": "f8353ff221675c0025e69bbb06dbb05444ce361c",
+          "size": 9329,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-16-large-linked-library-hotspot-plan.md",
+          "path": "docs/internal/implementation/2026-09-16-large-linked-library-hotspot-plan.md",
+          "sha": "1063255034470dd36704a2ef037ac17aaf5a87a1",
+          "size": 15400,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-18-background-media-throughput-and-viewport-priority.md",
+          "path": "docs/internal/implementation/2026-09-18-background-media-throughput-and-viewport-priority.md",
+          "sha": "6d6607c27f22712f792a9c2fd4d966f78bb543a9",
+          "size": 21778,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-20-current-instance-model-ai-scheduler-profile.md",
+          "path": "docs/internal/implementation/2026-09-20-current-instance-model-ai-scheduler-profile.md",
+          "sha": "049d3bba66db2ce27cf1f74b42fe33525edb5dc0",
+          "size": 18499,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-11-embedding-api-and-mixed-search-plan.md",
+          "path": "docs/internal/implementation/2026-10-11-embedding-api-and-mixed-search-plan.md",
+          "sha": "efaea39ee0ab856d79f09dde30ce41f677e03979",
+          "size": 16057,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-13-semantic-index-sqlite-plan.md",
+          "path": "docs/internal/implementation/2026-10-13-semantic-index-sqlite-plan.md",
+          "sha": "b9e30e0f6d792b2b0b5e3968a512c96c92b961a4",
+          "size": 17696,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-13-semantic-preview-path-fix.md",
+          "path": "docs/internal/implementation/2026-10-13-semantic-preview-path-fix.md",
+          "sha": "0e87dc54eddb9f7a1858bb261c992b74a5ea27f0",
+          "size": 6013,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-15-semantic-runtime-process-ownership.md",
+          "path": "docs/internal/implementation/2026-10-15-semantic-runtime-process-ownership.md",
+          "sha": "ad9d71f73e83cc5c2146d05d5558beda8b4ce938",
+          "size": 5465,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-19-import-acceleration-plan.md",
+          "path": "docs/internal/implementation/2026-10-19-import-acceleration-plan.md",
+          "sha": "c9357e45e164a77dbda7cc6784d918930aeaa1d7",
+          "size": 8127,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-20-thumbnail-proxy-acceleration-plan.md",
+          "path": "docs/internal/implementation/2026-10-20-thumbnail-proxy-acceleration-plan.md",
+          "sha": "489d015b79631d61625a97cd6753932c0afc30d5",
+          "size": 49169,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-21-ai-analysis-api-profiles-plan.md",
+          "path": "docs/internal/implementation/2026-10-21-ai-analysis-api-profiles-plan.md",
+          "sha": "26139a2ed6b58eaa1495a9a1c1ec3eeff431f14c",
+          "size": 16267,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-24-preview-queue-liveness-design.md",
+          "path": "docs/internal/implementation/2026-10-24-preview-queue-liveness-design.md",
+          "sha": "1041d0444d7e5d0abdc82762ad57b9593cbcec9e",
+          "size": 26150,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-31-large-library-navigation-and-oiio-design.md",
+          "path": "docs/internal/implementation/2026-10-31-large-library-navigation-and-oiio-design.md",
+          "sha": "123b6e162809c8930ca678d0ce7d139c84302490",
+          "size": 14164,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-31-masonry-shift-reading-order.md",
+          "path": "docs/internal/implementation/2026-10-31-masonry-shift-reading-order.md",
+          "sha": "25662fa13dad42fd5180e2919fd2907404a3da34",
+          "size": 4187,
+          "type": "file"
+        },
+        {
+          "name": "custom-keyboard-shortcuts-plan.md",
+          "path": "docs/internal/implementation/custom-keyboard-shortcuts-plan.md",
+          "sha": "049b29cea1ee1df7de51b297708337e75fdb3f68",
+          "size": 56729,
+          "type": "file"
+        },
+        {
+          "name": "embedding-providers-and-find-similar.md",
+          "path": "docs/internal/implementation/embedding-providers-and-find-similar.md",
+          "sha": "d34367c7ebc03d9f503865fba5c4fc55166b07d6",
+          "size": 19907,
+          "type": "file"
+        },
+        {
+          "name": "mvp-completion-map.md",
+          "path": "docs/internal/implementation/mvp-completion-map.md",
+          "sha": "cf546a1730cae434856e4cd2438848467b39bce4",
+          "size": 5171,
+          "type": "file"
+        },
+        {
+          "name": "mvp-roadmap.md",
+          "path": "docs/internal/implementation/mvp-roadmap.md",
+          "sha": "078f23e93002b896009fe9f2864fefc392b235be",
+          "size": 18731,
+          "type": "file"
+        },
+        {
+          "name": "mvp-ui-ux-requirements-backlog.md",
+          "path": "docs/internal/implementation/mvp-ui-ux-requirements-backlog.md",
+          "sha": "55dca4fbdcee9448d82f887286d5fb3a94a2123d",
+          "size": 96967,
+          "type": "file"
+        },
+        {
+          "name": "release-formalization-checklist.md",
+          "path": "docs/internal/implementation/release-formalization-checklist.md",
+          "sha": "fa6e8b7e194e49f418b9e05e3e10fda6edf07295",
+          "size": 8431,
+          "type": "file"
+        },
+        {
+          "name": "scope-decisions-for-review.md",
+          "path": "docs/internal/implementation/scope-decisions-for-review.md",
+          "sha": "866672bded7eaaa22c2fdb6db363d3f196e7dac5",
+          "size": 6283,
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "path": "docs/internal/development",
+      "entries": [
+        {
+          "name": "0001-library-shell-development-log.md",
+          "path": "docs/internal/development/0001-library-shell-development-log.md",
+          "sha": "4d2d8311c03a5fe9404d6bdd3104cc97046fb78f",
+          "size": 7500,
+          "type": "file"
+        },
+        {
+          "name": "0002-asset-ingestion-development-log.md",
+          "path": "docs/internal/development/0002-asset-ingestion-development-log.md",
+          "sha": "a3bb65c58484ac61b9c94589deb992e03bdbdca5",
+          "size": 6679,
+          "type": "file"
+        },
+        {
+          "name": "0003-linked-folders-development-log.md",
+          "path": "docs/internal/development/0003-linked-folders-development-log.md",
+          "sha": "9f727c1462a74570f8559bcf35f7762f5b170f46",
+          "size": 6477,
+          "type": "file"
+        },
+        {
+          "name": "0004-tags-collections-metadata-development-log.md",
+          "path": "docs/internal/development/0004-tags-collections-metadata-development-log.md",
+          "sha": "a199a503b1ca0a684cf0a043d2272408f73054e6",
+          "size": 4775,
+          "type": "file"
+        },
+        {
+          "name": "0005-search-filter-sort-smart-collections-development-log.md",
+          "path": "docs/internal/development/0005-search-filter-sort-smart-collections-development-log.md",
+          "sha": "2671fb7bdd11b440ffceb4b77fce5aa9659a393f",
+          "size": 5165,
+          "type": "file"
+        },
+        {
+          "name": "0006-thumbnails-preview-format-decoding-development-log.md",
+          "path": "docs/internal/development/0006-thumbnails-preview-format-decoding-development-log.md",
+          "sha": "38bad44c607d648656c91d6096a47669c45c5e0e",
+          "size": 11669,
+          "type": "file"
+        },
+        {
+          "name": "0007-trash-relink-batch-relocate-development-log.md",
+          "path": "docs/internal/development/0007-trash-relink-batch-relocate-development-log.md",
+          "sha": "88f629946c8c0046c413c7e5983fd9d2a36b15d3",
+          "size": 7924,
+          "type": "file"
+        },
+        {
+          "name": "0008-browser-extension-collection-development-log.md",
+          "path": "docs/internal/development/0008-browser-extension-collection-development-log.md",
+          "sha": "183ae4443357d6d054d8834f6da0884146e739c2",
+          "size": 4912,
+          "type": "file"
+        },
+        {
+          "name": "0009-cloud-ai-auto-classification-development-log.md",
+          "path": "docs/internal/development/0009-cloud-ai-auto-classification-development-log.md",
+          "sha": "a688ccb9c5811a3b8e2573e9e0cd49264e509974",
+          "size": 4935,
+          "type": "file"
+        },
+        {
+          "name": "0010-library-import-export-development-log.md",
+          "path": "docs/internal/development/0010-library-import-export-development-log.md",
+          "sha": "546b05bdaa74f570775e27b6059f5d4b282bbdf2",
+          "size": 6614,
+          "type": "file"
+        },
+        {
+          "name": "0012-asset-canvas-views-and-card-display-development-log.md",
+          "path": "docs/internal/development/0012-asset-canvas-views-and-card-display-development-log.md",
+          "sha": "e9118930e9e476d08153418c8fbbe8c13b7bbfac",
+          "size": 8140,
+          "type": "file"
+        },
+        {
+          "name": "0013-asset-viewer-navigation-and-gestures-development-log.md",
+          "path": "docs/internal/development/0013-asset-viewer-navigation-and-gestures-development-log.md",
+          "sha": "637a22ce0b2254b270cb4e360911bc5790d8ff79",
+          "size": 3048,
+          "type": "file"
+        },
+        {
+          "name": "0014-asset-selection-and-context-actions-development-log.md",
+          "path": "docs/internal/development/0014-asset-selection-and-context-actions-development-log.md",
+          "sha": "1ea94cb3d681d8d8218cde2fd5039ba1feea6fb5",
+          "size": 4038,
+          "type": "file"
+        },
+        {
+          "name": "0015-0016-progress-sync.md",
+          "path": "docs/internal/development/0015-0016-progress-sync.md",
+          "sha": "d974ebbbc1f36512f5e7785ee6a38618ed30db0d",
+          "size": 3025,
+          "type": "file"
+        },
+        {
+          "name": "0015-0019-ux-feedback-batch3-development-log.md",
+          "path": "docs/internal/development/0015-0019-ux-feedback-batch3-development-log.md",
+          "sha": "b2d55a04a8a7a3c151d35207332b2334c8596b54",
+          "size": 6728,
+          "type": "file"
+        },
+        {
+          "name": "0015-0019-ux-feedback-wave1-development-log.md",
+          "path": "docs/internal/development/0015-0019-ux-feedback-wave1-development-log.md",
+          "sha": "a15d67ed922802796c7846f1767d89c12c70dc5e",
+          "size": 11141,
+          "type": "file"
+        },
+        {
+          "name": "0015-0019-ux-feedback-wave2-development-log.md",
+          "path": "docs/internal/development/0015-0019-ux-feedback-wave2-development-log.md",
+          "sha": "07378ea854d66817887e0616d6fbfdd92ef5f791",
+          "size": 6031,
+          "type": "file"
+        },
+        {
+          "name": "0015-command-registry-foundation-development-log.md",
+          "path": "docs/internal/development/0015-command-registry-foundation-development-log.md",
+          "sha": "a71bdddcf2ba97a922d039f9b729f7ab7d586464",
+          "size": 5779,
+          "type": "file"
+        },
+        {
+          "name": "0015-command-registry-menu-adoption-development-log.md",
+          "path": "docs/internal/development/0015-command-registry-menu-adoption-development-log.md",
+          "sha": "697beb43f2e7635053d74f98b6089c4d70b446fd",
+          "size": 4541,
+          "type": "file"
+        },
+        {
+          "name": "0017-0018-searchable-tag-picker-and-file-commands-development-log.md",
+          "path": "docs/internal/development/0017-0018-searchable-tag-picker-and-file-commands-development-log.md",
+          "sha": "29a7ad48df5d29c73e9c8ba60093837728705b9c",
+          "size": 5793,
+          "type": "file"
+        },
+        {
+          "name": "0017-folder-context-menu-and-rename-development-log.md",
+          "path": "docs/internal/development/0017-folder-context-menu-and-rename-development-log.md",
+          "sha": "5e68708c811ec1e036bbce55acd2827176c2f3d0",
+          "size": 5934,
+          "type": "file"
+        },
+        {
+          "name": "0017-rename-file-and-tag-nav-removal-development-log.md",
+          "path": "docs/internal/development/0017-rename-file-and-tag-nav-removal-development-log.md",
+          "sha": "074b0480c06bf2b6921b3f3dfcc49ab747393b7b",
+          "size": 7340,
+          "type": "file"
+        },
+        {
+          "name": "0018-label-retirement-development-log.md",
+          "path": "docs/internal/development/0018-label-retirement-development-log.md",
+          "sha": "29dca3278e68debb0dcb98c4fc9a42e3a5a961c9",
+          "size": 6837,
+          "type": "file"
+        },
+        {
+          "name": "0018-tag-management-chip-grid-development-log.md",
+          "path": "docs/internal/development/0018-tag-management-chip-grid-development-log.md",
+          "sha": "e284243bcbf3a33738cdd510e1b9e7aa78cab6d6",
+          "size": 8280,
+          "type": "file"
+        },
+        {
+          "name": "0021-windows-native-typography-development-log.md",
+          "path": "docs/internal/development/0021-windows-native-typography-development-log.md",
+          "sha": "45990a16c07406a6501763e874e945d1d66c18e9",
+          "size": 6797,
+          "type": "file"
+        },
+        {
+          "name": "0030-3d-model-preview-development-log.md",
+          "path": "docs/internal/development/0030-3d-model-preview-development-log.md",
+          "sha": "c5bcbe129d97e3d55609a4fba05562c1d0be8e13",
+          "size": 22171,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-13-preview-browsing-regression-postmortem.md",
+          "path": "docs/internal/development/2026-07-13-preview-browsing-regression-postmortem.md",
+          "sha": "e7e3b44a170dfc8d32555083f226837a6f6e68b7",
+          "size": 2444,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-14-acceptance-discipline-retrospective.md",
+          "path": "docs/internal/development/2026-07-14-acceptance-discipline-retrospective.md",
+          "sha": "0f6c38056f6e9b6658a78002024c4df9620a98c1",
+          "size": 5505,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-asset-card-hover-preview-development-log.md",
+          "path": "docs/internal/development/2026-07-18-asset-card-hover-preview-development-log.md",
+          "sha": "a0a06b76f4454eb274b2c74f3e633b383f8e6b71",
+          "size": 1083,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-asset-card-type-badges-development-log.md",
+          "path": "docs/internal/development/2026-07-18-asset-card-type-badges-development-log.md",
+          "sha": "5400ef8cfdd2b974702eb9f1f9a279c46b06e73e",
+          "size": 571,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-author-metadata-development-log.md",
+          "path": "docs/internal/development/2026-07-18-author-metadata-development-log.md",
+          "sha": "1448effa0906d83682d68e63a829db02d9c5fc62",
+          "size": 9482,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-availability-affordance-development-log.md",
+          "path": "docs/internal/development/2026-07-18-availability-affordance-development-log.md",
+          "sha": "ebf5301751c323b9961e49a396d91e7abfd1c7a2",
+          "size": 583,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-bug-viewer-001-early-loop-development-log.md",
+          "path": "docs/internal/development/2026-07-18-bug-viewer-001-early-loop-development-log.md",
+          "sha": "89cff057ed3794a63d5aa23d6ed62a1cbf9ad25c",
+          "size": 1263,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-collection-import-cta-semantics-development-log.md",
+          "path": "docs/internal/development/2026-07-18-collection-import-cta-semantics-development-log.md",
+          "sha": "234f4d17fa98eb6d2f8d1b61387489a063f0e3aa",
+          "size": 1905,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-collection-menu-membership-development-log.md",
+          "path": "docs/internal/development/2026-07-18-collection-menu-membership-development-log.md",
+          "sha": "6ac5506c2d54ab8701042d90f4d4957c9e2a5109",
+          "size": 2737,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-copy-formalization-development-log.md",
+          "path": "docs/internal/development/2026-07-18-copy-formalization-development-log.md",
+          "sha": "87e10f298bc679154559567c8222f805f4966893",
+          "size": 922,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-disabled-toolbar-visual-development-log.md",
+          "path": "docs/internal/development/2026-07-18-disabled-toolbar-visual-development-log.md",
+          "sha": "9a492b727c540a29855e2fb6ab05166554bc2858",
+          "size": 2002,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-drag-copy-mode-development-log.md",
+          "path": "docs/internal/development/2026-07-18-drag-copy-mode-development-log.md",
+          "sha": "d473f5e3255c8a2b470d80cfe3f0acea4c87d787",
+          "size": 2716,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-eagle-dimension-filter-bar-development-log.md",
+          "path": "docs/internal/development/2026-07-18-eagle-dimension-filter-bar-development-log.md",
+          "sha": "f1f505c3b18c9840149480d1d366565ca696c2c7",
+          "size": 1111,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-empty-state-copy-development-log.md",
+          "path": "docs/internal/development/2026-07-18-empty-state-copy-development-log.md",
+          "sha": "8824f17e2f954a675e54a4dfc4ff2f322219b882",
+          "size": 1254,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-folder-include-subfolders-development-log.md",
+          "path": "docs/internal/development/2026-07-18-folder-include-subfolders-development-log.md",
+          "sha": "dab0cc3c541b0f1d1aa439fddc970d7d81ea1bf9",
+          "size": 909,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-gif-controls-metadata-development-log.md",
+          "path": "docs/internal/development/2026-07-18-gif-controls-metadata-development-log.md",
+          "sha": "b0d38dbe193bc0955060cfe31230479185c2dca7",
+          "size": 3218,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-gif-thumbnail-still-page-development-log.md",
+          "path": "docs/internal/development/2026-07-18-gif-thumbnail-still-page-development-log.md",
+          "sha": "93caab145109e530e5ba8d6a88a697f60911200a",
+          "size": 794,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-human-qa-followups-development-log.md",
+          "path": "docs/internal/development/2026-07-18-human-qa-followups-development-log.md",
+          "sha": "5100ab7eb855857b0c7a1b1345818a0f29a391f8",
+          "size": 770,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-i18n-foundation-development-log.md",
+          "path": "docs/internal/development/2026-07-18-i18n-foundation-development-log.md",
+          "sha": "65a78ef02c9a47c54db75a99463f75bbbf5b28b4",
+          "size": 2882,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-icon-action-tooltips-development-log.md",
+          "path": "docs/internal/development/2026-07-18-icon-action-tooltips-development-log.md",
+          "sha": "e43eb2595f6fb03dcd534c6fe6d5eb51844fc8e2",
+          "size": 756,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-inspector-remove-library-path-close-development-log.md",
+          "path": "docs/internal/development/2026-07-18-inspector-remove-library-path-close-development-log.md",
+          "sha": "eb2bc96bf5946d6971953302653385660e2d0e02",
+          "size": 713,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-inspector-shell-polish-development-log.md",
+          "path": "docs/internal/development/2026-07-18-inspector-shell-polish-development-log.md",
+          "sha": "0bbfe008fc1e7dfe4222e5ca9301f393baf8f580",
+          "size": 6909,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-justified-tile-layout-development-log.md",
+          "path": "docs/internal/development/2026-07-18-justified-tile-layout-development-log.md",
+          "sha": "f87e3d6f98f22c8b93d24185eeb9389b83c1687f",
+          "size": 713,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-macos-traffic-lights-development-log.md",
+          "path": "docs/internal/development/2026-07-18-macos-traffic-lights-development-log.md",
+          "sha": "60d08cf070ed8ccd69651a1f880c4a2a0a7edb79",
+          "size": 292,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-menu-skip-report-development-log.md",
+          "path": "docs/internal/development/2026-07-18-menu-skip-report-development-log.md",
+          "sha": "55fb0890beffc527d714df5b42aae95ed476ae0f",
+          "size": 2569,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-nav-tree-collapse-development-log.md",
+          "path": "docs/internal/development/2026-07-18-nav-tree-collapse-development-log.md",
+          "sha": "1d02db0f1d4f5bf225c33162caf43bf324ab84ed",
+          "size": 301,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-panel-auto-hide-development-log.md",
+          "path": "docs/internal/development/2026-07-18-panel-auto-hide-development-log.md",
+          "sha": "ecdcd19e2dab6bf34929595f5e0355223d6ba928",
+          "size": 344,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-recursive-source-badge-development-log.md",
+          "path": "docs/internal/development/2026-07-18-recursive-source-badge-development-log.md",
+          "sha": "2a38fc171d7eedac9d953c45a4c252b6119deeca",
+          "size": 1439,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-remove-manual-palette-development-log.md",
+          "path": "docs/internal/development/2026-07-18-remove-manual-palette-development-log.md",
+          "sha": "f57c284df95c81b176613426cb2efd016e184871",
+          "size": 508,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-search-active-clear-development-log.md",
+          "path": "docs/internal/development/2026-07-18-search-active-clear-development-log.md",
+          "sha": "e2a88e7d1bb3b0826b10b1ca8d8ba02433802e28",
+          "size": 244,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-search-highlight-dedupe-development-log.md",
+          "path": "docs/internal/development/2026-07-18-search-highlight-dedupe-development-log.md",
+          "sha": "dd8fc2a227e34ef266921886b5d384f2733b60dc",
+          "size": 1035,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-shell-vertical-alignment-development-log.md",
+          "path": "docs/internal/development/2026-07-18-shell-vertical-alignment-development-log.md",
+          "sha": "8508129b315af57d8f44394f70b322570e406aad",
+          "size": 2156,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-sidebar-name-ellipsis-development-log.md",
+          "path": "docs/internal/development/2026-07-18-sidebar-name-ellipsis-development-log.md",
+          "sha": "2f3b4ca581dbdbefa3641be9a63ef90b18b97798",
+          "size": 1183,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-sidebar-panel-icons-development-log.md",
+          "path": "docs/internal/development/2026-07-18-sidebar-panel-icons-development-log.md",
+          "sha": "373fb04705f9da87a60d341418a47832ae469b46",
+          "size": 518,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-smart-collection-validate-count-development-log.md",
+          "path": "docs/internal/development/2026-07-18-smart-collection-validate-count-development-log.md",
+          "sha": "67aafd8ed93f42f511907de45ed7b600c3ffcbc7",
+          "size": 2418,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-sort-first-class-toolbar-development-log.md",
+          "path": "docs/internal/development/2026-07-18-sort-first-class-toolbar-development-log.md",
+          "sha": "8c556b922cb1758a9fb9ad5189d7bd8bcb91cda3",
+          "size": 931,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-state-sync-invalidation-development-log.md",
+          "path": "docs/internal/development/2026-07-18-state-sync-invalidation-development-log.md",
+          "sha": "52344323e29ab05e9fcc8019e73d1f709deda391",
+          "size": 1495,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-theme-foundation-development-log.md",
+          "path": "docs/internal/development/2026-07-18-theme-foundation-development-log.md",
+          "sha": "fac62021a6710149ea1acfef55ab109f9606db19",
+          "size": 2118,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-toolbar-command-registry-development-log.md",
+          "path": "docs/internal/development/2026-07-18-toolbar-command-registry-development-log.md",
+          "sha": "92daf260dd42a9ed94cd21014b4d62c8b1dcc31a",
+          "size": 1638,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-toolbar-transfer-overflow-development-log.md",
+          "path": "docs/internal/development/2026-07-18-toolbar-transfer-overflow-development-log.md",
+          "sha": "8e8ee242851c369c8b96d5d3bafc8722e8ac0bdb",
+          "size": 534,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-ue-multi-edit-inspector-development-log.md",
+          "path": "docs/internal/development/2026-07-18-ue-multi-edit-inspector-development-log.md",
+          "sha": "3f829e239b8b1e0027dba69d64df7140238ff6e7",
+          "size": 2665,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-video-extracted-metadata-ui-development-log.md",
+          "path": "docs/internal/development/2026-07-18-video-extracted-metadata-ui-development-log.md",
+          "sha": "89f06aa24b862f64573a5ac6c61f2e37996e374d",
+          "size": 2433,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-video-player-controls-development-log.md",
+          "path": "docs/internal/development/2026-07-18-video-player-controls-development-log.md",
+          "sha": "386d00add36b4d5e5782041229254d53a79b981b",
+          "size": 1796,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-viewer-browse-affiliate-development-log.md",
+          "path": "docs/internal/development/2026-07-18-viewer-browse-affiliate-development-log.md",
+          "sha": "f0011e3be6db2648940ebcd75d478920806292b6",
+          "size": 3278,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-viewer-direct-source-development-log.md",
+          "path": "docs/internal/development/2026-07-18-viewer-direct-source-development-log.md",
+          "sha": "253f940e04356a4cbc0e22ecd39d50913112469d",
+          "size": 2185,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-viewer-discoverable-entry-development-log.md",
+          "path": "docs/internal/development/2026-07-18-viewer-discoverable-entry-development-log.md",
+          "sha": "2ae24e276326bd30c6776509430ec10b302e4297",
+          "size": 557,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-app-hooks-exhaustive-deps-development-log.md",
+          "path": "docs/internal/development/2026-07-19-app-hooks-exhaustive-deps-development-log.md",
+          "sha": "730be0f005a109d8635347862f570474d99a75e8",
+          "size": 1773,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-app-hooks-wave2-escape-import-development-log.md",
+          "path": "docs/internal/development/2026-07-19-app-hooks-wave2-escape-import-development-log.md",
+          "sha": "f9ea10951f8bc50ae48b04db6216aed5491234e6",
+          "size": 1627,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-audio-waveform-playback-development-log.md",
+          "path": "docs/internal/development/2026-07-19-audio-waveform-playback-development-log.md",
+          "sha": "fc42af6595855284ff34d51111023b7f106facc2",
+          "size": 3172,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-e2e-isolated-session-development-log.md",
+          "path": "docs/internal/development/2026-07-19-e2e-isolated-session-development-log.md",
+          "sha": "a589be8e4fece1eccfdba7e600fe9eb953a8e64b",
+          "size": 7737,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-external-url-active-context-ipc-development-log.md",
+          "path": "docs/internal/development/2026-07-19-external-url-active-context-ipc-development-log.md",
+          "sha": "75aca6e13e11212159ccda69f6a9ff7053c69f85",
+          "size": 1435,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-filter-nav-inspect-polish-development-log.md",
+          "path": "docs/internal/development/2026-07-19-filter-nav-inspect-polish-development-log.md",
+          "sha": "865d50c28d4eb419d6094e06a7d2f827f59db61f",
+          "size": 444,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-filter-toggle-or-development-log.md",
+          "path": "docs/internal/development/2026-07-19-filter-toggle-or-development-log.md",
+          "sha": "d11bf46fcad267442578d9f5cd60b4817beb3496",
+          "size": 7981,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-folder-cards-development-log.md",
+          "path": "docs/internal/development/2026-07-19-folder-cards-development-log.md",
+          "sha": "277435091506d05ef7a66be3c1cf25043a83df2b",
+          "size": 1471,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-keyboard-focus-model-development-log.md",
+          "path": "docs/internal/development/2026-07-19-keyboard-focus-model-development-log.md",
+          "sha": "3ecfc9307c6064e533b5dab59f93560b1b21e6c2",
+          "size": 1099,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-media-seek-scrub-development-log.md",
+          "path": "docs/internal/development/2026-07-19-media-seek-scrub-development-log.md",
+          "sha": "c2f4524b7248d570624336c04388a0e0d4adb39e",
+          "size": 2060,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-prefs-smart-inline-rename-development-log.md",
+          "path": "docs/internal/development/2026-07-19-prefs-smart-inline-rename-development-log.md",
+          "sha": "f49c5f052c8b7b56e600110bc2f5696350d8ff23",
+          "size": 1413,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-sidebar-continuous-drag-development-log.md",
+          "path": "docs/internal/development/2026-07-19-sidebar-continuous-drag-development-log.md",
+          "sha": "989cf61f8f7eb3d5d6b6c7873efabce17d172dde",
+          "size": 961,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-sidebar-deadzone-development-log.md",
+          "path": "docs/internal/development/2026-07-19-sidebar-deadzone-development-log.md",
+          "sha": "b73a1b59c0943b3aa8756e841879cc7e5cac75ad",
+          "size": 4393,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-smart-collection-sidebar-inline-create-development-log.md",
+          "path": "docs/internal/development/2026-07-19-smart-collection-sidebar-inline-create-development-log.md",
+          "sha": "6cc59eaaa7d92898847007e39322f5e1218b12c2",
+          "size": 1690,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-sort-copy-folder-filter-development-log.md",
+          "path": "docs/internal/development/2026-07-19-sort-copy-folder-filter-development-log.md",
+          "sha": "f6433a4712aee2ec1941eb00b0010f8c0e046410",
+          "size": 1037,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-tag-filter-layout-development-log.md",
+          "path": "docs/internal/development/2026-07-19-tag-filter-layout-development-log.md",
+          "sha": "2f8acbf32da31ac7c356569221ba8718f8e8e2bd",
+          "size": 10627,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-text-asset-viewer-development-log.md",
+          "path": "docs/internal/development/2026-07-19-text-asset-viewer-development-log.md",
+          "sha": "a53f0900b111e962395ee067574741a8eb39cdc0",
+          "size": 881,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-view-preserve-reflow-development-log.md",
+          "path": "docs/internal/development/2026-07-19-view-preserve-reflow-development-log.md",
+          "sha": "b3361cbcfcf55aaf3aac5a9a9f3469d65329faab",
+          "size": 12917,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-viewer-inspector-polish-development-log.md",
+          "path": "docs/internal/development/2026-07-19-viewer-inspector-polish-development-log.md",
+          "sha": "6f090a94c9f8d8a05458bd2292476353fbbeb772",
+          "size": 12989,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-viewer-video-player-development-log.md",
+          "path": "docs/internal/development/2026-07-19-viewer-video-player-development-log.md",
+          "sha": "9ab8ea1270de3ba2830fb3ad53a6a2d296051d1d",
+          "size": 10102,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-windows-adaptation-development-log.md",
+          "path": "docs/internal/development/2026-07-19-windows-adaptation-development-log.md",
+          "sha": "2e9f30cbf0a9f2ca4502d45493952253cf7416f8",
+          "size": 6645,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-20-ai-feedback-handoff.md",
+          "path": "docs/internal/development/2026-07-20-ai-feedback-handoff.md",
+          "sha": "53c0108d560dc97e1ea70c9aa2e5463c23f6f208",
+          "size": 18407,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-20-edit-text-context-menu-development-log.md",
+          "path": "docs/internal/development/2026-07-20-edit-text-context-menu-development-log.md",
+          "sha": "6f0dc391c1289826e51bf2eb61d7b30a34356fa8",
+          "size": 1396,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-20-f8-ai-analysis-design-decisions.md",
+          "path": "docs/internal/development/2026-07-20-f8-ai-analysis-design-decisions.md",
+          "sha": "97f7f9f20706904659ba183fa9ce5b2b6c3f6ae7",
+          "size": 4536,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-20-viewer-wheel-zoom-and-video-zoom-development-log.md",
+          "path": "docs/internal/development/2026-07-20-viewer-wheel-zoom-and-video-zoom-development-log.md",
+          "sha": "8a3dc08a492b3deec0823f48d7704f8ca399f925",
+          "size": 6154,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-21-ai-plain-text-output-evaluation.md",
+          "path": "docs/internal/development/2026-07-21-ai-plain-text-output-evaluation.md",
+          "sha": "245f38ac0c9900a4ce0d0d68cdb649061f91b94d",
+          "size": 2468,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-21-media-auto-repair-development-log.md",
+          "path": "docs/internal/development/2026-07-21-media-auto-repair-development-log.md",
+          "sha": "fd20e69cfaa55ea793a95cfbd6738489d3ec7b32",
+          "size": 4925,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-21-mixed-selection-and-viewer-contrast-development-log.md",
+          "path": "docs/internal/development/2026-07-21-mixed-selection-and-viewer-contrast-development-log.md",
+          "sha": "021182ee472a04433d5958be5ceda38ab09f8129",
+          "size": 1862,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-21-viewer-canvas-host-layout-regression.md",
+          "path": "docs/internal/development/2026-07-21-viewer-canvas-host-layout-regression.md",
+          "sha": "b46d0f29f09c63f106f9d1705bf631170682e30f",
+          "size": 3695,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-21-windows-frameless-shell-development-log.md",
+          "path": "docs/internal/development/2026-07-21-windows-frameless-shell-development-log.md",
+          "sha": "71b36983a19cf76af1a97806c532795a21a13d0e",
+          "size": 1450,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-22-library-dedup-test-fixtures.md",
+          "path": "docs/internal/development/2026-07-22-library-dedup-test-fixtures.md",
+          "sha": "523aff56f1c9e1a6810eb1aaf0392198df17150b",
+          "size": 1310,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-23-ai-transport-reliability-development-log.md",
+          "path": "docs/internal/development/2026-07-23-ai-transport-reliability-development-log.md",
+          "sha": "f2e37075994e3ad4676360191c464ce1edb0ef30",
+          "size": 11330,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-23-contextual-substring-search-development-log.md",
+          "path": "docs/internal/development/2026-07-23-contextual-substring-search-development-log.md",
+          "sha": "6feb412c95f2a0a94e9441547a5a81cf5d8d00a4",
+          "size": 4958,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-23-library-search-ui-development-log.md",
+          "path": "docs/internal/development/2026-07-23-library-search-ui-development-log.md",
+          "sha": "89a167218c1e06177ee59da28516e9bfdf9df70e",
+          "size": 1949,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-23-settings-center-development-log.md",
+          "path": "docs/internal/development/2026-07-23-settings-center-development-log.md",
+          "sha": "67290a715e69e265393d5de5192acd4f0a564876",
+          "size": 5151,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-24-ai-description-search-index-fix.md",
+          "path": "docs/internal/development/2026-07-24-ai-description-search-index-fix.md",
+          "sha": "711efc8a760ad34ca412c7050eaa573e9028dd41",
+          "size": 2362,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-26-common-media-formats-development-log.md",
+          "path": "docs/internal/development/2026-07-26-common-media-formats-development-log.md",
+          "sha": "878e53896b9e6ad253906684af3d3ce5cfbccbd3",
+          "size": 7620,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-27-image-sequence-scaning-block-handoff.md",
+          "path": "docs/internal/development/2026-07-27-image-sequence-scaning-block-handoff.md",
+          "sha": "46442fee7cb25bfe76f2e1219db69f3ee058dbe3",
+          "size": 3028,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-27-image-sequences-viewer-transforms-development-log.md",
+          "path": "docs/internal/development/2026-07-27-image-sequences-viewer-transforms-development-log.md",
+          "sha": "a13efb1e5384417ec0dd828848b5f4a603a015fd",
+          "size": 4052,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-27-release-verify-failures-handoff.md",
+          "path": "docs/internal/development/2026-07-27-release-verify-failures-handoff.md",
+          "sha": "b73a271ca75734029d4aa047761e31b66e68cd08",
+          "size": 4320,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-28-automation-gateway-development-log.md",
+          "path": "docs/internal/development/2026-07-28-automation-gateway-development-log.md",
+          "sha": "d8f840f4f50896a5bb5f4599edd24a40d5f86807",
+          "size": 4656,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-28-cli-withdrawal-and-automation-transition.md",
+          "path": "docs/internal/development/2026-07-28-cli-withdrawal-and-automation-transition.md",
+          "sha": "482b6a1666f0630e4b430df1b8de449930c5a60f",
+          "size": 2304,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-28-diagnostics-logging-development-log.md",
+          "path": "docs/internal/development/2026-07-28-diagnostics-logging-development-log.md",
+          "sha": "4cd6cd5a973401b5acc6848ece4dea0439533727",
+          "size": 1785,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-28-quickjs-sandbox-prototype-development-log.md",
+          "path": "docs/internal/development/2026-07-28-quickjs-sandbox-prototype-development-log.md",
+          "sha": "3bf2064808e3deed8aaefb0822f2a52e64ce0c8f",
+          "size": 6777,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-29-automation-asset-operations-development-log.md",
+          "path": "docs/internal/development/2026-07-29-automation-asset-operations-development-log.md",
+          "sha": "586ec71070ceebfd6365a38c5dd836d4e3f94eac",
+          "size": 3891,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-29-automation-execution-authorization-development-log.md",
+          "path": "docs/internal/development/2026-07-29-automation-execution-authorization-development-log.md",
+          "sha": "d91473f9b15760da4a989084a74d7df87882d329",
+          "size": 8021,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-29-automation-write-coordination-development-log.md",
+          "path": "docs/internal/development/2026-07-29-automation-write-coordination-development-log.md",
+          "sha": "6214d46f6301199db01e7a191b0158e83e6e7759",
+          "size": 11780,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-29-plugin-contract-development-log.md",
+          "path": "docs/internal/development/2026-07-29-plugin-contract-development-log.md",
+          "sha": "f1c2f67d453c75d33a9b8dced32c178a58d2da37",
+          "size": 2842,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-29-plugin-installation-core-development-log.md",
+          "path": "docs/internal/development/2026-07-29-plugin-installation-core-development-log.md",
+          "sha": "4db985e6e00329d9126084940171de1390eefb2b",
+          "size": 6170,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-29-script-sandbox-preview-development-log.md",
+          "path": "docs/internal/development/2026-07-29-script-sandbox-preview-development-log.md",
+          "sha": "6ce5b84f10443b3d06c7a458a525c86c9d756985",
+          "size": 7353,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-30-phase-d-low-risk-writes-development-log.md",
+          "path": "docs/internal/development/2026-07-30-phase-d-low-risk-writes-development-log.md",
+          "sha": "d5e4726174b4ebd16ee972d8c99007b3355f1350",
+          "size": 1589,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-30-plugin-namespaced-storage-development-log.md",
+          "path": "docs/internal/development/2026-07-30-plugin-namespaced-storage-development-log.md",
+          "sha": "9b0df73c13eba0e8a3f7b0fb4ef6aebaeabeb7d8",
+          "size": 908,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-30-plugin-standard-host-development-log.md",
+          "path": "docs/internal/development/2026-07-30-plugin-standard-host-development-log.md",
+          "sha": "d939b5cfca6fe1b24532befd0cf5199cf02e7c78",
+          "size": 2639,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-30-plugin-trusted-host-development-log.md",
+          "path": "docs/internal/development/2026-07-30-plugin-trusted-host-development-log.md",
+          "sha": "8b545876f6b09a77969abb4a19cddf10967196fb",
+          "size": 1899,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-30-script-api-organize-surface-development-log.md",
+          "path": "docs/internal/development/2026-07-30-script-api-organize-surface-development-log.md",
+          "sha": "feb6aa8d6b5337a9de5d70abadfe9a84e29f2011",
+          "size": 1747,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-30-stdio-mcp-adapter-development-log.md",
+          "path": "docs/internal/development/2026-07-30-stdio-mcp-adapter-development-log.md",
+          "sha": "ec38b060f8e2393d43dff947719fbc921b9d5f12",
+          "size": 1360,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-30-utilityprocess-script-runtime-development-log.md",
+          "path": "docs/internal/development/2026-07-30-utilityprocess-script-runtime-development-log.md",
+          "sha": "ad9dfd4c51e4f14870d09e8766ca16a3757c2246",
+          "size": 8678,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-31-automation-scripting-platform-development-log.md",
+          "path": "docs/internal/development/2026-07-31-automation-scripting-platform-development-log.md",
+          "sha": "a8279dd37a5aace248693413c266b4a98beb61ed",
+          "size": 25396,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-31-weather-agent-automation-feedback.md",
+          "path": "docs/internal/development/2026-07-31-weather-agent-automation-feedback.md",
+          "sha": "b57ada472730f99ccd26a023d5eec58df79a1b3a",
+          "size": 4305,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-ai-content-automation-development-log.md",
+          "path": "docs/internal/development/2026-08-01-ai-content-automation-development-log.md",
+          "sha": "50b4be30ed0cbb7533e9ba035c186d23bb1264ac",
+          "size": 2482,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-ai-queue-automation-development-log.md",
+          "path": "docs/internal/development/2026-08-01-ai-queue-automation-development-log.md",
+          "sha": "12c76253469b6571c3e0e0f2c99c9a0666d6328b",
+          "size": 1669,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-automation-script-mcp-wrapup-development-log.md",
+          "path": "docs/internal/development/2026-08-01-automation-script-mcp-wrapup-development-log.md",
+          "sha": "77949cdc12952154f4d9a23be0e33b9e460c65f1",
+          "size": 1996,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-collection-viewer-library-feedback-development-log.md",
+          "path": "docs/internal/development/2026-08-01-collection-viewer-library-feedback-development-log.md",
+          "sha": "049eedd11e73c432dd068944be5a60bc6605b9a4",
+          "size": 6738,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-desktop-attached-browse-development-log.md",
+          "path": "docs/internal/development/2026-08-01-desktop-attached-browse-development-log.md",
+          "sha": "7c1f3f68391267a446c587c017ff86af6e321c39",
+          "size": 2731,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-desktop-attached-selection-focus-development-log.md",
+          "path": "docs/internal/development/2026-08-01-desktop-attached-selection-focus-development-log.md",
+          "sha": "ec2fe7c6c5899c4a35d2f9b5cb884389a0ea4b62",
+          "size": 4082,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-desktop-attached-viewer-filters-development-log.md",
+          "path": "docs/internal/development/2026-08-01-desktop-attached-viewer-filters-development-log.md",
+          "sha": "ce386395714760c1d04663b3d23ef3423b00737b",
+          "size": 1715,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-dialog-focus-development-log.md",
+          "path": "docs/internal/development/2026-08-01-dialog-focus-development-log.md",
+          "sha": "6dc5c128237da678eb4d4e563d6cbabe2633b3e7",
+          "size": 3858,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-entity-version-revision-semantics-development-log.md",
+          "path": "docs/internal/development/2026-08-01-entity-version-revision-semantics-development-log.md",
+          "sha": "29b9ea5307b34fc72213a9fd8733c881365d6f51",
+          "size": 3779,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-feedback-closeout-development-log.md",
+          "path": "docs/internal/development/2026-08-01-feedback-closeout-development-log.md",
+          "sha": "ad283a300fa2de3f1c209c26d447f62d0f6d7df5",
+          "size": 2010,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-feedback-followup-development-log.md",
+          "path": "docs/internal/development/2026-08-01-feedback-followup-development-log.md",
+          "sha": "245aa24c03081e007a9c61ae5c31e79d9b94d8e1",
+          "size": 3777,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-masonry-tab-order-development-log.md",
+          "path": "docs/internal/development/2026-08-01-masonry-tab-order-development-log.md",
+          "sha": "2d117250d57a7044074885481cc4d6fdc1eec858",
+          "size": 1437,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-asset-content-replace-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-asset-content-replace-development-log.md",
+          "sha": "915bbbc481994708cd39bd23ad52e681d2cd8d4c",
+          "size": 3526,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-blocking-hooks-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-blocking-hooks-development-log.md",
+          "sha": "0e2bb8a514699c09d15e7a03797ca5d0607412fa",
+          "size": 1428,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-content-read-and-data-directory-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-content-read-and-data-directory-development-log.md",
+          "sha": "471b6605c6ee808ab9ac6ee13ce3a15fcd33dd57",
+          "size": 2431,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-custom-ui-iframe-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-custom-ui-iframe-development-log.md",
+          "sha": "de44a462ea7600af505accf07759878ac59ef95d",
+          "size": 7846,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-domain-events-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-domain-events-development-log.md",
+          "sha": "a22c2b35d696d435c8e9e0db8e960d2e3de0b858",
+          "size": 1376,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-github-release-updates-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-github-release-updates-development-log.md",
+          "sha": "7f8d51d9875f0ec44d7488ba6be1850aaefec8cf",
+          "size": 2308,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-guest-api-unify-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-guest-api-unify-development-log.md",
+          "sha": "4544737ae2c07f00d523b7ffd54cd3d8fe67f094",
+          "size": 1660,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-input-capture-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-input-capture-development-log.md",
+          "sha": "258109d0ff810e6637f4c9526debe57789bb297a",
+          "size": 3066,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-inspector-viewer-contributions-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-inspector-viewer-contributions-development-log.md",
+          "sha": "0676b473bf1c503ca4ddba171e65b91e3d1e3b07",
+          "size": 2063,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-jobs-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-jobs-development-log.md",
+          "sha": "c38e184470768cae1a7f724c12d5c6fecbad422b",
+          "size": 4993,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-mcp-export-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-mcp-export-development-log.md",
+          "sha": "541978f56613d6ed1d36fdc01ee28153c3ab5789",
+          "size": 2089,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-providers-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-providers-development-log.md",
+          "sha": "d0c7878df153d6766f8d3a00fb0514b2face2495",
+          "size": 13129,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-runtime-mode-enum-migration-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-runtime-mode-enum-migration-development-log.md",
+          "sha": "44a91f93b90ed4662eb8da50f4bae390940c20d7",
+          "size": 790,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-runtime-mode-naming-safe-mode-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-runtime-mode-naming-safe-mode-development-log.md",
+          "sha": "5516cefd6d03bcd8e5b59df415926622516b64dd",
+          "size": 1690,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-settings-sections-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-settings-sections-development-log.md",
+          "sha": "ead12c53aa68c1e3e3e3efa0877b7481a16462a2",
+          "size": 1965,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-settings-ui-ia-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-settings-ui-ia-development-log.md",
+          "sha": "9f637fefd0cc3a624cffdab53f03696ffb3a3196",
+          "size": 4499,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-shortcut-contributions-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-shortcut-contributions-development-log.md",
+          "sha": "813abf061cc875fcec2b221bcea7a9d0936ce923",
+          "size": 2350,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-theme-tokens-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-theme-tokens-development-log.md",
+          "sha": "7d9190d228eb0cf123b3423b6a6b010aa1d5212f",
+          "size": 2064,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-toolbar-contributions-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-toolbar-contributions-development-log.md",
+          "sha": "ae45296c0ef12a0341282e2e678ea9baba4800dd",
+          "size": 1555,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-trust-prompt-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-trust-prompt-development-log.md",
+          "sha": "8b9f29290bc10f9e22e47a0b9a2813d7c9e884ca",
+          "size": 1122,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-plugin-ui-menu-contributions-development-log.md",
+          "path": "docs/internal/development/2026-08-01-plugin-ui-menu-contributions-development-log.md",
+          "sha": "93b818b8f3b059b24771f909c67e5a616a019db5",
+          "size": 2978,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-script-console-ui-development-log.md",
+          "path": "docs/internal/development/2026-08-01-script-console-ui-development-log.md",
+          "sha": "69386c0fa7620da8e15f59410520a6ecb2f8cec9",
+          "size": 1576,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-01-windows-main-menu-development-log.md",
+          "path": "docs/internal/development/2026-08-01-windows-main-menu-development-log.md",
+          "sha": "5960ad01a7e4ced9807214ea764a9f25b7262b0e",
+          "size": 3374,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-context-menu-acrylic-development-log.md",
+          "path": "docs/internal/development/2026-08-02-context-menu-acrylic-development-log.md",
+          "sha": "a56a87bf934176fdbe3749383b31289138b56beb",
+          "size": 8204,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-inspector-filename-ellipsis-development-log.md",
+          "path": "docs/internal/development/2026-08-02-inspector-filename-ellipsis-development-log.md",
+          "sha": "606ff10adb97bb1d2571c256d7ccde7d3031e43b",
+          "size": 1082,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-mcp-host-review-development-log.md",
+          "path": "docs/internal/development/2026-08-02-mcp-host-review-development-log.md",
+          "sha": "80049f37f128600304768cbceabf9eaf3ec5101e",
+          "size": 4126,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-plugin-contribution-regression-tests-development-log.md",
+          "path": "docs/internal/development/2026-08-02-plugin-contribution-regression-tests-development-log.md",
+          "sha": "cd00866faa97d204c33a1633fc2e1e37f98364ca",
+          "size": 1820,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-plugin-guest-contract-feedback-development-log.md",
+          "path": "docs/internal/development/2026-08-02-plugin-guest-contract-feedback-development-log.md",
+          "sha": "6ee963d3eb834d9666309192d34949dc093f1240",
+          "size": 4119,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-plugin-native-controls-and-menu-tree-development-log.md",
+          "path": "docs/internal/development/2026-08-02-plugin-native-controls-and-menu-tree-development-log.md",
+          "sha": "780d3c2a21976d0c992ab72a4614c57b37428c48",
+          "size": 10390,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-plugin-platform-runtime-management-development-log.md",
+          "path": "docs/internal/development/2026-08-02-plugin-platform-runtime-management-development-log.md",
+          "sha": "23e9e065039beac5cf7735b945207d30573496e1",
+          "size": 10309,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-ui-notify-development-log.md",
+          "path": "docs/internal/development/2026-08-02-ui-notify-development-log.md",
+          "sha": "edf6dca29a56c296f6e7094e6072dfb1b5392ebc",
+          "size": 689,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-ui-reuse-audit.md",
+          "path": "docs/internal/development/2026-08-02-ui-reuse-audit.md",
+          "sha": "102cce686e7a4b19687bcbf5428a246d511f8e0d",
+          "size": 1853,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-v6m3-ignore-development-log.md",
+          "path": "docs/internal/development/2026-08-02-v6m3-ignore-development-log.md",
+          "sha": "3658f4856ece6d9ddc728fd77fbb16231f8ec505",
+          "size": 2701,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-viewer-context-menu-development-log.md",
+          "path": "docs/internal/development/2026-08-02-viewer-context-menu-development-log.md",
+          "sha": "901a524af7486b43cd6cc5edeba193b438f21303",
+          "size": 3014,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-02-windows-close-lifecycle-development-log.md",
+          "path": "docs/internal/development/2026-08-02-windows-close-lifecycle-development-log.md",
+          "sha": "4020f92e70a31493915539327c57b8aca0c752a9",
+          "size": 2072,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-03-asset-workqueue-ux-development-log.md",
+          "path": "docs/internal/development/2026-08-03-asset-workqueue-ux-development-log.md",
+          "sha": "5e931187dd0ed5aae444fe1939fca55aafde8751",
+          "size": 3730,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-03-beads-branch-reconciliation.md",
+          "path": "docs/internal/development/2026-08-03-beads-branch-reconciliation.md",
+          "sha": "e98e8c9411e952e17dbfdc0c2d780db68131eef8",
+          "size": 5794,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-04-automation-file-plan-fencing-development-log.md",
+          "path": "docs/internal/development/2026-08-04-automation-file-plan-fencing-development-log.md",
+          "sha": "8df533af41e90ae5c046aeabb2ba9c9991ce3318",
+          "size": 2439,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-04-background-image-fixes-development-log.md",
+          "path": "docs/internal/development/2026-08-04-background-image-fixes-development-log.md",
+          "sha": "f83dc825b1c16a81c54fb6e41a969c97fdbfadf3",
+          "size": 10226,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-04-background-image-upload-development-log.md",
+          "path": "docs/internal/development/2026-08-04-background-image-upload-development-log.md",
+          "sha": "66efd289d1ba1caf0728794f1619d0ef77c55e36",
+          "size": 9217,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-04-dialog-keyboard-audit-development-log.md",
+          "path": "docs/internal/development/2026-08-04-dialog-keyboard-audit-development-log.md",
+          "sha": "3b88e6b5bb6bb48d99d55447755e973bc2ac74a5",
+          "size": 1332,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-04-extension-import-contract-development-log.md",
+          "path": "docs/internal/development/2026-08-04-extension-import-contract-development-log.md",
+          "sha": "34c44c78d04aa4bbb3e0a777874680f2c4c99c87",
+          "size": 2228,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-04-renderer-diagnostics-development-log.md",
+          "path": "docs/internal/development/2026-08-04-renderer-diagnostics-development-log.md",
+          "sha": "0db7067c81b915cb01633d360a41afeaf8c35df5",
+          "size": 1454,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-04-theme-system-rework-development-log.md",
+          "path": "docs/internal/development/2026-08-04-theme-system-rework-development-log.md",
+          "sha": "8df01b5644a4ca323038ef54b29452ac8f76ec3d",
+          "size": 16591,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-04-ui-standardization-development-log.md",
+          "path": "docs/internal/development/2026-08-04-ui-standardization-development-log.md",
+          "sha": "558b54414c81e8012455275a94c3250dab17b059",
+          "size": 4515,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-04-ui-standardization-primitives-and-patterns-development-log.md",
+          "path": "docs/internal/development/2026-08-04-ui-standardization-primitives-and-patterns-development-log.md",
+          "sha": "06e1dd53abfec2fee6f8394a93670371f7875480",
+          "size": 3469,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-04-ui-standardization-surfaces-and-descriptor-development-log.md",
+          "path": "docs/internal/development/2026-08-04-ui-standardization-surfaces-and-descriptor-development-log.md",
+          "sha": "7a5212549b9671227ad5cdd22b7cd5a4854dbfac",
+          "size": 5495,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-04-ui-theme-contract-development-log.md",
+          "path": "docs/internal/development/2026-08-04-ui-theme-contract-development-log.md",
+          "sha": "e11cc5c454b54b9d0abc048a475029570a408805",
+          "size": 3085,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-05-3d-feedback-fixes-development-log.md",
+          "path": "docs/internal/development/2026-08-05-3d-feedback-fixes-development-log.md",
+          "sha": "311572eea74c97d0e9af193b81ef05298a47071a",
+          "size": 23744,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-05-plugin-view-contract-development-log.md",
+          "path": "docs/internal/development/2026-08-05-plugin-view-contract-development-log.md",
+          "sha": "31e4b908c292add0f436e66e0da63066651e4183",
+          "size": 5159,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-06-acceptance-batch-fixes-development-log.md",
+          "path": "docs/internal/development/2026-08-06-acceptance-batch-fixes-development-log.md",
+          "sha": "0022c230eac1e0cfa06cb2bafb8d517fdc9c61de",
+          "size": 2302,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-06-drop-overlay-and-3d-toolbar-style-development-log.md",
+          "path": "docs/internal/development/2026-08-06-drop-overlay-and-3d-toolbar-style-development-log.md",
+          "sha": "191a48e5485d6e9517fccb71dc4c32b4c375e519",
+          "size": 1317,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-06-filename-display-development-log.md",
+          "path": "docs/internal/development/2026-08-06-filename-display-development-log.md",
+          "sha": "fae304689484afa0c524ef04992217b48feb8680",
+          "size": 2045,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-06-import-conflict-flow-development-log.md",
+          "path": "docs/internal/development/2026-08-06-import-conflict-flow-development-log.md",
+          "sha": "7d1ee4ded711cf615b85df56f401eca6f990d123",
+          "size": 4828,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-06-macos-dock-icon-development-log.md",
+          "path": "docs/internal/development/2026-08-06-macos-dock-icon-development-log.md",
+          "sha": "48985449e258f1cb4d01a0b286288975bedfe818",
+          "size": 1893,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-06-notification-stack-development-log.md",
+          "path": "docs/internal/development/2026-08-06-notification-stack-development-log.md",
+          "sha": "710d7a9c500175399a7ae87668cf0d1cd4ce22cd",
+          "size": 3499,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-06-pbr-texture-channel-preview-development-log.md",
+          "path": "docs/internal/development/2026-08-06-pbr-texture-channel-preview-development-log.md",
+          "sha": "2d3f0584d1c33ccbba3f10e131cdc8e941ee379c",
+          "size": 3418,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-06-theme-color-disclosure-development-log.md",
+          "path": "docs/internal/development/2026-08-06-theme-color-disclosure-development-log.md",
+          "sha": "9c81f60a82d3ffc0aee455ccfa1d2deb3758c7de",
+          "size": 938,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-07-beads-dolt-sync-merge.md",
+          "path": "docs/internal/development/2026-08-07-beads-dolt-sync-merge.md",
+          "sha": "64264de43d6a15fc5a4e9736bc13e35bbd238e1d",
+          "size": 2985,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-07-evening-feedback-batch-development-log.md",
+          "path": "docs/internal/development/2026-08-07-evening-feedback-batch-development-log.md",
+          "sha": "f6802bc68626c68090afd1ea2c5fff72a5d5280a",
+          "size": 2247,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-07-extension-tree-save-menu-development-log.md",
+          "path": "docs/internal/development/2026-08-07-extension-tree-save-menu-development-log.md",
+          "sha": "51bbc5e365621eb9003c108c0c59796de0c11658",
+          "size": 1074,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-08-schema-compatibility-verg-development-log.md",
+          "path": "docs/internal/development/2026-08-08-schema-compatibility-verg-development-log.md",
+          "sha": "8f355f5f0696318b4b141c821dc1f09dcbeec95e",
+          "size": 6383,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-08-windows-packaging-and-squirrel-installer-development-log.md",
+          "path": "docs/internal/development/2026-08-08-windows-packaging-and-squirrel-installer-development-log.md",
+          "sha": "63e271985cbfa17cdc3b019a5ed02fff3e9e414e",
+          "size": 10433,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-09-ai-reanalysis-warning-development-log.md",
+          "path": "docs/internal/development/2026-08-09-ai-reanalysis-warning-development-log.md",
+          "sha": "7924be64fea940778a68dc0823e96dfd3b468336",
+          "size": 1922,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-09-ci-e2e-handoff.md",
+          "path": "docs/internal/development/2026-08-09-ci-e2e-handoff.md",
+          "sha": "233008f5c547b093d2c6ee6245712ef3687b14dc",
+          "size": 5575,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-09-conflict-trash-export-i1qt-development-log.md",
+          "path": "docs/internal/development/2026-08-09-conflict-trash-export-i1qt-development-log.md",
+          "sha": "3dd92e7b28d551f852647298f631b079c50b929e",
+          "size": 2677,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-09-cross-platform-library-ui-development-log.md",
+          "path": "docs/internal/development/2026-08-09-cross-platform-library-ui-development-log.md",
+          "sha": "119d19f10314e30635f9d5cf2a16c768defa0af9",
+          "size": 5639,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-09-extension-drag-coverage-development-log.md",
+          "path": "docs/internal/development/2026-08-09-extension-drag-coverage-development-log.md",
+          "sha": "e77e44700569ab44c23789601689377f2a449018",
+          "size": 2254,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-09-video-ai-contact-sheet-fix-development-log.md",
+          "path": "docs/internal/development/2026-08-09-video-ai-contact-sheet-fix-development-log.md",
+          "sha": "523b17158a21337f52385dbb1b1f49260669ae12",
+          "size": 9147,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-10-embedded-http-mcp-server-development-log.md",
+          "path": "docs/internal/development/2026-08-10-embedded-http-mcp-server-development-log.md",
+          "sha": "5d69500d199140ad5f840cad47145f9f96811e1b",
+          "size": 7120,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-10-library-open-p0-development-log.md",
+          "path": "docs/internal/development/2026-08-10-library-open-p0-development-log.md",
+          "sha": "558af8cdf8e9237c2ac411697f8ba1c5511260a0",
+          "size": 3566,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-12-asset-pagination-e2e-spec-sync-development-log.md",
+          "path": "docs/internal/development/2026-08-12-asset-pagination-e2e-spec-sync-development-log.md",
+          "sha": "fb4f0eef89a2515790560832e816a11e90594a6c",
+          "size": 917,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-12-marquee-performance-development-log.md",
+          "path": "docs/internal/development/2026-08-12-marquee-performance-development-log.md",
+          "sha": "a187b1bf85180f60534eab96ee9df8d0bede5310",
+          "size": 2394,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-12-unified-undo-redo-development-log.md",
+          "path": "docs/internal/development/2026-08-12-unified-undo-redo-development-log.md",
+          "sha": "150abf985e8940f9ec9a58a59b2c56127312d729",
+          "size": 13114,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-13-linked-folder-hierarchy-and-import-jank-development-log.md",
+          "path": "docs/internal/development/2026-08-13-linked-folder-hierarchy-and-import-jank-development-log.md",
+          "sha": "978bb0ff1afb6b13d1648ddf5ee2b48d351bd0e6",
+          "size": 13014,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-13-plugin-archive-windows-tar-prefix.md",
+          "path": "docs/internal/development/2026-08-13-plugin-archive-windows-tar-prefix.md",
+          "sha": "e235246f2ac38776bce6e52347dd45970784c821",
+          "size": 1006,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-13-plugin-first-v28-migration-fix.md",
+          "path": "docs/internal/development/2026-08-13-plugin-first-v28-migration-fix.md",
+          "sha": "793982dd3402041fe29b97c62312c24da1ddd5ea",
+          "size": 2626,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-13-plugin-install-flow-development-log.md",
+          "path": "docs/internal/development/2026-08-13-plugin-install-flow-development-log.md",
+          "sha": "389e31b890aabe1cdd375c9dcf210267a56b47de",
+          "size": 2000,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-13-plugin-settings-feedback-development-log.md",
+          "path": "docs/internal/development/2026-08-13-plugin-settings-feedback-development-log.md",
+          "sha": "8f154c14b9da1b85127e052807fd6f45dc6a977b",
+          "size": 5407,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-14-windows-browse-shortcuts-development-log.md",
+          "path": "docs/internal/development/2026-08-14-windows-browse-shortcuts-development-log.md",
+          "sha": "fd270ba973ac9dc678dbbb547f8dcad1a920d2b5",
+          "size": 3061,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-15-artist-user-docs-plugins-automation-development-log.md",
+          "path": "docs/internal/development/2026-08-15-artist-user-docs-plugins-automation-development-log.md",
+          "sha": "8f6f3cac0beddbb75f8fcb0bfbf68019bc1d113a",
+          "size": 1512,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-15-branch-and-development-workflow-documentation-log.md",
+          "path": "docs/internal/development/2026-08-15-branch-and-development-workflow-documentation-log.md",
+          "sha": "27be15596c39118c382a7af7255405a45e8209d8",
+          "size": 1143,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-15-documentation-sync-development-log.md",
+          "path": "docs/internal/development/2026-08-15-documentation-sync-development-log.md",
+          "sha": "6f8a64a52391fdd80d9e99016575b1f572ceb671",
+          "size": 2944,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-15-large-library-development-log.md",
+          "path": "docs/internal/development/2026-08-15-large-library-development-log.md",
+          "sha": "5bf222d6d2c5a7f6e5ca5a86fb4d39e5c8639c56",
+          "size": 4521,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-15-migration-version-collision-postmortem.md",
+          "path": "docs/internal/development/2026-08-15-migration-version-collision-postmortem.md",
+          "sha": "5db4130f7e62c668e1172765c978a4233c27d1d3",
+          "size": 2831,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-15-progressive-loading-pagination-development-log.md",
+          "path": "docs/internal/development/2026-08-15-progressive-loading-pagination-development-log.md",
+          "sha": "184fdf16e332d23d1c6b882f2e485478ad4e3ea9",
+          "size": 8432,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-15-thumbnail-visible-window-development-log.md",
+          "path": "docs/internal/development/2026-08-15-thumbnail-visible-window-development-log.md",
+          "sha": "8ea9c1ff6fda248958b804bfd3f099c566bb2849",
+          "size": 4842,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-billfish-library-import-development-log.md",
+          "path": "docs/internal/development/2026-08-16-billfish-library-import-development-log.md",
+          "sha": "a0af8c9d92d5ca6caacd149ad993ff7c3a4c864f",
+          "size": 6233,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-browse-window-pagination-development-log.md",
+          "path": "docs/internal/development/2026-08-16-browse-window-pagination-development-log.md",
+          "sha": "d36e0a5f12f5a446bc94a752d43b00f01ba88ea9",
+          "size": 2339,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-delete-library-from-disk-windows-locks-development-log.md",
+          "path": "docs/internal/development/2026-08-16-delete-library-from-disk-windows-locks-development-log.md",
+          "sha": "b9630ffcd3a56dc1e1b3027ba65db6ae653038b4",
+          "size": 2109,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-dw9a-768x-cljb-development-log.md",
+          "path": "docs/internal/development/2026-08-16-dw9a-768x-cljb-development-log.md",
+          "sha": "6d1a23f0076e8d05743306dacdd2b339daf6c204",
+          "size": 11440,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-eagle-import-progressive-load-development-log.md",
+          "path": "docs/internal/development/2026-08-16-eagle-import-progressive-load-development-log.md",
+          "sha": "f6a1b80141fd25df7b4f659044cac2599962b6a6",
+          "size": 5585,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-eagle-open-destination-development-log.md",
+          "path": "docs/internal/development/2026-08-16-eagle-open-destination-development-log.md",
+          "sha": "9906c41ebce1d0c1cba9c8970ed441ee637ebd3b",
+          "size": 5064,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-large-library-20k-fixture-development-log.md",
+          "path": "docs/internal/development/2026-08-16-large-library-20k-fixture-development-log.md",
+          "sha": "f006502123e05ce7f28b12a053dec8c7343bf86d",
+          "size": 2611,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-large-library-fixture-v3-development-log.md",
+          "path": "docs/internal/development/2026-08-16-large-library-fixture-v3-development-log.md",
+          "sha": "84c54609fc7e0bd0594ef8adff88e9c70ce88747",
+          "size": 2254,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-library-chooser-panels-development-log.md",
+          "path": "docs/internal/development/2026-08-16-library-chooser-panels-development-log.md",
+          "sha": "523743d7060823415a13a8b655256b7dc3e4b5b8",
+          "size": 1792,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-sa65-resource-loading-benchmark-development-log.md",
+          "path": "docs/internal/development/2026-08-16-sa65-resource-loading-benchmark-development-log.md",
+          "sha": "511523dee7fbc4d7a0fd0f1a1bca6e37b1546eb3",
+          "size": 9091,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-swapped-v37-v38-readonly-switch-development-log.md",
+          "path": "docs/internal/development/2026-08-16-swapped-v37-v38-readonly-switch-development-log.md",
+          "sha": "9717d94163f2645f18adea1c6b913c66f3f6b9f4",
+          "size": 2574,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-17-eagle-open-progress-and-performance-development-log.md",
+          "path": "docs/internal/development/2026-08-17-eagle-open-progress-and-performance-development-log.md",
+          "sha": "72a79350e47f5789ff8e03b1016bdcb1ec475edd",
+          "size": 12682,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-17-text-ticket-tracker-development-log.md",
+          "path": "docs/internal/development/2026-08-17-text-ticket-tracker-development-log.md",
+          "sha": "9ae38dada774f74d1adfa7532777a7bb46a04f1f",
+          "size": 3576,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-18-doc-preview-handoff.md",
+          "path": "docs/internal/development/2026-08-18-doc-preview-handoff.md",
+          "sha": "0542e7662f16ab862ac2961bc004d4157590f1c2",
+          "size": 5968,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-18-library-error-specificity-development-log.md",
+          "path": "docs/internal/development/2026-08-18-library-error-specificity-development-log.md",
+          "sha": "1e64ebeac641f6e7fd727936b0f1c8e4bc9392d7",
+          "size": 3526,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-19-beads-jsonl-export-wipe-incident.md",
+          "path": "docs/internal/development/2026-08-19-beads-jsonl-export-wipe-incident.md",
+          "sha": "2650641e7b970efd35ae4d3a7e39afb10deed21b",
+          "size": 2013,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-19-pdf-preview-handoff.md",
+          "path": "docs/internal/development/2026-08-19-pdf-preview-handoff.md",
+          "sha": "3174801caab97a53e990cfebbac6641b263a76a7",
+          "size": 10798,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-19-pdf-viewer-and-ime-dismiss-development-log.md",
+          "path": "docs/internal/development/2026-08-19-pdf-viewer-and-ime-dismiss-development-log.md",
+          "sha": "54b724e9c7f39400b96ff5666aebed219cbb6f4c",
+          "size": 2489,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-20-app-update-development-log.md",
+          "path": "docs/internal/development/2026-08-20-app-update-development-log.md",
+          "sha": "3e682061f156a13e8f1602c16a93bccb0487a52c",
+          "size": 6346,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-20-collection-switch-performance-development-log.md",
+          "path": "docs/internal/development/2026-08-20-collection-switch-performance-development-log.md",
+          "sha": "b11b70240e0a8eecd7f166fb83857060555f88d4",
+          "size": 5356,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-20-nas-compatibility-development-log.md",
+          "path": "docs/internal/development/2026-08-20-nas-compatibility-development-log.md",
+          "sha": "74f05a9cd8c324c544bfc91e50c271ca2dd43799",
+          "size": 7960,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-20-pdf-pointer-zoom-anchor-development-log.md",
+          "path": "docs/internal/development/2026-08-20-pdf-pointer-zoom-anchor-development-log.md",
+          "sha": "ea484a4f8107fd65e11df5a777ca94445cb36a6e",
+          "size": 2135,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-20-pdf-render-resolution-development-log.md",
+          "path": "docs/internal/development/2026-08-20-pdf-render-resolution-development-log.md",
+          "sha": "1fdcbbf03074d68411a044387ff780ece51f96b2",
+          "size": 3434,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-21-false-library-recovery-ladder.md",
+          "path": "docs/internal/development/2026-08-21-false-library-recovery-ladder.md",
+          "sha": "508985c6e9e09d54a52036348b63c8656313a0cd",
+          "size": 2169,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-21-large-library-scroll-and-delete-performance-development-log.md",
+          "path": "docs/internal/development/2026-08-21-large-library-scroll-and-delete-performance-development-log.md",
+          "sha": "3f0bf9277ed54351ecdf452bc8fe8da9400096d3",
+          "size": 11524,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-22-gif-webm-proxy-retirement-development-log.md",
+          "path": "docs/internal/development/2026-08-22-gif-webm-proxy-retirement-development-log.md",
+          "sha": "ba06bc100100823ba96dd4ff0432062af601b07f",
+          "size": 5872,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-22-import-sequence-multi-source-pbr-development-log.md",
+          "path": "docs/internal/development/2026-08-22-import-sequence-multi-source-pbr-development-log.md",
+          "sha": "68c5cfb362d7cb4f521d259aa1770bc35da85d14",
+          "size": 1703,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-22-mcp-agent-connection-copy-development-log.md",
+          "path": "docs/internal/development/2026-08-22-mcp-agent-connection-copy-development-log.md",
+          "sha": "0a30ed10c24a9cb72ad71bc6506228c993b0e3be",
+          "size": 2477,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-23-raw-arw-preview-and-inspector-development-log.md",
+          "path": "docs/internal/development/2026-08-23-raw-arw-preview-and-inspector-development-log.md",
+          "sha": "e0058ce191863a19329fb97f33aa2ef19f771edf",
+          "size": 7255,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-23-real-nas-open-starvation-startup-gate-development-log.md",
+          "path": "docs/internal/development/2026-08-23-real-nas-open-starvation-startup-gate-development-log.md",
+          "sha": "3081576a7d78f7a9cbb12b04de5ab32d7ecc970e",
+          "size": 6147,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-23-viewer-open-latency-development-log.md",
+          "path": "docs/internal/development/2026-08-23-viewer-open-latency-development-log.md",
+          "sha": "43db32fc69e888af118876442b6126495fb4adc9",
+          "size": 2728,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-24-folder-inline-refresh-development-log.md",
+          "path": "docs/internal/development/2026-08-24-folder-inline-refresh-development-log.md",
+          "sha": "f80bd7d259e74a79f9922bfa849d93108e4ff123",
+          "size": 908,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-24-rename-fts5-native-regression-development-log.md",
+          "path": "docs/internal/development/2026-08-24-rename-fts5-native-regression-development-log.md",
+          "sha": "84aa06af6f65ef7b3f37f89e818088dce668ad88",
+          "size": 1954,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-24-resource-library-viewer-performance.md",
+          "path": "docs/internal/development/2026-08-24-resource-library-viewer-performance.md",
+          "sha": "790a6f9d7a7f8960da0ea9af4504685a7244857c",
+          "size": 16713,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-24-tiff-and-full-resolution-image-viewer-development-log.md",
+          "path": "docs/internal/development/2026-08-24-tiff-and-full-resolution-image-viewer-development-log.md",
+          "sha": "024f5423594875fe38dd300fd8d18a76c7da1ff0",
+          "size": 2917,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-25-media-task-memory-safety-development-log.md",
+          "path": "docs/internal/development/2026-08-25-media-task-memory-safety-development-log.md",
+          "sha": "f1e6c8d1a52ff6007561845d796b65b6366057db",
+          "size": 8384,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-a-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-a-development-log.md",
+          "sha": "ff2684c659ff548323b87c57d69e98c605c196ad",
+          "size": 8609,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-b-viewer-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-b-viewer-development-log.md",
+          "sha": "f3fd3a749c07cb0b99b9884b073efacfcb8166b4",
+          "size": 5008,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-c1-browse-session-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-c1-browse-session-development-log.md",
+          "sha": "0c02b6efbf3a46118b1d4b0d4bcc0c500b5f5479",
+          "size": 4214,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-c2-geometry-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-c2-geometry-development-log.md",
+          "sha": "f94e0b603f943d0763afec07a93dda0de4ee6c0e",
+          "size": 7918,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-c3-navigation-summary-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-c3-navigation-summary-development-log.md",
+          "sha": "1a7c2ac8782800fcd96dab3672630e1167c49f94",
+          "size": 4638,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-d-artifact-policy-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-d-artifact-policy-development-log.md",
+          "sha": "b18b53ac2a283e7795e4b88b5a70da1c0b0d2917",
+          "size": 6366,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-d2-artifact-identity-cache-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-d2-artifact-identity-cache-development-log.md",
+          "sha": "10bbc7799eb9e591f6e6060f25ca6e324f1c19d2",
+          "size": 6978,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-d3-source-direct-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-d3-source-direct-development-log.md",
+          "sha": "9327681415188f4ad49a78ff813f96c2a0622f40",
+          "size": 12715,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-d4-raw-embedded-thumbnail-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-d4-raw-embedded-thumbnail-development-log.md",
+          "sha": "46857853177037cbf7b328699657137dc0f88080",
+          "size": 8737,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-d5-imported-thumbnail-normalization-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-d5-imported-thumbnail-normalization-development-log.md",
+          "sha": "88315d6d7639de2f3c7ef979aa3bd39fbd241583",
+          "size": 11684,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-d6-visible-media-queue-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-d6-visible-media-queue-development-log.md",
+          "sha": "8285465a2fe1c37237d417ff00a7ca3b9658ef93",
+          "size": 27169,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-d7-network-metadata-cache-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-d7-network-metadata-cache-development-log.md",
+          "sha": "cb5800b0c4e3fd3af222c63b3111577a7744b5b9",
+          "size": 12220,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-26-library-performance-architecture-stage-e-watcher-development-log.md",
+          "path": "docs/internal/development/2026-08-26-library-performance-architecture-stage-e-watcher-development-log.md",
+          "sha": "f14f78d3b45ec5192fb250926842e48f16ecb6a8",
+          "size": 6140,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-27-external-library-staging-disk-space-development-log.md",
+          "path": "docs/internal/development/2026-08-27-external-library-staging-disk-space-development-log.md",
+          "sha": "77a595eb2b5539b59475f0f7f0f54cb997a75a21",
+          "size": 2591,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-27-zip-reimport-media-fence-development-log.md",
+          "path": "docs/internal/development/2026-08-27-zip-reimport-media-fence-development-log.md",
+          "sha": "dc121673fcfc4131996e561ea3c2a0c22ee764e1",
+          "size": 2110,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-28-product-feedback-and-library-switching-development-log.md",
+          "path": "docs/internal/development/2026-08-28-product-feedback-and-library-switching-development-log.md",
+          "sha": "3f9540fb4cbcb424b66ff53e9cc8c02d0c01045b",
+          "size": 15854,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-29-ai-response-envelope-rework-development-log.md",
+          "path": "docs/internal/development/2026-08-29-ai-response-envelope-rework-development-log.md",
+          "sha": "ec1161aa1db3cc509363e555e0157be33df2d062",
+          "size": 2669,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-29-browse-drag-regression-development-log.md",
+          "path": "docs/internal/development/2026-08-29-browse-drag-regression-development-log.md",
+          "sha": "887878bb246600c9309ac70c2eee2e5a8603d4a2",
+          "size": 5275,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-29-collection-hierarchy-regression-development-log.md",
+          "path": "docs/internal/development/2026-08-29-collection-hierarchy-regression-development-log.md",
+          "sha": "d4cd33062f257a790996af09c3595a45308230c2",
+          "size": 8699,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-29-justified-visible-thumbnail-window-development-log.md",
+          "path": "docs/internal/development/2026-08-29-justified-visible-thumbnail-window-development-log.md",
+          "sha": "8c9593125a5054e6276e2751062ae1dda255010a",
+          "size": 1887,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-29-library-delete-import-zoom-fbx-development-log.md",
+          "path": "docs/internal/development/2026-08-29-library-delete-import-zoom-fbx-development-log.md",
+          "sha": "d5face59cd9df255168ccbbc4760c0b37a290e20",
+          "size": 5425,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-29-linked-folder-move-delete-diagnostics-development-log.md",
+          "path": "docs/internal/development/2026-08-29-linked-folder-move-delete-diagnostics-development-log.md",
+          "sha": "affdaa6a81f0323ef4ad6c1a9a72d5563796dff4",
+          "size": 4663,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-29-non-direct-video-proxy-preview-development-log.md",
+          "path": "docs/internal/development/2026-08-29-non-direct-video-proxy-preview-development-log.md",
+          "sha": "605e00022ecf5dbdb4ac94d43dd14874592072cf",
+          "size": 2065,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-29-selection-stroke-and-video-card-dimensions-development-log.md",
+          "path": "docs/internal/development/2026-08-29-selection-stroke-and-video-card-dimensions-development-log.md",
+          "sha": "2284aaf3244b25f3a268066a62c27ef41e7f360b",
+          "size": 2531,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-29-sound-toggle-and-jfif-development-log.md",
+          "path": "docs/internal/development/2026-08-29-sound-toggle-and-jfif-development-log.md",
+          "sha": "14bf883501806efe2e98d5ff9f17e51a750812fd",
+          "size": 3887,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-29-video-fullscreen-chrome-space-development-log.md",
+          "path": "docs/internal/development/2026-08-29-video-fullscreen-chrome-space-development-log.md",
+          "sha": "b60190b2aa0e0e102bad4f7d00e4ac80714edc68",
+          "size": 2554,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-03-filter-ignore-polish-development-log.md",
+          "path": "docs/internal/development/2026-09-03-filter-ignore-polish-development-log.md",
+          "sha": "93dba0e17ff822d49267405c123b9134c3e78525",
+          "size": 6052,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-03-font-size-development-log.md",
+          "path": "docs/internal/development/2026-09-03-font-size-development-log.md",
+          "sha": "1ae5a21332ad842e6127a62a8f879caa9ea7a293",
+          "size": 5093,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-03-theme-color-presets-development-log.md",
+          "path": "docs/internal/development/2026-09-03-theme-color-presets-development-log.md",
+          "sha": "eaf7b0283d740902556d9334ced4e16e37f23f0b",
+          "size": 5940,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-03-timeout-policy-and-large-media-development-log.md",
+          "path": "docs/internal/development/2026-09-03-timeout-policy-and-large-media-development-log.md",
+          "sha": "ca6ff5623dbe999adfcd3cd66bde2770f56f1d7c",
+          "size": 4819,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-04-feature-hint-and-folder-search-development-log.md",
+          "path": "docs/internal/development/2026-09-04-feature-hint-and-folder-search-development-log.md",
+          "sha": "9781ea452ab73ba49189283ffc340d0e734efc41",
+          "size": 9209,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-05-plugin-host-dialog-and-binaries-protocol-fix.md",
+          "path": "docs/internal/development/2026-09-05-plugin-host-dialog-and-binaries-protocol-fix.md",
+          "sha": "d7f4d4a3171216426dd16da3014413e99202bf88",
+          "size": 5192,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-05-workspace-history-tab-switches-development-log.md",
+          "path": "docs/internal/development/2026-09-05-workspace-history-tab-switches-development-log.md",
+          "sha": "d3882e9af3f2db5ed2b301ff46fa68000a7d46f0",
+          "size": 7242,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-06-media-converter-plugin-platform-retrospective.md",
+          "path": "docs/internal/development/2026-09-06-media-converter-plugin-platform-retrospective.md",
+          "sha": "351b688cd0c6679b27f128174906bf4848fd1669",
+          "size": 13295,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-06-plugin-community-catalog.md",
+          "path": "docs/internal/development/2026-09-06-plugin-community-catalog.md",
+          "sha": "ba8dcfacb4b4aad8b20be16713cd205a09b6ce53",
+          "size": 1008,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-06-plugin-widget-dialog-kit.md",
+          "path": "docs/internal/development/2026-09-06-plugin-widget-dialog-kit.md",
+          "sha": "a00dd66e4280598485ae6e3d0ed0f05cecfeb472",
+          "size": 7959,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-07-ai-content-rating-and-tag-filter-spec.md",
+          "path": "docs/internal/development/2026-09-07-ai-content-rating-and-tag-filter-spec.md",
+          "sha": "b49959698e83c8489ed236188ce8a42f68c3cc27",
+          "size": 15182,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-08-batch-renamer-plugin-development-log.md",
+          "path": "docs/internal/development/2026-09-08-batch-renamer-plugin-development-log.md",
+          "sha": "32fb4c4ca5da2285f38c3350536fcc1a632d7905",
+          "size": 3484,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-09-batch-renamer-recovery.md",
+          "path": "docs/internal/development/2026-09-09-batch-renamer-recovery.md",
+          "sha": "971813ea6f8bca7b9cbadcbf00e9f9eff53617bc",
+          "size": 6832,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-09-import-progress-overlay-blocks-decision-dialogs-development-log.md",
+          "path": "docs/internal/development/2026-09-09-import-progress-overlay-blocks-decision-dialogs-development-log.md",
+          "sha": "b485d20f95b3b56b5ec0d82322d266e978a8acaf",
+          "size": 1844,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-09-linked-folder-browse-page-cap-development-log.md",
+          "path": "docs/internal/development/2026-09-09-linked-folder-browse-page-cap-development-log.md",
+          "sha": "0a1b3771ab95b4c04fd11957676338b0dcb753b5",
+          "size": 1572,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-09-webdav-folder-move-sync-development-log.md",
+          "path": "docs/internal/development/2026-09-09-webdav-folder-move-sync-development-log.md",
+          "sha": "94bc9e33a4448824360f1a6b8fb9b4933befd292",
+          "size": 2658,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-10-import-skip-failures-and-conflict-submit-development-log.md",
+          "path": "docs/internal/development/2026-09-10-import-skip-failures-and-conflict-submit-development-log.md",
+          "sha": "406acc4a7688e18304f64044fe9bb55d302a7581",
+          "size": 1794,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-10-plugin-dialog-keyboard-focus-development-log.md",
+          "path": "docs/internal/development/2026-09-10-plugin-dialog-keyboard-focus-development-log.md",
+          "sha": "e4bd7f5f949ddd2a31ce18e82745c037a6a99214",
+          "size": 2122,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-10-plugin-local-zip-folder-picker-development-log.md",
+          "path": "docs/internal/development/2026-09-10-plugin-local-zip-folder-picker-development-log.md",
+          "sha": "0c90d37682cad4a413d1950fb59c403b5dcdaa77",
+          "size": 1433,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-11-large-batch-import-reliability-development-log.md",
+          "path": "docs/internal/development/2026-09-11-large-batch-import-reliability-development-log.md",
+          "sha": "7d3c6bc3b83343bcc19963aa71f263bf4e93ac1c",
+          "size": 4887,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-11-webdav-sync-followups-development-log.md",
+          "path": "docs/internal/development/2026-09-11-webdav-sync-followups-development-log.md",
+          "sha": "b855edb8591635a59d2b3f939147004020e39645",
+          "size": 3730,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-dnd-noop-notices-development-log.md",
+          "path": "docs/internal/development/2026-09-12-dnd-noop-notices-development-log.md",
+          "sha": "4e1472bf0da023a3d824734d391d9640405bb1e2",
+          "size": 5224,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-error-code-state-conflicts-development-log.md",
+          "path": "docs/internal/development/2026-09-12-error-code-state-conflicts-development-log.md",
+          "sha": "f756ccbe6808256a66bce5e73b9edb8f0d51b4dc",
+          "size": 22309,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-folder-create-at-root-development-log.md",
+          "path": "docs/internal/development/2026-09-12-folder-create-at-root-development-log.md",
+          "sha": "c15c9dda0444764aa9e07c48af5261fa9bd58171",
+          "size": 2563,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-folder-pane-background-root-development-log.md",
+          "path": "docs/internal/development/2026-09-12-folder-pane-background-root-development-log.md",
+          "sha": "d1a62b02dc2464f046f7afd3f46f4e0ad685f805",
+          "size": 11672,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-library-switch-handle-release-development-log.md",
+          "path": "docs/internal/development/2026-09-12-library-switch-handle-release-development-log.md",
+          "sha": "6a8adbe592635dab7d29ddedafe46d0c99baf1af",
+          "size": 2895,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-nested-linked-folders-development-log.md",
+          "path": "docs/internal/development/2026-09-12-nested-linked-folders-development-log.md",
+          "sha": "f778d4870b4a10d116b14b028298432226de78ad",
+          "size": 10285,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-webdav-ai-metadata-sync-development-log.md",
+          "path": "docs/internal/development/2026-09-12-webdav-ai-metadata-sync-development-log.md",
+          "sha": "f0030e2f65299cbaaeb9e91835a8cffeab120970",
+          "size": 1795,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-webdav-local-sync-immediate-development-log.md",
+          "path": "docs/internal/development/2026-09-12-webdav-local-sync-immediate-development-log.md",
+          "sha": "6a59dc9487137e5923ff7e8dda67e93d827905ce",
+          "size": 782,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-webdav-metadata-sync-progress-development-log.md",
+          "path": "docs/internal/development/2026-09-12-webdav-metadata-sync-progress-development-log.md",
+          "sha": "c55b368760d3a0667adadc6abb53feb1e7d4426e",
+          "size": 1265,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-webdav-sync-card-status-development-log.md",
+          "path": "docs/internal/development/2026-09-12-webdav-sync-card-status-development-log.md",
+          "sha": "80d17e3bd4938cb2b5f3a1977db3e3c9cec6152f",
+          "size": 2654,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-webdav-sync-empty-folder-prune-development-log.md",
+          "path": "docs/internal/development/2026-09-12-webdav-sync-empty-folder-prune-development-log.md",
+          "sha": "2e79d3b9deed3462ce6cae63a412885af1ae24ac",
+          "size": 1544,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-webdav-sync-inspector-tag-refresh-development-log.md",
+          "path": "docs/internal/development/2026-09-12-webdav-sync-inspector-tag-refresh-development-log.md",
+          "sha": "fe00dbc3cbb81cc58d796c80c54efa361c28e8f5",
+          "size": 1921,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-webdav-sync-ui-refresh-development-log.md",
+          "path": "docs/internal/development/2026-09-12-webdav-sync-ui-refresh-development-log.md",
+          "sha": "2a5b1ff2eb9cc988cbf5e1142772dbe795ac4ddd",
+          "size": 2057,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-workspace-tabs-development-log.md",
+          "path": "docs/internal/development/2026-09-12-workspace-tabs-development-log.md",
+          "sha": "113358e45734663443fca46873364ed329ec642f",
+          "size": 12832,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-13-canvas-038-browse-media-pipeline-redesign.md",
+          "path": "docs/internal/development/2026-09-13-canvas-038-browse-media-pipeline-redesign.md",
+          "sha": "4e4f985fca02f053e02dda3f8d13e84c52d15b79",
+          "size": 33017,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-13-canvas-038-geometry-seeding-development-log.md",
+          "path": "docs/internal/development/2026-09-13-canvas-038-geometry-seeding-development-log.md",
+          "sha": "5c456321c79309ba8752b6e519b7f1fb8da2b29c",
+          "size": 16684,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-13-interactive-performance-execution.md",
+          "path": "docs/internal/development/2026-09-13-interactive-performance-execution.md",
+          "sha": "8186a3eb0015365bc0630eefc397151cc3c69cd1",
+          "size": 12386,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-13-library-header-in-sidebar-development-log.md",
+          "path": "docs/internal/development/2026-09-13-library-header-in-sidebar-development-log.md",
+          "sha": "fc802e4a8fb6a561bebf916f205b39d03aaf498a",
+          "size": 4634,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-13-library-switch-hang-and-sidebar-development-log.md",
+          "path": "docs/internal/development/2026-09-13-library-switch-hang-and-sidebar-development-log.md",
+          "sha": "0830e0ef4913b94fa6e6b3444cf06c9c912f196e",
+          "size": 25971,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-13-midsize-browse-virtual-layout-development-log.md",
+          "path": "docs/internal/development/2026-09-13-midsize-browse-virtual-layout-development-log.md",
+          "sha": "61007e6adaf350cc11bd91571ae9b26d319b1f0c",
+          "size": 1520,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-13-perf2-01-catalog-protocol-development-log.md",
+          "path": "docs/internal/development/2026-09-13-perf2-01-catalog-protocol-development-log.md",
+          "sha": "7d84070f4ed23a39a3593365f8fafe433baa2597",
+          "size": 7735,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-13-virtual-browse-cover-identity-development-log.md",
+          "path": "docs/internal/development/2026-09-13-virtual-browse-cover-identity-development-log.md",
+          "sha": "582765301e7d063b01b60d19ad1e61fb811bf5f9",
+          "size": 4649,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-13-workspace-tabs-followups-development-log.md",
+          "path": "docs/internal/development/2026-09-13-workspace-tabs-followups-development-log.md",
+          "sha": "b8f01e277e8fb4846be84cbf668d46d7dec594f4",
+          "size": 11147,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-14-folder-switch-and-resource-loading-optimization-development-log.md",
+          "path": "docs/internal/development/2026-09-14-folder-switch-and-resource-loading-optimization-development-log.md",
+          "sha": "7036087860474d1b3089abc9e63755212b1e7a46",
+          "size": 67680,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-14-network-library-interactive-starvation-development-log.md",
+          "path": "docs/internal/development/2026-09-14-network-library-interactive-starvation-development-log.md",
+          "sha": "cecd05f8d51cdb650b2a637507bfcd6ea4bfecc6",
+          "size": 5597,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-14-palette-extraction-throughput-development-log.md",
+          "path": "docs/internal/development/2026-09-14-palette-extraction-throughput-development-log.md",
+          "sha": "5ca0d9c1beb6cda767d1393a2183038b523933e1",
+          "size": 9842,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-14-perf2-02-catalog-read-development-log.md",
+          "path": "docs/internal/development/2026-09-14-perf2-02-catalog-read-development-log.md",
+          "sha": "846e74b6b6ecfeab8b8ecbc8214a67a3ea01f319",
+          "size": 10832,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-14-same-library-id-open-prompt-development-log.md",
+          "path": "docs/internal/development/2026-09-14-same-library-id-open-prompt-development-log.md",
+          "sha": "be8e34541154851d94fefdd027dba1ba1e49ec12",
+          "size": 2492,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-15-collection-root-and-sort-development-log.md",
+          "path": "docs/internal/development/2026-09-15-collection-root-and-sort-development-log.md",
+          "sha": "6642fc397279f7e741645e9d3e1e31ea7fc13286",
+          "size": 7632,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-15-folder-cards-and-import-progress-development-log.md",
+          "path": "docs/internal/development/2026-09-15-folder-cards-and-import-progress-development-log.md",
+          "sha": "b2cf168e946fcdf858a83a1837f95a01050183b3",
+          "size": 6030,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-15-performance-implementation-profile-log.md",
+          "path": "docs/internal/development/2026-09-15-performance-implementation-profile-log.md",
+          "sha": "911951dba7c6938845db5f91b52334e6a2fffa79",
+          "size": 13902,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-16-folder-collection-appearance-development-log.md",
+          "path": "docs/internal/development/2026-09-16-folder-collection-appearance-development-log.md",
+          "sha": "1fdd3c35115a8a682ec8be330771d44b74f962f7",
+          "size": 2278,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-16-library-root-linked-tree-expand-development-log.md",
+          "path": "docs/internal/development/2026-09-16-library-root-linked-tree-expand-development-log.md",
+          "sha": "da75ecb80ecce59cf334128125d4c287c5ce8c35",
+          "size": 4243,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-16-linked-import-browse-contention.md",
+          "path": "docs/internal/development/2026-09-16-linked-import-browse-contention.md",
+          "sha": "3c9effbfffdbd71da65493aa469c9a4e9c0321d7",
+          "size": 2977,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-16-media-job-control-summary-refresh-development-log.md",
+          "path": "docs/internal/development/2026-09-16-media-job-control-summary-refresh-development-log.md",
+          "sha": "8a3467f8b297000b3686f548c38cf7bc6f0301ec",
+          "size": 2663,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-16-media-job-summary-pagination-development-log.md",
+          "path": "docs/internal/development/2026-09-16-media-job-summary-pagination-development-log.md",
+          "sha": "dd462a7b10b699129de5664eb137f30de869b0e4",
+          "size": 3241,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-16-missing-artifact-requeue-development-log.md",
+          "path": "docs/internal/development/2026-09-16-missing-artifact-requeue-development-log.md",
+          "sha": "7c207bd4b44b85124caf98ce792c912e4cb6a75d",
+          "size": 8023,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-16-raw-metadata-cursor-development-log.md",
+          "path": "docs/internal/development/2026-09-16-raw-metadata-cursor-development-log.md",
+          "sha": "6c7a0f251a75f34eb555e46f251f56b7ee770d90",
+          "size": 5813,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-16-ready-artifact-queue-prune-development-log.md",
+          "path": "docs/internal/development/2026-09-16-ready-artifact-queue-prune-development-log.md",
+          "sha": "92cd02c8216df31b944a7642ecf64a79ca2dadf3",
+          "size": 6677,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-16-viewer-close-scroll-restore-development-log.md",
+          "path": "docs/internal/development/2026-09-16-viewer-close-scroll-restore-development-log.md",
+          "sha": "c3fd6b060a524b7aace21ef59fee798730bf0127",
+          "size": 5813,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-ai-request-rejected-copy-development-log.md",
+          "path": "docs/internal/development/2026-09-17-ai-request-rejected-copy-development-log.md",
+          "sha": "c90ec2529bf8352f08fb7ee86cb80d49d944e551",
+          "size": 1033,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-asset-card-caption-band-development-log.md",
+          "path": "docs/internal/development/2026-09-17-asset-card-caption-band-development-log.md",
+          "sha": "2905cda18dca7dbdc1d3e7928ee92814e63fcbe5",
+          "size": 10896,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-avif-and-audio-album-cover-development-log.md",
+          "path": "docs/internal/development/2026-09-17-avif-and-audio-album-cover-development-log.md",
+          "sha": "c39aa90e6e2380862e0257f148a1af1b280231de",
+          "size": 1891,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-blend-embedded-preview-development-log.md",
+          "path": "docs/internal/development/2026-09-17-blend-embedded-preview-development-log.md",
+          "sha": "023c98ac39aeea8e92b2abce2a31ca42ffad7c50",
+          "size": 2730,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-blend-interactive-preview-development-log.md",
+          "path": "docs/internal/development/2026-09-17-blend-interactive-preview-development-log.md",
+          "sha": "9e32e3a0d11cb896ee3dac8dcd2fb61c52a49980",
+          "size": 2452,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-canvas-hover-scrub-playback-development-log.md",
+          "path": "docs/internal/development/2026-09-17-canvas-hover-scrub-playback-development-log.md",
+          "sha": "80b6be8c31adf7c59f8b9e54c494d05634656b02",
+          "size": 1049,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-import-overlay-stuck-after-complete-development-log.md",
+          "path": "docs/internal/development/2026-09-17-import-overlay-stuck-after-complete-development-log.md",
+          "sha": "546fdb2c94a6e40b74470730986288f941e099c4",
+          "size": 4481,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-remove-pbr-channel-preview-development-log.md",
+          "path": "docs/internal/development/2026-09-17-remove-pbr-channel-preview-development-log.md",
+          "sha": "ad7189755ad39d3cec2aedf9ba315e1bafe6e709",
+          "size": 1077,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-sync-missing-local-files-development-log.md",
+          "path": "docs/internal/development/2026-09-17-sync-missing-local-files-development-log.md",
+          "sha": "ed5f09f6e6af152bdc9d38bfe3a1ee2fa2abf8c2",
+          "size": 2863,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-viewer-cached-load-preview-stuck-development-log.md",
+          "path": "docs/internal/development/2026-09-17-viewer-cached-load-preview-stuck-development-log.md",
+          "sha": "050ffccdbba9d8a23d3840564036e1fe93397a27",
+          "size": 2017,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-viewer-video-navigate-autoplay-development-log.md",
+          "path": "docs/internal/development/2026-09-17-viewer-video-navigate-autoplay-development-log.md",
+          "sha": "da04652deaa8e027177165539c38ca586debfee9",
+          "size": 1453,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-17-window-fullscreen-shortcut-development-log.md",
+          "path": "docs/internal/development/2026-09-17-window-fullscreen-shortcut-development-log.md",
+          "sha": "feb9ed2c08f701f80b0fb43b7960978335b1de4b",
+          "size": 1525,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-18-background-queue-stall-and-sequence-thumbnails-development-log.md",
+          "path": "docs/internal/development/2026-09-18-background-queue-stall-and-sequence-thumbnails-development-log.md",
+          "sha": "71d01318ccf01a8c27338825c3142f3c67728b55",
+          "size": 2743,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-18-blend-support-withdrawn-development-log.md",
+          "path": "docs/internal/development/2026-09-18-blend-support-withdrawn-development-log.md",
+          "sha": "72fc5da810ce764eee71c4e91ce2b55638d57d2f",
+          "size": 1811,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-18-browse-stale-session-100-and-focus-send-development-log.md",
+          "path": "docs/internal/development/2026-09-18-browse-stale-session-100-and-focus-send-development-log.md",
+          "sha": "0d1381a395df493405fe4525ab25f4e759b1521e",
+          "size": 2885,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-18-format-folder-sequence-detect-development-log.md",
+          "path": "docs/internal/development/2026-09-18-format-folder-sequence-detect-development-log.md",
+          "sha": "12a98d0687bd5c0445949e0f7e46323c9962227b",
+          "size": 1908,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-18-offscreen-thumbnail-completion-batch-development-log.md",
+          "path": "docs/internal/development/2026-09-18-offscreen-thumbnail-completion-batch-development-log.md",
+          "sha": "f6d8f2f9474d000d7b54d9ac4c59ac686f23ae84",
+          "size": 1629,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-18-proxy-playback-notice-dismiss-development-log.md",
+          "path": "docs/internal/development/2026-09-18-proxy-playback-notice-dismiss-development-log.md",
+          "sha": "3a640d0e461ef202d52dfc01f61491de614117dd",
+          "size": 1458,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-18-sequence-settings-spacing-defaults-development-log.md",
+          "path": "docs/internal/development/2026-09-18-sequence-settings-spacing-defaults-development-log.md",
+          "sha": "8faf3efc3e9c9ee25705c3c8cce79f469c42f821",
+          "size": 991,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-18-show-in-containing-folder-development-log.md",
+          "path": "docs/internal/development/2026-09-18-show-in-containing-folder-development-log.md",
+          "sha": "6307d025e1f2dff3a17601b4a9e55f50851645e8",
+          "size": 1330,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-18-viewer-middle-button-pan-development-log.md",
+          "path": "docs/internal/development/2026-09-18-viewer-middle-button-pan-development-log.md",
+          "sha": "00c51837b5f87aa1eb6d65f1e331c065675062f6",
+          "size": 1678,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-18-viewport-priority-bands-development-log.md",
+          "path": "docs/internal/development/2026-09-18-viewport-priority-bands-development-log.md",
+          "sha": "f9eeb78f0cd6a7daa90248c080b3e46febd4d269",
+          "size": 2487,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-19-color-filter-folder-tree-tab-preview-development-log.md",
+          "path": "docs/internal/development/2026-09-19-color-filter-folder-tree-tab-preview-development-log.md",
+          "sha": "084f19c054c2c3538fb81c56a43f7ed285f8ec67",
+          "size": 2133,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-19-format-filter-text-token-development-log.md",
+          "path": "docs/internal/development/2026-09-19-format-filter-text-token-development-log.md",
+          "sha": "17db733494abe697c8c7c075a9f737c97fd68891",
+          "size": 1014,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-19-p1-ticket-batch-development-log.md",
+          "path": "docs/internal/development/2026-09-19-p1-ticket-batch-development-log.md",
+          "sha": "f0cff00627fbd4afa49ec35f9d9ae5ee8c7dff23",
+          "size": 49533,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-19-sequence-create-inspector-select-all-development-log.md",
+          "path": "docs/internal/development/2026-09-19-sequence-create-inspector-select-all-development-log.md",
+          "sha": "4e5828540dc9cb1331f7a0b6cbbc7222f7d516d1",
+          "size": 5498,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-19-sequence-dissolve-refresh-ungroup-development-log.md",
+          "path": "docs/internal/development/2026-09-19-sequence-dissolve-refresh-ungroup-development-log.md",
+          "sha": "7847d3146e458ecdec1dae88101ec6e52706206c",
+          "size": 1783,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-19-text-encoding-detection-development-log.md",
+          "path": "docs/internal/development/2026-09-19-text-encoding-detection-development-log.md",
+          "sha": "f86803880407257c10eede8d98658e3e49db1aae",
+          "size": 1742,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-19-text-viewer-wrap-and-icons-development-log.md",
+          "path": "docs/internal/development/2026-09-19-text-viewer-wrap-and-icons-development-log.md",
+          "sha": "80a8e6ea56655ef5b468c4fd70e36931dbab7710",
+          "size": 895,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-19-viewer-back-keeps-tab-discovery-development-log.md",
+          "path": "docs/internal/development/2026-09-19-viewer-back-keeps-tab-discovery-development-log.md",
+          "sha": "f50ebb3720d3d69681bef022978c6c4b71abd73e",
+          "size": 1567,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-19-viewer-mouse-side-buttons-development-log.md",
+          "path": "docs/internal/development/2026-09-19-viewer-mouse-side-buttons-development-log.md",
+          "sha": "45fee1b6fc3d2f00f29d9e34b663dad4c85bd73e",
+          "size": 1216,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-20-ai-analysis-progress-bar-stuck-development-log.md",
+          "path": "docs/internal/development/2026-09-20-ai-analysis-progress-bar-stuck-development-log.md",
+          "sha": "75816bff270daf2fc4b21396a6625d551f52d35d",
+          "size": 1565,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-20-ai-connection-failure-dialog-ui-development-log.md",
+          "path": "docs/internal/development/2026-09-20-ai-connection-failure-dialog-ui-development-log.md",
+          "sha": "b2ca2778e12f9ec01d491f4828968ef502075632",
+          "size": 2102,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-20-asset-card-caption-spacing-development-log.md",
+          "path": "docs/internal/development/2026-09-20-asset-card-caption-spacing-development-log.md",
+          "sha": "0b64e0788b9542625b029581e0f3ebaa067613c6",
+          "size": 1809,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-20-model-ai-liveness-development-log.md",
+          "path": "docs/internal/development/2026-09-20-model-ai-liveness-development-log.md",
+          "sha": "dd8e0898ebe559456caa65a4d982b7a95ff151eb",
+          "size": 9833,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-20-zombie-library-sqlite-handle-development-log.md",
+          "path": "docs/internal/development/2026-09-20-zombie-library-sqlite-handle-development-log.md",
+          "sha": "9daa55bec416a06e3394811f5c5c8ab6ee50ad21",
+          "size": 3137,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-21-embedded-metadata-development-log.md",
+          "path": "docs/internal/development/2026-09-21-embedded-metadata-development-log.md",
+          "sha": "a3e4d32bf5ae9dd138124f80c4d562b63abf53d3",
+          "size": 3193,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-21-video-playback-rate-dropdown-development-log.md",
+          "path": "docs/internal/development/2026-09-21-video-playback-rate-dropdown-development-log.md",
+          "sha": "2a5d2a180e8b62ff8d8347ff91344d9e30e5eabc",
+          "size": 1621,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-23-ignore-settings-preview-development-log.md",
+          "path": "docs/internal/development/2026-09-23-ignore-settings-preview-development-log.md",
+          "sha": "0efcec15ea029c8046f2ba29f412ba6deba2866b",
+          "size": 2469,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-23-linked-folder-ignore-indent-appearance-development-log.md",
+          "path": "docs/internal/development/2026-09-23-linked-folder-ignore-indent-appearance-development-log.md",
+          "sha": "7a7e0d2ecf5a1e384de43e1d60c1f1efe3a6f1cd",
+          "size": 4181,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-25-flv-ai-format-development-log.md",
+          "path": "docs/internal/development/2026-09-25-flv-ai-format-development-log.md",
+          "sha": "fa12c0106615d1946278e3441fb35d50d744efc8",
+          "size": 4616,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-10-embeddinggemma-experiment-development-log.md",
+          "path": "docs/internal/development/2026-10-10-embeddinggemma-experiment-development-log.md",
+          "sha": "c7c5c5badc969cb9618f914ec11432ee0e471610",
+          "size": 9963,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-11-find-similar-phase-1.md",
+          "path": "docs/internal/development/2026-10-11-find-similar-phase-1.md",
+          "sha": "519ce0b5cca223a485148b5d9d3d060ea00e26c6",
+          "size": 2437,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-11-semantic-search-progressive-results.md",
+          "path": "docs/internal/development/2026-10-11-semantic-search-progressive-results.md",
+          "sha": "6059abb3bd917f353fe59b5cf7af4037905fdbe5",
+          "size": 11203,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-11-semantic-settings-library-binding.md",
+          "path": "docs/internal/development/2026-10-11-semantic-settings-library-binding.md",
+          "sha": "265758a47245a989b9a8dcf87fa2f712c440e761",
+          "size": 1413,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-12-embedding-api-formats.md",
+          "path": "docs/internal/development/2026-10-12-embedding-api-formats.md",
+          "sha": "9d623e98b2d7da06084854d03770731ec25f3a90",
+          "size": 5630,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-12-semantic-raw-ranking.md",
+          "path": "docs/internal/development/2026-10-12-semantic-raw-ranking.md",
+          "sha": "18b6f3b74342a4c93229c719c0230cd673796070",
+          "size": 2134,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-13-import-conflict-drop-regression.md",
+          "path": "docs/internal/development/2026-10-13-import-conflict-drop-regression.md",
+          "sha": "b501b8cb8e2650b2b7750106d73c17f541bfe65f",
+          "size": 2979,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-13-semantic-sqlite-index.md",
+          "path": "docs/internal/development/2026-10-13-semantic-sqlite-index.md",
+          "sha": "fa18aced75c459baa7606f969dbde0f89886aca6",
+          "size": 27319,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-15-semantic-runtime-process-ownership-development-log.md",
+          "path": "docs/internal/development/2026-10-15-semantic-runtime-process-ownership-development-log.md",
+          "sha": "b24411f144a13071b945006466d7e7f96ffc0b7c",
+          "size": 5486,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-15-startup-and-update-handoff.md",
+          "path": "docs/internal/development/2026-10-15-startup-and-update-handoff.md",
+          "sha": "baf55a95ecfe0570c79f08fc6ed109f9ca72b43f",
+          "size": 3272,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-17-custom-shortcuts-development-log.md",
+          "path": "docs/internal/development/2026-10-17-custom-shortcuts-development-log.md",
+          "sha": "bb4fdc44d77d5cd01b222283a68fe42e9264bc16",
+          "size": 25316,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-17-folder-custom-order-development-log.md",
+          "path": "docs/internal/development/2026-10-17-folder-custom-order-development-log.md",
+          "sha": "2cb6c65e8e830a9e2951f3528946837157a1970b",
+          "size": 5422,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-18-trash-drag-regression-development-log.md",
+          "path": "docs/internal/development/2026-10-18-trash-drag-regression-development-log.md",
+          "sha": "babfe110bb1d39b4cfa664c860fc97a1ec0af0af",
+          "size": 10739,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-19-import-acceleration-development-log.md",
+          "path": "docs/internal/development/2026-10-19-import-acceleration-development-log.md",
+          "sha": "e86c35afe7b91f2a5c6469bde781546d4c11cdd3",
+          "size": 11938,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-20-mcp-credential-pepper-recovery-development-log.md",
+          "path": "docs/internal/development/2026-10-20-mcp-credential-pepper-recovery-development-log.md",
+          "sha": "11118b0b07f3f3dca43ae7b513ad149f1637bb58",
+          "size": 3745,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-21-ai-analysis-api-profiles-development-log.md",
+          "path": "docs/internal/development/2026-10-21-ai-analysis-api-profiles-development-log.md",
+          "sha": "8c5a2d9ba214d1d7573acacf21691335a77b0658",
+          "size": 7673,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-21-memory-aware-media-concurrency-development-log.md",
+          "path": "docs/internal/development/2026-10-21-memory-aware-media-concurrency-development-log.md",
+          "sha": "e4f33373034c4832173076d09990823f51ccd642",
+          "size": 3963,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-24-asset-card-caption-polish.md",
+          "path": "docs/internal/development/2026-10-24-asset-card-caption-polish.md",
+          "sha": "c9facf2a6711acd4af01ac48c67623ba2a05ed8e",
+          "size": 4771,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-24-confirmation-copy-cleanup-development-log.md",
+          "path": "docs/internal/development/2026-10-24-confirmation-copy-cleanup-development-log.md",
+          "sha": "95659ebf570431fcbb134cd3145102799d37f955",
+          "size": 4141,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-24-linked-file-delete-shortcut-development-log.md",
+          "path": "docs/internal/development/2026-10-24-linked-file-delete-shortcut-development-log.md",
+          "sha": "e697501be49cfd64ceed306e188e4882e521374a",
+          "size": 2311,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-24-preview-queue-liveness-development-log.md",
+          "path": "docs/internal/development/2026-10-24-preview-queue-liveness-development-log.md",
+          "sha": "ba92a3da5bb04e8898f39146c92d4b3fb6196284",
+          "size": 7553,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-24-standard-select-menu-development-log.md",
+          "path": "docs/internal/development/2026-10-24-standard-select-menu-development-log.md",
+          "sha": "47e082f9e746ca4ae7a49e9c6c473bc1d3e43bda",
+          "size": 1395,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-31-issue-75-development-log.md",
+          "path": "docs/internal/development/2026-10-31-issue-75-development-log.md",
+          "sha": "515791d6652b655e91fcc3f6c939679f329bc293",
+          "size": 6743,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-31-masonry-shift-reading-order.md",
+          "path": "docs/internal/development/2026-10-31-masonry-shift-reading-order.md",
+          "sha": "18e3f3361b7b9330a4102017293a66359391237d",
+          "size": 4319,
+          "type": "file"
+        },
+        {
+          "name": "2026-11-01-large-library-performance-profile.md",
+          "path": "docs/internal/development/2026-11-01-large-library-performance-profile.md",
+          "sha": "a7baf3f48280e5dd62e3bc3941e8ced4f7cbb522",
+          "size": 12072,
+          "type": "file"
+        },
+        {
+          "name": "2026-11-01-library-worker-exit-investigation.md",
+          "path": "docs/internal/development/2026-11-01-library-worker-exit-investigation.md",
+          "sha": "e8246f9cca96044105b3ec1e7ab687addc355cd3",
+          "size": 9829,
+          "type": "file"
+        },
+        {
+          "name": "asset-action-matrix.md",
+          "path": "docs/internal/development/asset-action-matrix.md",
+          "sha": "7c2069ed6e4ec191d5ab9a1657c14ee7012c83c4",
+          "size": 2394,
+          "type": "file"
+        },
+        {
+          "name": "local-cicd.md",
+          "path": "docs/internal/development/local-cicd.md",
+          "sha": "7bb9632432af20d56ffeaf83775ef85abdf854d3",
+          "size": 4162,
+          "type": "file"
+        },
+        {
+          "name": "release-process-and-distribution.md",
+          "path": "docs/internal/development/release-process-and-distribution.md",
+          "sha": "f5da2329e76a22bca7da4153ca0c7fa9b4974b2e",
+          "size": 17347,
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "path": "docs/internal/qa",
+      "entries": [
+        {
+          "name": "0001-library-shell-qa-report.md",
+          "path": "docs/internal/qa/0001-library-shell-qa-report.md",
+          "sha": "631498b4c099dd2ea1a33350d331e2361fd7835c",
+          "size": 3730,
+          "type": "file"
+        },
+        {
+          "name": "0002-asset-ingestion-qa-report.md",
+          "path": "docs/internal/qa/0002-asset-ingestion-qa-report.md",
+          "sha": "114bec3e38ef262345b39ad48ce57dc131f9d3c4",
+          "size": 6074,
+          "type": "file"
+        },
+        {
+          "name": "0003-linked-folders-qa-report.md",
+          "path": "docs/internal/qa/0003-linked-folders-qa-report.md",
+          "sha": "34b8daa2fb70cb372f0f99f576754707008906b0",
+          "size": 5739,
+          "type": "file"
+        },
+        {
+          "name": "0004-tags-collections-metadata-qa-report.md",
+          "path": "docs/internal/qa/0004-tags-collections-metadata-qa-report.md",
+          "sha": "a4df1c79a66bad8daecb3420e2754064f45c1b73",
+          "size": 2967,
+          "type": "file"
+        },
+        {
+          "name": "0005-search-filter-sort-smart-collections-qa-report.md",
+          "path": "docs/internal/qa/0005-search-filter-sort-smart-collections-qa-report.md",
+          "sha": "36a857a0d680bfe189bd29468f6839b220e65835",
+          "size": 4490,
+          "type": "file"
+        },
+        {
+          "name": "0006-thumbnails-preview-format-decoding-qa-report.md",
+          "path": "docs/internal/qa/0006-thumbnails-preview-format-decoding-qa-report.md",
+          "sha": "5170792d4e6938e49eb40a1b7ead19187758b5cd",
+          "size": 8626,
+          "type": "file"
+        },
+        {
+          "name": "0007-trash-relink-batch-relocate-qa-report.md",
+          "path": "docs/internal/qa/0007-trash-relink-batch-relocate-qa-report.md",
+          "sha": "e0c0fbeebb14556ea489df8a78e2a516e3c3884a",
+          "size": 5008,
+          "type": "file"
+        },
+        {
+          "name": "0008-browser-extension-collection-qa-report.md",
+          "path": "docs/internal/qa/0008-browser-extension-collection-qa-report.md",
+          "sha": "56b3e6da9fcc307c6c6f9155fc4d4a1c3dec13b4",
+          "size": 3849,
+          "type": "file"
+        },
+        {
+          "name": "0009-cloud-ai-auto-classification-qa-report.md",
+          "path": "docs/internal/qa/0009-cloud-ai-auto-classification-qa-report.md",
+          "sha": "768de82c59b12640bdd8d9c43e853f6b618b8259",
+          "size": 3569,
+          "type": "file"
+        },
+        {
+          "name": "0010-library-import-export-qa-report.md",
+          "path": "docs/internal/qa/0010-library-import-export-qa-report.md",
+          "sha": "386f97d1c7f5b4e036851e6aa4f5e0931441d6e3",
+          "size": 6070,
+          "type": "file"
+        },
+        {
+          "name": "0012-asset-canvas-views-and-card-display-qa-report.md",
+          "path": "docs/internal/qa/0012-asset-canvas-views-and-card-display-qa-report.md",
+          "sha": "87851f7b58ae3c0d57c7d579b3b0617973ce1767",
+          "size": 5070,
+          "type": "file"
+        },
+        {
+          "name": "0013-asset-viewer-navigation-and-gestures-qa-report.md",
+          "path": "docs/internal/qa/0013-asset-viewer-navigation-and-gestures-qa-report.md",
+          "sha": "c9926b948deaccb2f45d5b8af322b9f1390790dc",
+          "size": 2160,
+          "type": "file"
+        },
+        {
+          "name": "0014-asset-selection-and-context-actions-qa-report.md",
+          "path": "docs/internal/qa/0014-asset-selection-and-context-actions-qa-report.md",
+          "sha": "a600f81120c3bbb40e4e23daa0923a1eca0ea6c8",
+          "size": 3019,
+          "type": "file"
+        },
+        {
+          "name": "0018-0019-ui-correctness-qa-report.md",
+          "path": "docs/internal/qa/0018-0019-ui-correctness-qa-report.md",
+          "sha": "428296fd646be2aeb3b1dcf3d7b14916a58675b1",
+          "size": 6737,
+          "type": "file"
+        },
+        {
+          "name": "0021-windows-native-typography-qa-report.md",
+          "path": "docs/internal/qa/0021-windows-native-typography-qa-report.md",
+          "sha": "0b1c145a230493f69128a185015f15cb0f06c95e",
+          "size": 3233,
+          "type": "file"
+        },
+        {
+          "name": "0024-script-plugin-platform-qa-report.md",
+          "path": "docs/internal/qa/0024-script-plugin-platform-qa-report.md",
+          "sha": "71e8927bde6d12063729690b362231524874669b",
+          "size": 4460,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-closed-beads-acceptance-qa.md",
+          "path": "docs/internal/qa/2026-07-18-closed-beads-acceptance-qa.md",
+          "sha": "b96d21353da87fe7779d9620d8676a485d8a1583",
+          "size": 5235,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-18-inspector-shell-polish-qa-report.md",
+          "path": "docs/internal/qa/2026-07-18-inspector-shell-polish-qa-report.md",
+          "sha": "c531c58c48515bc7459da58f83d4cc61a4f1452f",
+          "size": 3233,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-19-windows-interaction-audit.md",
+          "path": "docs/internal/qa/2026-07-19-windows-interaction-audit.md",
+          "sha": "0ae851b6669a443de1853bb2d185e2f3fb27bf15",
+          "size": 12622,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-21-media-auto-repair-qa-report.md",
+          "path": "docs/internal/qa/2026-07-21-media-auto-repair-qa-report.md",
+          "sha": "490e5469b0dd7cc5d01aed6550f920243e03a0a3",
+          "size": 4258,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-21-theme-style-shortcut-audit.md",
+          "path": "docs/internal/qa/2026-07-21-theme-style-shortcut-audit.md",
+          "sha": "e61f1e53d6748511f6db9a24dc5288c1c6c68891",
+          "size": 2467,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-23-contextual-substring-search-qa.md",
+          "path": "docs/internal/qa/2026-07-23-contextual-substring-search-qa.md",
+          "sha": "59d6e686764a8ab156d3c979ef61ad0349f175d9",
+          "size": 4034,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-23-settings-center-qa-report.md",
+          "path": "docs/internal/qa/2026-07-23-settings-center-qa-report.md",
+          "sha": "438f9ed0878fe3028c4f128b33322b9edaecea46",
+          "size": 1984,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-29-automation-asset-operations-qa-report.md",
+          "path": "docs/internal/qa/2026-07-29-automation-asset-operations-qa-report.md",
+          "sha": "8e2813c09d9184d821f3b538660335ae55e71beb",
+          "size": 1017,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-29-automation-execution-authorization-qa-report.md",
+          "path": "docs/internal/qa/2026-07-29-automation-execution-authorization-qa-report.md",
+          "sha": "bffacb97f61845afd5a479e3bd61046470f943b4",
+          "size": 4808,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-29-automation-write-coordination-qa-report.md",
+          "path": "docs/internal/qa/2026-07-29-automation-write-coordination-qa-report.md",
+          "sha": "fec9391456d9429eb77e7432e0e17a4fc330b9f0",
+          "size": 2595,
+          "type": "file"
+        },
+        {
+          "name": "2026-07-29-script-sandbox-preview-qa-report.md",
+          "path": "docs/internal/qa/2026-07-29-script-sandbox-preview-qa-report.md",
+          "sha": "896b89ca220c385d917c1c87213d580ccfec2864",
+          "size": 5104,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-03-scene-artist-computer-use.md",
+          "path": "docs/internal/qa/2026-08-03-scene-artist-computer-use.md",
+          "sha": "fc292d567fc8b838297bf57a0e930f30dcd82e6f",
+          "size": 2690,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-12-unified-undo-redo-qa-report.md",
+          "path": "docs/internal/qa/2026-08-12-unified-undo-redo-qa-report.md",
+          "sha": "9d554ff50bc223cb65ae49fc44a396fbe893c120",
+          "size": 6391,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-13-acceptance-e-feedback-summary.md",
+          "path": "docs/internal/qa/2026-08-13-acceptance-e-feedback-summary.md",
+          "sha": "887fc5c20c7f6e80d5dc88d52d914fd4f1db4a24",
+          "size": 10458,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-13-computer-use-d-full-journey-plan.md",
+          "path": "docs/internal/qa/2026-08-13-computer-use-d-full-journey-plan.md",
+          "sha": "8aed235f85d458e32a363f20607d962057a5c103",
+          "size": 9506,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-13-computer-use-d-full-journey-report.md",
+          "path": "docs/internal/qa/2026-08-13-computer-use-d-full-journey-report.md",
+          "sha": "a73d6665043c5a1a08ed45e315f9d415b730b58a",
+          "size": 6947,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-13-computer-use-d-report.md",
+          "path": "docs/internal/qa/2026-08-13-computer-use-d-report.md",
+          "sha": "adabafaae52641a3d91bd626e96fbc22feb0d70e",
+          "size": 1474,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-13-full-e2e-c-report.md",
+          "path": "docs/internal/qa/2026-08-13-full-e2e-c-report.md",
+          "sha": "b75eaa15b40077d35a33b00636f371dd710aafb1",
+          "size": 2349,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-dw9a-768x-cljb-qa-report.md",
+          "path": "docs/internal/qa/2026-08-16-dw9a-768x-cljb-qa-report.md",
+          "sha": "b9253c625d9db39eeae8cedf8baabb8db84eebf8",
+          "size": 4856,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-16-sa65-resource-loading-benchmark-qa-report.md",
+          "path": "docs/internal/qa/2026-08-16-sa65-resource-loading-benchmark-qa-report.md",
+          "sha": "e1028523529d107e1a4f259d976f42bc2537a07a",
+          "size": 3062,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-20-nas-compatibility-qa-report.md",
+          "path": "docs/internal/qa/2026-08-20-nas-compatibility-qa-report.md",
+          "sha": "7b5d07f5f26fa2714eb04718521afac16adf034c",
+          "size": 7089,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-23-raw-arw-preview-and-inspector-qa-report.md",
+          "path": "docs/internal/qa/2026-08-23-raw-arw-preview-and-inspector-qa-report.md",
+          "sha": "6a190379b9d696ff03f1e654dcdcc1067f9ab7ce",
+          "size": 3998,
+          "type": "file"
+        },
+        {
+          "name": "2026-08-25-media-task-memory-safety-qa.md",
+          "path": "docs/internal/qa/2026-08-25-media-task-memory-safety-qa.md",
+          "sha": "ff2692ec93260a7b4d72d3e8f00451345ab2d34e",
+          "size": 5782,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-04-timeout-policy-and-large-media-qa.md",
+          "path": "docs/internal/qa/2026-09-04-timeout-policy-and-large-media-qa.md",
+          "sha": "affb10894b7b59fc5ba7522d3dc8369437efacba",
+          "size": 4133,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-12-workspace-tabs-qa.md",
+          "path": "docs/internal/qa/2026-09-12-workspace-tabs-qa.md",
+          "sha": "fd9dd9eb20ea7e351f2de5c5924c71ec5c7f28c6",
+          "size": 9235,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-14-perf2-02-catalog-read-qa.md",
+          "path": "docs/internal/qa/2026-09-14-perf2-02-catalog-read-qa.md",
+          "sha": "2cb5e9a63fb9c3b0a8da639f24b22d0578cc73e5",
+          "size": 3221,
+          "type": "file"
+        },
+        {
+          "name": "2026-09-15-collection-root-and-sort-qa.md",
+          "path": "docs/internal/qa/2026-09-15-collection-root-and-sort-qa.md",
+          "sha": "acf9d530cbe0bb40753d7542b53772ed6c15b262",
+          "size": 3110,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-12-semantic-text-bias-experiment.md",
+          "path": "docs/internal/qa/2026-10-12-semantic-text-bias-experiment.md",
+          "sha": "81fe86bd4068363b994a039b21f2f966226e64a9",
+          "size": 16027,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-13-islands-ui-standardization.md",
+          "path": "docs/internal/qa/2026-10-13-islands-ui-standardization.md",
+          "sha": "32326d812f73b77b1db9d1458da2fb061fe279ba",
+          "size": 9878,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-13-semantic-sqlite-index.md",
+          "path": "docs/internal/qa/2026-10-13-semantic-sqlite-index.md",
+          "sha": "2da1f3171f945e6502bcaff7129152d0143e7ff2",
+          "size": 19064,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-13-theme-color-binding.md",
+          "path": "docs/internal/qa/2026-10-13-theme-color-binding.md",
+          "sha": "dd2cd42df2354058320ae094f4ce5d984cdf01d6",
+          "size": 3182,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-13-ui-feedback-refinement.md",
+          "path": "docs/internal/qa/2026-10-13-ui-feedback-refinement.md",
+          "sha": "9f78403c071e5b2f072fe7f6e0a9f3cbaaaa0b46",
+          "size": 2647,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-13-ui-layout-choice.md",
+          "path": "docs/internal/qa/2026-10-13-ui-layout-choice.md",
+          "sha": "e15911ce50f02d85fa3279c16336b93f69e3d583",
+          "size": 2508,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-13-ui-layout-switch-compatibility.md",
+          "path": "docs/internal/qa/2026-10-13-ui-layout-switch-compatibility.md",
+          "sha": "584e33e63569a557768104258ce9651f5e521d67",
+          "size": 3676,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-19-import-acceleration-performance.json",
+          "path": "docs/internal/qa/2026-10-19-import-acceleration-performance.json",
+          "sha": "7c851025ce03aa027e8a877b5f6d94ae88a96d36",
+          "size": 45965,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-19-import-acceleration.md",
+          "path": "docs/internal/qa/2026-10-19-import-acceleration.md",
+          "sha": "627199d8ad6a4646f69f9589dbd2a96e3fdc7c8f",
+          "size": 6424,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-20-mcp-credential-pepper-recovery-qa.md",
+          "path": "docs/internal/qa/2026-10-20-mcp-credential-pepper-recovery-qa.md",
+          "sha": "2035717de49468c3e778c56500512144fe2c6ccf",
+          "size": 1623,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-21-ai-analysis-api-profiles-qa.md",
+          "path": "docs/internal/qa/2026-10-21-ai-analysis-api-profiles-qa.md",
+          "sha": "531330439eac244cccf38e3eafede8ec88f888bc",
+          "size": 7192,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-21-memory-aware-media-concurrency-qa.md",
+          "path": "docs/internal/qa/2026-10-21-memory-aware-media-concurrency-qa.md",
+          "sha": "2e3d6329f66bb389ce6668dac26456d1a08d5922",
+          "size": 4804,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-24-confirmation-copy-cleanup-qa.md",
+          "path": "docs/internal/qa/2026-10-24-confirmation-copy-cleanup-qa.md",
+          "sha": "b65164d4c01038473d90d34b45add6b070f9333d",
+          "size": 3087,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-24-linked-file-delete-shortcut-qa.md",
+          "path": "docs/internal/qa/2026-10-24-linked-file-delete-shortcut-qa.md",
+          "sha": "f4fb74bf74c3315419d80b311629bd3c06eb3fb6",
+          "size": 1998,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-24-preview-queue-liveness-qa-report.md",
+          "path": "docs/internal/qa/2026-10-24-preview-queue-liveness-qa-report.md",
+          "sha": "6c755f7544b8c6e754cab34751cf93de84de86f1",
+          "size": 5360,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-31-issue-75-qa.md",
+          "path": "docs/internal/qa/2026-10-31-issue-75-qa.md",
+          "sha": "5a371cb598d70fa8853c0411ea28fef072249ca7",
+          "size": 5110,
+          "type": "file"
+        },
+        {
+          "name": "2026-10-31-masonry-shift-reading-order-qa.md",
+          "path": "docs/internal/qa/2026-10-31-masonry-shift-reading-order-qa.md",
+          "sha": "e77adf49bbed13013f52e2788e196f386564e90a",
+          "size": 3668,
+          "type": "file"
+        },
+        {
+          "name": "2026-11-01-large-library-performance-profile-qa.md",
+          "path": "docs/internal/qa/2026-11-01-large-library-performance-profile-qa.md",
+          "sha": "b9e49f1cd8eebacad6c4b68f7e2bb863d4b4b31a",
+          "size": 4075,
+          "type": "file"
+        },
+        {
+          "name": "automation-foundation-test-guide.md",
+          "path": "docs/internal/qa/automation-foundation-test-guide.md",
+          "sha": "d8de3efe20fff5fd5bf4da710dd2b0b91639aebf",
+          "size": 16276,
+          "type": "file"
+        },
+        {
+          "name": "evidence",
+          "path": "docs/internal/qa/evidence",
+          "sha": "3eb900a6c035681e7eb8098f7a6ad90668833853",
+          "size": 0,
+          "type": "dir"
+        },
+        {
+          "name": "human-acceptance-checklist.md",
+          "path": "docs/internal/qa/human-acceptance-checklist.md",
+          "sha": "5630cf15062d85d0c5286e253505af38cb9c2b5c",
+          "size": 855502,
+          "type": "file"
+        }
+      ]
+    }
+  ]
+}

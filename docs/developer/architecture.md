@@ -15,24 +15,27 @@ Library Worker (UtilityProcess; filesystem + SQLite owner)
 
 ```mermaid
 flowchart TB
-    R[Renderer<br/>Sandboxed React UI] -->|Typed commands/events| P[Preload<br/>Minimal contextBridge]
-    P -->|Validated IPC| M[Main<br/>Window, dialogs, lifecycle]
-    M -->|Worker protocol| W[Library Worker<br/>SQLite + filesystem owner]
-    W --> DB[(library.db)]
-    W --> AS[Assets/]
-    W --> AR[.serpent/artifacts/]
-    M -.-> O[Offscreen window<br/>3D thumbnail rendering]
-    O --> AR
+    R["Renderer<br/>Sandboxed React UI"] -->|"Typed commands/events"| P["Preload<br/>Minimal contextBridge"]
+    P -->|"Validated IPC"| M["Main<br/>Window, dialogs, lifecycle"]
+    M -->|"Worker protocol"| W["Library Worker<br/>Catalog + library file mutations"]
+    W --> DB[("library.db")]
+    W --> AS["Assets / linked sources"]
+    W --> AR[".serpent/artifacts/"]
+    W --> SI[("semantic/index.sqlite")]
+    M -.->|"Render request"| O["Hidden renderers<br/>3D / HTML / fonts"]
+    O -->|"Result via Main; Worker persists"| W
+    M -.->|"Authorized media reads"| AS
+    M -.->|"Authorized reads / preview cache"| AR
 ```
 
 不变量：
 
 - Renderer 永远不接收任意路径读写或 SQL 能力
 - Main 不打开资源库数据库、不扫描资产目录
-- Library Worker 是数据库与文件操作的唯一所有者
+- Library Worker 负责资源库目录数据库及领域文件变更；Main 执行授权后的媒体读取、预览缓存、应用设置和插件包 I/O
 - 所有跨进程 I/O 经 Zod 运行时校验
 
-另有一个隐藏 offscreen 窗口（Main 持有），用于 3D 模型缩略图离屏渲染。
+Main 持有用于 3D 模型、HTML 和字体的隐藏渲染页面；渲染结果返回 Worker 持久化。PDF 缩略图走 Worker 路径。
 
 ## 技术栈
 
@@ -48,7 +51,9 @@ src/
 ├── worker/        # Library Worker：SQLite、文件操作、导入/搜索/缩略图管线
 ├── scripting/     # 脚本运行时与插件 Host
 ├── shared/        # 跨进程共享：协议、类型、校验 schema
-└── automation/    # 自动化 Gateway / MCP
+├── plugins/       # 插件 manifest、SDK 与贡献契约
+├── mcp/           # MCP 工具目录与调用适配
+└── automation/    # 共享自动化 Registry / Gateway
 scripts/           # 构建、媒体、打包、发布脚本
 resources/         # 运行时资源（媒体二进制、ufbx WASM、图标）
 tests/
@@ -60,15 +65,15 @@ docs/              # 文档（本目录、ADR、实施规格、QA）
 
 ## 数据层
 
-- 每个资源库一个 SQLite 数据库（`.serpent/library.db`），schema 版本化迁移（`MIGRATIONS`，当前 v33）
+- 资源库目录元数据存于 `.serpent/library.db`。支持的 schema 版本由 `src/worker/library-service.ts` 中 `SUPPORTED_SCHEMA_VERSION` 取 `MIGRATIONS` 最后一项；派生语义索引另存于 `.serpent/semantic/index.sqlite`，独立版本见 `src/worker/semantic-index-store.ts` 的 `SEMANTIC_SCHEMA_VERSION`
 - 资产文件存 `Assets/`，派生数据（缩略图/代理）存 `.serpent/artifacts/`
-- **数据兼容纪律**：迁移只加不改（禁删改现有表/列/索引/触发器）；新代码必须能打开旧库（宽容读取：缺列降级默认值，不崩溃）；Desktop 不提供只读资源库，损坏走备份再 Assets 抢救。资源库可用性是项目最重要底线，相关改动必须完整跑完 `npm run test:library-availability`。见 [ADR-0028](https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/adr/0028-schema-compatibility-read-only-degrade.md) 与 [0031](https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0031-schema-compatibility-guarantee.md)
+- **数据兼容纪律**：迁移只加不改（禁删改现有表/列/索引/触发器）；新代码必须能打开旧库（宽容读取：缺列降级默认值，不崩溃）；Desktop 不提供只读资源库，损坏走备份再 Assets 抢救。资源库可用性是项目最重要底线，相关改动必须完整跑完 `npm run test:library-availability`。见 [ADR-0028](../internal/adr/0028-schema-compatibility-read-only-degrade.md) 与 [0031](../internal/implementation/0031-schema-compatibility-guarantee.md)
 
 ## 媒体管线
 
-- 缩略图/视频代理/音频代理：Worker 排队 → Main/子进程处理（FFmpeg/OIIO）→ 写回 artifacts
+- 图像/音频/视频派生物：Worker 排队 → Worker 解码器或媒体子进程处理（FFmpeg/OIIO）→ Worker 写回 artifacts
 - FBX：ufbx WASM 转换 → GLB（缓存）→ GLTFLoader 渲染
-- 3D 缩略图：Worker 入队 → Main offscreen 窗口渲染 → PNG 写回
+- 3D / HTML / 字体缩略图：Worker 入队 → Main 隐藏页面渲染 → 结果返回 Worker → 写回 artifacts
 
 ## 扩展体系
 
@@ -79,3 +84,5 @@ docs/              # 文档（本目录、ADR、实施规格、QA）
 - 进程隔离与最小权限：Renderer 无 Node、Main 不碰数据库
 - 数据兼容为发布级门禁（Serpent-033e / ADR-0028 / 0031）
 - 平台原生构建（无交叉打包），发布流水线带全链路门禁
+
+按具体需求查源码入口、关联影响和测试，见[需求代码导航](architecture-code-map.zh-CN.md)。

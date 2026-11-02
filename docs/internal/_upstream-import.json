@@ -1,0 +1,619 @@
+{
+  "repository": "dolag233/Serpent",
+  "branch": "dolag_dev",
+  "commit": "2cd268085915a400c9d696313f8b2bc9e35a76ec",
+  "saved_at": "2026-11-02T10:34:33.174550+00:00",
+  "license": {
+    "path": "docs/internal/_upstream-license.md",
+    "git_blob_sha": "01ccda70256583bf1e12279f9715b3dafa92a5eb",
+    "sha256": "1b68ebc9c056fc2599f31e2da6a453d9dfd9487a7e970a1f7f8f54c63f0e4807"
+  },
+  "original_reference_count": 38,
+  "unique_targets": 23,
+  "unavailable_targets": [],
+  "files": [
+    {
+      "path": "docs/internal/development-process.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/development-process.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/development-process.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/development-process.md",
+      "git_blob_sha": "3b9c6b8719883e3145600ac93a6006cc470c0e9d",
+      "source_sha256": "5b41bc457b1ceae2f14df7f9a62e551d95c8333a2ba21455e194da08536a84ca",
+      "local_sha256": "221ebcc9166eeee1a200880b3eda15d0968b57a1f5f1d48f73427f22e00a2bb8",
+      "source_bytes": 15001,
+      "references": [
+        "docs/developer/README.en.md",
+        "docs/developer/README.md"
+      ]
+    },
+    {
+      "path": "docs/internal/domain-model.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/domain-model.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/domain-model.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/domain-model.md",
+      "git_blob_sha": "91c40a374f63b5a0a047e96dc1b1ad0afe1d3dbb",
+      "source_sha256": "2fc1656f464deaca5389a0155b63af94ad0b7f1ea4b91d6070ad2ad691efa7b7",
+      "local_sha256": "c68581da4f8743c12f46a4dab56fee7d64342851dd41adc65dfa91932e63aef2",
+      "source_bytes": 21196,
+      "references": [
+        "docs/developer/README.en.md",
+        "docs/developer/README.md"
+      ]
+    },
+    {
+      "path": "docs/internal/adr/0028-schema-compatibility-read-only-degrade.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/adr/0028-schema-compatibility-read-only-degrade.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/adr/0028-schema-compatibility-read-only-degrade.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/adr/0028-schema-compatibility-read-only-degrade.md",
+      "git_blob_sha": "91e29a09d73fc69554fddb811bf7b5679ec19e88",
+      "source_sha256": "9f7fcd7e09583f2e1eb4c3c6a525873310e808863c3aa26cb0c1ce21ce4cf2a2",
+      "local_sha256": "a36a65aa0c08a6435c3a94aea1b053e22c2477af26119a397f947da0e00128d4",
+      "source_bytes": 4996,
+      "references": [
+        "docs/developer/architecture.en.md",
+        "docs/developer/architecture.md"
+      ]
+    },
+    {
+      "path": "docs/internal/implementation/0031-schema-compatibility-guarantee.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0031-schema-compatibility-guarantee.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0031-schema-compatibility-guarantee.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0031-schema-compatibility-guarantee.md",
+      "git_blob_sha": "b23dda658ca588313d9aa2230826fd95f9c4eedd",
+      "source_sha256": "cfb4bfd00e961e1bfedd10a30b4e4509c3697c52ac79c290527808bfea9d20ce",
+      "local_sha256": "d7523b7d093be6ed39f533d4d276993dba5b279115443faf61c9386b54d08540",
+      "source_bytes": 7083,
+      "references": [
+        "docs/developer/architecture.en.md",
+        "docs/developer/architecture.md"
+      ]
+    },
+    {
+      "path": "docs/internal/development/2026-08-08-windows-packaging-and-squirrel-installer-development-log.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/development/2026-08-08-windows-packaging-and-squirrel-installer-development-log.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/development/2026-08-08-windows-packaging-and-squirrel-installer-development-log.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/development/2026-08-08-windows-packaging-and-squirrel-installer-development-log.md",
+      "git_blob_sha": "63e271985cbfa17cdc3b019a5ed02fff3e9e414e",
+      "source_sha256": "33ba5030eccb1b6e36a30b5da26dce060ef83b2ef6678e45cdc694d807406424",
+      "local_sha256": "52fdb1d70f671c1bc3e6ed60343a9f8e3ba8ebe787ac13d79fc59c4535b58f9a",
+      "source_bytes": 10433,
+      "references": [
+        "docs/developer/build-packaging.en.md",
+        "docs/developer/build-packaging.md"
+      ]
+    },
+    {
+      "path": "docs/internal/development/local-cicd.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/development/local-cicd.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/development/local-cicd.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/development/local-cicd.md",
+      "git_blob_sha": "7bb9632432af20d56ffeaf83775ef85abdf854d3",
+      "source_sha256": "ba9c591e53d76accdbb83747991a084b03ff3d793963cc226cbbecb8dd6c3c08",
+      "local_sha256": "05134848bf83edc9a24fa7303514db00fbe0793ac689083332daa6d8996ceabb",
+      "source_bytes": 4162,
+      "references": [
+        "docs/developer/build-packaging.en.md",
+        "docs/developer/build-packaging.md"
+      ]
+    },
+    {
+      "path": "docs/internal/skills/serpent-automation/automation-api.d.ts",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/skills/serpent-automation/automation-api.d.ts",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/skills/serpent-automation/automation-api.d.ts",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/skills/serpent-automation/automation-api.d.ts",
+      "git_blob_sha": "4dff4e9f9901d4e0d01a294db32fbd694f265a95",
+      "source_sha256": "f271838a60972d96fb6acff0db1391a0e10164ee09a409e067a31b85636891bb",
+      "local_sha256": "f271838a60972d96fb6acff0db1391a0e10164ee09a409e067a31b85636891bb",
+      "source_bytes": 12609,
+      "references": [
+        "docs/manual/README.md",
+        "docs/manual/scripts/development.md"
+      ]
+    },
+    {
+      "path": "docs/internal/skills/serpent-automation/SKILL.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/skills/serpent-automation/SKILL.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/skills/serpent-automation/SKILL.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/skills/serpent-automation/SKILL.md",
+      "git_blob_sha": "5ec21fb036861f8975f0aaba1b5419cb897a3298",
+      "source_sha256": "f5e20f531220db0177ba1ceb7cd5ae2bc3a32ab6fbadd82a919fb31ccb95ad22",
+      "local_sha256": "c40e2458fc1b50dcd6506388f6b58dcdd67aa11ed882e767ec114b12f2852dea",
+      "source_bytes": 5534,
+      "references": [
+        "docs/manual/README.md"
+      ]
+    },
+    {
+      "path": "docs/internal/implementation/0024-script-plugin-platform.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0024-script-plugin-platform.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0024-script-plugin-platform.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0024-script-plugin-platform.md",
+      "git_blob_sha": "354910a8d8b4fa338e62fb0dbbbbe59f7727dd0c",
+      "source_sha256": "11d73327e527ab9366bcb6a82ef77abbf85a6bf1fe472cc0a5d978e64fd235cf",
+      "local_sha256": "19430236fbfa2db58061de5af58b83567de95f56977beb198c666465b8cfc633",
+      "source_bytes": 31129,
+      "references": [
+        "docs/manual/README.md",
+        "docs/manual/plugins/distribution-and-updates.md",
+        "docs/product-brief.md"
+      ]
+    },
+    {
+      "path": "docs/internal/implementation/0023-automation-scripting-mcp-framework.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0023-automation-scripting-mcp-framework.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0023-automation-scripting-mcp-framework.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0023-automation-scripting-mcp-framework.md",
+      "git_blob_sha": "ac5315df9c0c3dd37e723864b1a72537e03cb377",
+      "source_sha256": "253bb83006be26dcc6bcf3a70cf23bf093a6b01e2d97e0d3b81a75d2f286da31",
+      "local_sha256": "2737d4d77ee02a3cc61c339734153030d5e06c67c34065efc86943c4200a3fa3",
+      "source_bytes": 25785,
+      "references": [
+        "docs/manual/README.md"
+      ]
+    },
+    {
+      "path": "docs/internal/implementation/0029-ui-standardization-execution-and-plugin-ui-contract.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0029-ui-standardization-execution-and-plugin-ui-contract.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0029-ui-standardization-execution-and-plugin-ui-contract.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0029-ui-standardization-execution-and-plugin-ui-contract.md",
+      "git_blob_sha": "43c868afeab714dcb226d340e1acb7ab0b031682",
+      "source_sha256": "a04c39eb8a15e887b6d3873353ec7525e5278f8f51d6d85f746d54931beacb9b",
+      "local_sha256": "c061c38479f54f50e321762b08a45c0446d29fd678b24ef30cf15406dad7d55d",
+      "source_bytes": 28787,
+      "references": [
+        "docs/manual/plugins/api-reference.md",
+        "docs/manual/plugins/development.md"
+      ]
+    },
+    {
+      "path": "docs/internal/adr/0026-plugin-runtime-installation-and-trust.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/adr/0026-plugin-runtime-installation-and-trust.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/adr/0026-plugin-runtime-installation-and-trust.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/adr/0026-plugin-runtime-installation-and-trust.md",
+      "git_blob_sha": "be5850b90080ea65341e7d619320a125768e47eb",
+      "source_sha256": "83be1b52a233e46f00355a7e8ade5f6da6748560ea255bbb75836c89f93c9833",
+      "local_sha256": "d73e86a61a52c756e8762d23bc37566353e1795e5a209238219306acfe66f35b",
+      "source_bytes": 3483,
+      "references": [
+        "docs/manual/plugins/distribution-and-updates.md"
+      ]
+    },
+    {
+      "path": "docs/internal/implementation/0013-asset-viewer-navigation-and-gestures-vertical-slice.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0013-asset-viewer-navigation-and-gestures-vertical-slice.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0013-asset-viewer-navigation-and-gestures-vertical-slice.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0013-asset-viewer-navigation-and-gestures-vertical-slice.md",
+      "git_blob_sha": "f8d7ab849771a70670234d2c43f9e0d3935efec5",
+      "source_sha256": "36228d7a8d8d377b8f196128dac466955afa18d4ac77cc3c9a81aa5ccdaea821",
+      "local_sha256": "ad870c7e69cf14c5ea50fe800076aada5d22d2de53ab1eca6a50cb07248e137a",
+      "source_bytes": 7298,
+      "references": [
+        "docs/product-brief.md"
+      ]
+    },
+    {
+      "path": "docs/internal/ui/0006-progressive-loading-ux-principles.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/ui/0006-progressive-loading-ux-principles.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/ui/0006-progressive-loading-ux-principles.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/ui/0006-progressive-loading-ux-principles.md",
+      "git_blob_sha": "85c7db440e4fa0d0a2a9064cac5ec2e461641c6e",
+      "source_sha256": "66221558668f4758bfed427322c71ec51170e5b20955dcc724ce2597b20c867d",
+      "local_sha256": "a38d72336c0c623dc54bad4e6cdf6ad73a5a56fd9fc520016502a14902cb8493",
+      "source_bytes": 3632,
+      "references": [
+        "docs/product-brief.md"
+      ]
+    },
+    {
+      "path": "docs/internal/research/asset-versioning-and-sync.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/research/asset-versioning-and-sync.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/research/asset-versioning-and-sync.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/research/asset-versioning-and-sync.md",
+      "git_blob_sha": "8fccbd0429da13083d54cc0b93b8592f5824f664",
+      "source_sha256": "ba0e6c0b5f170b7eb57c4fac59fab30f6412aad62f0aae9ce470192dd2927e0b",
+      "local_sha256": "65b45bb3ac6dd23b6db25f8380124ee8ea9a80d92136831fc590069b0003ff09",
+      "source_bytes": 20281,
+      "references": [
+        "docs/product-brief.md"
+      ]
+    },
+    {
+      "path": "docs/internal/research/electron-background-worker-architecture.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/research/electron-background-worker-architecture.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/research/electron-background-worker-architecture.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/research/electron-background-worker-architecture.md",
+      "git_blob_sha": "9e3d088dbcdc2cb20c6dc2308a6587fc6acb97af",
+      "source_sha256": "179979b97423634111bb76e0ef79e0ab03113a9d3f60d0c6375926e4fdd73a8a",
+      "local_sha256": "649d2e39e710aa239963afaa372e27747648546e079071ba6ef638124af66410",
+      "source_bytes": 20748,
+      "references": [
+        "docs/product-brief.md"
+      ]
+    },
+    {
+      "path": "docs/internal/research/database-and-fulltext-search.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/research/database-and-fulltext-search.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/research/database-and-fulltext-search.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/research/database-and-fulltext-search.md",
+      "git_blob_sha": "4f7c0c9a443a0fb7ae9c05ff3bba70a14d8f6cd9",
+      "source_sha256": "9534e089beb10deb908815b1cd42f60c663d9af31a33c434c4b567492e6fe2e9",
+      "local_sha256": "1d8dc893e1095b6d3b41e202cb951421178261e7fa2c67872c76524f3a9521cd",
+      "source_bytes": 7553,
+      "references": [
+        "docs/product-brief.md"
+      ]
+    },
+    {
+      "path": "docs/internal/research/media-preview-stack.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/research/media-preview-stack.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/research/media-preview-stack.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/research/media-preview-stack.md",
+      "git_blob_sha": "961d0f2465fbd8930fc4e7d3b1abc6d151ace6f2",
+      "source_sha256": "1287e06a3999e5656e418e4bffe6faf066d05e5f1bb9eac8f96620a215717e9f",
+      "local_sha256": "641a389cf9a8b97988380c9e47842b0445bff71d3060546514711dd6830948e6",
+      "source_bytes": 19549,
+      "references": [
+        "docs/product-brief.md"
+      ]
+    },
+    {
+      "path": "docs/internal/README.md",
+      "original_url": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/README.md",
+      "pinned_source_url": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/README.md",
+      "raw_url": "https://raw.githubusercontent.com/dolag233/Serpent/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/README.md",
+      "git_blob_sha": "28fa608c7888d59165cde3ce05db69e379506323",
+      "source_sha256": "de8b45d07fe2139d4535ef00ab07bb3c679b085e4b43417ef6755ee3c63863b4",
+      "local_sha256": "4c634f9b8c52f91749ddbea09ea2405085c3fc34039b5c755f43166aaaf7f4c6",
+      "source_bytes": 797,
+      "references": []
+    }
+  ],
+  "directories": [
+    {
+      "path": "docs/internal",
+      "original_url": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal",
+      "pinned_api_url": "https://api.github.com/repos/dolag233/Serpent/contents/docs/internal?ref=2cd268085915a400c9d696313f8b2bc9e35a76ec",
+      "index_path": "docs/internal/_index.md",
+      "entry_count": 18,
+      "downloaded_source_files": 19,
+      "references": [
+        "docs/README.en.md",
+        "docs/README.md"
+      ]
+    },
+    {
+      "path": "docs/internal/adr",
+      "original_url": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/adr",
+      "pinned_api_url": "https://api.github.com/repos/dolag233/Serpent/contents/docs/internal/adr?ref=2cd268085915a400c9d696313f8b2bc9e35a76ec",
+      "index_path": "docs/internal/adr/_index.md",
+      "entry_count": 35,
+      "downloaded_source_files": 2,
+      "references": [
+        "docs/developer/README.en.md",
+        "docs/developer/README.md",
+        "docs/manual/README.md"
+      ]
+    },
+    {
+      "path": "docs/internal/implementation",
+      "original_url": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/implementation",
+      "pinned_api_url": "https://api.github.com/repos/dolag233/Serpent/contents/docs/internal/implementation?ref=2cd268085915a400c9d696313f8b2bc9e35a76ec",
+      "index_path": "docs/internal/implementation/_index.md",
+      "entry_count": 54,
+      "downloaded_source_files": 5,
+      "references": [
+        "docs/developer/README.en.md",
+        "docs/developer/README.md",
+        "docs/manual/README.md"
+      ]
+    },
+    {
+      "path": "docs/internal/development",
+      "original_url": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/development",
+      "pinned_api_url": "https://api.github.com/repos/dolag233/Serpent/contents/docs/internal/development?ref=2cd268085915a400c9d696313f8b2bc9e35a76ec",
+      "index_path": "docs/internal/development/_index.md",
+      "entry_count": 423,
+      "downloaded_source_files": 2,
+      "references": [
+        "docs/manual/README.md"
+      ]
+    },
+    {
+      "path": "docs/internal/qa",
+      "original_url": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/qa",
+      "pinned_api_url": "https://api.github.com/repos/dolag233/Serpent/contents/docs/internal/qa?ref=2cd268085915a400c9d696313f8b2bc9e35a76ec",
+      "index_path": "docs/internal/qa/_index.md",
+      "entry_count": 64,
+      "downloaded_source_files": 0,
+      "references": [
+        "docs/manual/README.md"
+      ]
+    }
+  ],
+  "primary_link_changes": [
+    {
+      "file": "docs/developer/README.en.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/development-process.md",
+      "to": "../internal/development-process.md"
+    },
+    {
+      "file": "docs/developer/README.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/development-process.md",
+      "to": "../internal/development-process.md"
+    },
+    {
+      "file": "docs/README.en.md",
+      "from": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal",
+      "to": "internal/_index.md"
+    },
+    {
+      "file": "docs/README.md",
+      "from": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal",
+      "to": "internal/_index.md"
+    },
+    {
+      "file": "docs/developer/README.en.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/domain-model.md",
+      "to": "../internal/domain-model.md"
+    },
+    {
+      "file": "docs/developer/README.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/domain-model.md",
+      "to": "../internal/domain-model.md"
+    },
+    {
+      "file": "docs/developer/README.en.md",
+      "from": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/adr",
+      "to": "../internal/adr/_index.md"
+    },
+    {
+      "file": "docs/developer/README.md",
+      "from": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/adr",
+      "to": "../internal/adr/_index.md"
+    },
+    {
+      "file": "docs/manual/README.md",
+      "from": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/adr",
+      "to": "../internal/adr/_index.md"
+    },
+    {
+      "file": "docs/developer/README.en.md",
+      "from": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/implementation",
+      "to": "../internal/implementation/_index.md"
+    },
+    {
+      "file": "docs/developer/README.md",
+      "from": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/implementation",
+      "to": "../internal/implementation/_index.md"
+    },
+    {
+      "file": "docs/manual/README.md",
+      "from": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/implementation",
+      "to": "../internal/implementation/_index.md"
+    },
+    {
+      "file": "docs/developer/architecture.en.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/adr/0028-schema-compatibility-read-only-degrade.md",
+      "to": "../internal/adr/0028-schema-compatibility-read-only-degrade.md"
+    },
+    {
+      "file": "docs/developer/architecture.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/adr/0028-schema-compatibility-read-only-degrade.md",
+      "to": "../internal/adr/0028-schema-compatibility-read-only-degrade.md"
+    },
+    {
+      "file": "docs/developer/architecture.en.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0031-schema-compatibility-guarantee.md",
+      "to": "../internal/implementation/0031-schema-compatibility-guarantee.md"
+    },
+    {
+      "file": "docs/developer/architecture.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0031-schema-compatibility-guarantee.md",
+      "to": "../internal/implementation/0031-schema-compatibility-guarantee.md"
+    },
+    {
+      "file": "docs/developer/build-packaging.en.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/development/2026-08-08-windows-packaging-and-squirrel-installer-development-log.md",
+      "to": "../internal/development/2026-08-08-windows-packaging-and-squirrel-installer-development-log.md"
+    },
+    {
+      "file": "docs/developer/build-packaging.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/development/2026-08-08-windows-packaging-and-squirrel-installer-development-log.md",
+      "to": "../internal/development/2026-08-08-windows-packaging-and-squirrel-installer-development-log.md"
+    },
+    {
+      "file": "docs/developer/build-packaging.en.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/development/local-cicd.md",
+      "to": "../internal/development/local-cicd.md"
+    },
+    {
+      "file": "docs/developer/build-packaging.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/development/local-cicd.md",
+      "to": "../internal/development/local-cicd.md"
+    },
+    {
+      "file": "docs/manual/README.md",
+      "from": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/development",
+      "to": "../internal/development/_index.md"
+    },
+    {
+      "file": "docs/manual/README.md",
+      "from": "https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/qa",
+      "to": "../internal/qa/_index.md"
+    },
+    {
+      "file": "docs/manual/README.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/skills/serpent-automation/automation-api.d.ts",
+      "to": "../internal/skills/serpent-automation/automation-api.d.ts"
+    },
+    {
+      "file": "docs/manual/scripts/development.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/skills/serpent-automation/automation-api.d.ts",
+      "to": "../../internal/skills/serpent-automation/automation-api.d.ts"
+    },
+    {
+      "file": "docs/manual/README.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/skills/serpent-automation/SKILL.md",
+      "to": "../internal/skills/serpent-automation/SKILL.md"
+    },
+    {
+      "file": "docs/manual/README.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0024-script-plugin-platform.md",
+      "to": "../internal/implementation/0024-script-plugin-platform.md"
+    },
+    {
+      "file": "docs/manual/plugins/distribution-and-updates.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0024-script-plugin-platform.md",
+      "to": "../../internal/implementation/0024-script-plugin-platform.md"
+    },
+    {
+      "file": "docs/product-brief.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0024-script-plugin-platform.md",
+      "to": "internal/implementation/0024-script-plugin-platform.md"
+    },
+    {
+      "file": "docs/manual/README.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0023-automation-scripting-mcp-framework.md",
+      "to": "../internal/implementation/0023-automation-scripting-mcp-framework.md"
+    },
+    {
+      "file": "docs/manual/plugins/api-reference.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0029-ui-standardization-execution-and-plugin-ui-contract.md",
+      "to": "../../internal/implementation/0029-ui-standardization-execution-and-plugin-ui-contract.md"
+    },
+    {
+      "file": "docs/manual/plugins/development.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0029-ui-standardization-execution-and-plugin-ui-contract.md",
+      "to": "../../internal/implementation/0029-ui-standardization-execution-and-plugin-ui-contract.md"
+    },
+    {
+      "file": "docs/manual/plugins/distribution-and-updates.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/adr/0026-plugin-runtime-installation-and-trust.md",
+      "to": "../../internal/adr/0026-plugin-runtime-installation-and-trust.md"
+    },
+    {
+      "file": "docs/product-brief.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/implementation/0013-asset-viewer-navigation-and-gestures-vertical-slice.md",
+      "to": "internal/implementation/0013-asset-viewer-navigation-and-gestures-vertical-slice.md"
+    },
+    {
+      "file": "docs/product-brief.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/ui/0006-progressive-loading-ux-principles.md",
+      "to": "internal/ui/0006-progressive-loading-ux-principles.md"
+    },
+    {
+      "file": "docs/product-brief.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/research/asset-versioning-and-sync.md",
+      "to": "internal/research/asset-versioning-and-sync.md"
+    },
+    {
+      "file": "docs/product-brief.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/research/electron-background-worker-architecture.md",
+      "to": "internal/research/electron-background-worker-architecture.md"
+    },
+    {
+      "file": "docs/product-brief.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/research/database-and-fulltext-search.md",
+      "to": "internal/research/database-and-fulltext-search.md"
+    },
+    {
+      "file": "docs/product-brief.md",
+      "from": "https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/research/media-preview-stack.md",
+      "to": "internal/research/media-preview-stack.md"
+    }
+  ],
+  "imported_link_changes": [
+    {
+      "file": "docs/internal/domain-model.md",
+      "from": "implementation/2026-09-16-folder-collection-appearance.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/2026-09-16-folder-collection-appearance.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": true
+    },
+    {
+      "file": "docs/internal/domain-model.md",
+      "from": "adr/0034-worker-owned-semantic-index.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/adr/0034-worker-owned-semantic-index.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": true
+    },
+    {
+      "file": "docs/internal/implementation/0024-script-plugin-platform.md",
+      "from": "../adr/0025-automation-core-script-runtime-and-mcp.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/adr/0025-automation-core-script-runtime-and-mcp.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": true
+    },
+    {
+      "file": "docs/internal/implementation/0024-script-plugin-platform.md",
+      "from": "../adr/0027-plugin-instance-lifecycle-and-interaction-context.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/adr/0027-plugin-instance-lifecycle-and-interaction-context.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": true
+    },
+    {
+      "file": "docs/internal/implementation/0024-script-plugin-platform.md",
+      "from": "0028-ui-standardization-and-plugin-ui.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0028-ui-standardization-and-plugin-ui.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": true
+    },
+    {
+      "file": "docs/internal/implementation/0024-script-plugin-platform.md",
+      "from": "0028-ui-standardization-and-plugin-ui.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/implementation/0028-ui-standardization-and-plugin-ui.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": true
+    },
+    {
+      "file": "docs/internal/implementation/0023-automation-scripting-mcp-framework.md",
+      "from": "../adr/0029-embedded-loopback-http-mcp-server.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/adr/0029-embedded-loopback-http-mcp-server.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": true
+    },
+    {
+      "file": "docs/internal/implementation/0023-automation-scripting-mcp-framework.md",
+      "from": "../superpowers/specs/2026-08-10-embedded-http-mcp-server-design.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/superpowers/specs/2026-08-10-embedded-http-mcp-server-design.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": false
+    },
+    {
+      "file": "docs/internal/implementation/0023-automation-scripting-mcp-framework.md",
+      "from": "../adr/0025-automation-core-script-runtime-and-mcp.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/adr/0025-automation-core-script-runtime-and-mcp.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": true
+    },
+    {
+      "file": "docs/internal/implementation/0023-automation-scripting-mcp-framework.md",
+      "from": "../research/agent-interface-choice-after-agents-2026-07-28.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/research/agent-interface-choice-after-agents-2026-07-28.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": false
+    },
+    {
+      "file": "docs/internal/implementation/0029-ui-standardization-execution-and-plugin-ui-contract.md",
+      "from": "../research/2026-08-04-obsidian-ui-plugin-research.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/research/2026-08-04-obsidian-ui-plugin-research.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": false
+    },
+    {
+      "file": "docs/internal/adr/0026-plugin-runtime-installation-and-trust.md",
+      "from": "0003-plugin-permission-model.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/adr/0003-plugin-permission-model.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": true
+    },
+    {
+      "file": "docs/internal/adr/0026-plugin-runtime-installation-and-trust.md",
+      "from": "0025-automation-core-script-runtime-and-mcp.md",
+      "to": "https://github.com/dolag233/Serpent/blob/2cd268085915a400c9d696313f8b2bc9e35a76ec/docs/internal/adr/0025-automation-core-script-runtime-and-mcp.md",
+      "reason": "not-downloaded-or-unverified-anchor",
+      "remote_target_listed": true
+    }
+  ],
+  "scope": "Directly referenced documents and directory metadata only; no recursive body download."
+}

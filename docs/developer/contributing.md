@@ -116,6 +116,6 @@ Serpent 是一款开源（MIT 许可证）、跨平台的数字资产管理软�
 
 ## 5. 贡献致谢
 
-所有被合并进项目的贡献，维护者均会在根目录的 [`CONTRIBUTORS.md`](https://github.com/dolag233/Serpent/blob/main/CONTRIBUTORS.md) 中记录致谢并说明贡献内容。
+所有被合并进项目的贡献，维护者均会在根目录的 [`CONTRIBUTORS.md`](../../CONTRIBUTORS.md) 中记录致谢并说明贡献内容。
 
 感谢你为 Serpent 社区做出的每一份贡献！

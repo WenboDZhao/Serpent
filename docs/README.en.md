@@ -15,6 +15,12 @@ Documentation is organized into two parts: **Public documentation** (distributed
 
 ## Internal Development Records (Not Distributed)
 
-Development process documents live in [`docs/internal/`](https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal) on `dolag_dev` (not published to the site): architectural decisions (ADR), implementation specifications, development logs, QA reports, code reviews, technical research, development workflows, and project status.
+Development process documents live in [`docs/internal/`](internal/_index.md) on `dolag_dev` (not published to the site): architectural decisions (ADR), implementation specifications, development logs, QA reports, code reviews, technical research, development workflows, and project status.
 
 > AI agent instructions are in `AGENTS.md` and `CLAUDE.md`.
+
+## Reading locally
+
+Documentation navigation uses relative paths. The references to internal records now open a local snapshot downloaded from a fixed `dolag_dev` commit; see [snapshot sources, license and scope](internal/_upstream-import.md). Secondary references outside this download, Issues, releases, forks and external repositories retain online destinations.
+
+In Obsidian, open the repository root as the vault to navigate to Markdown files outside `docs/`, such as `CONTRIBUTORS.md`. A vault rooted at `docs/` covers documentation inside that directory; source and test paths in the [code navigation map (Chinese)](developer/architecture-code-map.zh-CN.md) are relative to the repository root and can be inspected in your editor.

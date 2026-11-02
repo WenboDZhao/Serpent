@@ -11,18 +11,19 @@ For developers working on Serpent itself: architecture, building from source, te
 - [Setup](setup.md) — dependencies, first build, development environment
 - [Build & packaging](build-packaging.md) — package / make / release pipeline / signing
 - [Architecture](architecture.md) — process model, directory layout, key design
+- [Code navigation (Chinese)](architecture-code-map.zh-CN.md) — requirement-specific source entry points, related effects and tests
 - [Testing](testing.md) — test layers and how to run them
 - [Adding media format support](media-format-support.md) — registry, import, preview, filters, protocols, and acceptance
 - [Branches and workflow](workflow.md) — branching strategy, open source contribution process, and maintainer workflow discipline
 - [Contributing guide](contributing.en.md) — open source collaboration, Pull Requests, and code gate requirements
-- [Contributors](https://github.com/dolag233/Serpent/blob/main/CONTRIBUTORS.md) — contributions accepted and merged into the project
+- [Contributors](../../CONTRIBUTORS.md) — contributions accepted and merged into the project
 
 Other software docs (internal records live on `dolag_dev` and are not published to the site):
 
-- [Development process](https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/development-process.md) — slice workflow and quality gates
-- [Domain model](https://github.com/dolag233/Serpent/blob/dolag_dev/docs/internal/domain-model.md) / [Glossary](../glossary.md)
-- [Architecture decision records](https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/adr) — ADR-0000 onward
-- [Implementation specs](https://github.com/dolag233/Serpent/tree/dolag_dev/docs/internal/implementation) — slice specs
+- [Development process](../internal/development-process.md) — slice workflow and quality gates
+- [Domain model](../internal/domain-model.md) / [Glossary](../glossary.md)
+- [Architecture decision records](../internal/adr/_index.md) — ADR-0000 onward
+- [Implementation specs](../internal/implementation/_index.md) — slice specs
 
 ## Part 2: Extension development
 

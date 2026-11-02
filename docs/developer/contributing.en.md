@@ -116,6 +116,6 @@ When writing code, keep Serpent's core architectural constraints in mind:
 
 ## 5. Acknowledgments
 
-All merged contributions are credited in [`CONTRIBUTORS.md`](https://github.com/dolag233/Serpent/blob/main/CONTRIBUTORS.md) in the root directory.
+All merged contributions are credited in [`CONTRIBUTORS.md`](../../CONTRIBUTORS.md) in the root directory.
 
 Thank you for contributing to Serpent!

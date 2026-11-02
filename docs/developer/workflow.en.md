@@ -98,7 +98,7 @@ For detailed step-by-step instructions, quality gate requirements, and environme
 3. This PR changes one feature, rather than submitting several feature changes at once. A corresponding valid issue was opened before this PR;
 4. Clearly state the purpose of the change, affected scope, and local test evidence in the PR description;
 5. Maintainers review the change and merge it into `main`;
-6. Merged contributions are acknowledged in [`CONTRIBUTORS.md`](https://github.com/dolag233/Serpent/blob/main/CONTRIBUTORS.md) in the root directory.
+6. Merged contributions are acknowledged in [`CONTRIBUTORS.md`](../../CONTRIBUTORS.md) in the root directory.
 
 ---
 

@@ -98,7 +98,7 @@ git commit -m "feat(canvas): 增加卡片悬停进度跳转"
 3. 当前 PR 只修改一个功能，而不是多个功能修改一次性提交。在发起 PR 之前已经提出相应的有效 Issue；
 4. 在 PR 描述中清晰说明修改目的、涉及范围、以及本地验证所运行的测试命令和结果；
 5. 维护者审查后把改动合并入 `main`；
-6. 合并入项目的贡献会同步收录至根目录的 [`CONTRIBUTORS.md`](https://github.com/dolag233/Serpent/blob/main/CONTRIBUTORS.md) 予以致谢。
+6. 合并入项目的贡献会同步收录至根目录的 [`CONTRIBUTORS.md`](../../CONTRIBUTORS.md) 予以致谢。
 
 ---
 
