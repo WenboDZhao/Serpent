@@ -16,7 +16,7 @@ import { createPackage } from '@electron/asar';
 import { afterEach, describe, expect, it } from 'vitest';
 // The media helper is an untyped ESM script; the test only needs the platform gate.
 // @ts-expect-error media-binaries-lib.mjs has no declaration file.
-import { SUPPORTED_PLATFORMS, currentPlatformKey } from '../../scripts/media-binaries-lib.mjs';
+import { SUPPORTED_PLATFORMS, currentPlatformKey, verifySourceLockCompatibility } from '../../scripts/media-binaries-lib.mjs';
 import forgeConfig from '../../forge.config';
 import {
   assertWindowsSystemDependencies,
@@ -164,6 +164,29 @@ afterEach(() => {
 });
 
 describe.skipIf(process.platform === 'win32')('media binary release gate', () => {
+  it('accepts unrelated platform changes but rejects changes to effective build inputs', () => {
+    const local = JSON.parse(readFileSync(
+      path.join(projectRoot, 'resources/media-binaries/source-lock.json'), 'utf8',
+    ));
+    const archive = structuredClone(local);
+    archive.components.ffmpeg.version = 'unrelated Windows default';
+    delete archive.platforms['linux-x64'];
+    delete archive.platforms['linux-arm64'];
+    expect(() => verifySourceLockCompatibility(local, archive, 'darwin-arm64')).not.toThrow();
+    // The same global change matters on a platform with no FFmpeg override.
+    expect(() => verifySourceLockCompatibility(local, archive, 'win32-x64')).toThrow('does not match');
+    for (const mutate of [
+      (lock: typeof local) => { lock.platforms['darwin-arm64'].components.ffmpeg.sha256 = 'f'.repeat(64); },
+      (lock: typeof local) => { lock.components.openimageio.version = '0.0.0'; },
+      (lock: typeof local) => { lock.registry.commit = '0'.repeat(40); },
+      (lock: typeof local) => { lock.schemaVersion = 2; },
+    ]) {
+      const changed = structuredClone(archive);
+      mutate(changed);
+      expect(() => verifySourceLockCompatibility(local, changed, 'darwin-arm64')).toThrow('does not match');
+    }
+  });
+
   it('generates and verifies a hash-locked compliant bundle manifest', () => {
     const root = createFixture();
     const generated = run(root, 'manifest');

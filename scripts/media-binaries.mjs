@@ -20,6 +20,7 @@ import {
   sha256File,
   verifyBundle,
   verifyReleaseProvenance,
+  verifySourceLockCompatibility,
   writeAcquisitionReceipt,
 } from './media-binaries-lib.mjs';
 
@@ -122,17 +123,11 @@ async function acquire({ platform, root, lockPath }) {
   try {
     extractZipSafely(archiveBuffer, temporaryRoot);
     verifyBundle({ root: temporaryRoot, platform });
-    const localSourceLock = JSON.stringify(
+    verifySourceLockCompatibility(
       readJson(path.join(root, 'media-binaries', 'source-lock.json')),
-    );
-    const archiveSourceLock = JSON.stringify(
       readJson(path.join(temporaryRoot, 'media-binaries', 'source-lock.json')),
+      platform,
     );
-    if (archiveSourceLock !== localSourceLock) {
-      throw new Error(
-        'Media bundle source-lock.json does not match this checkout; update trust metadata separately.',
-      );
-    }
     const archiveManifestPath = path.join(
       temporaryRoot,
       'media-binaries',

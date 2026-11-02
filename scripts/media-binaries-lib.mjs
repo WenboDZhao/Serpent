@@ -9,6 +9,7 @@ import {
 } from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { isDeepStrictEqual } from 'node:util';
 
 export const SUPPORTED_PLATFORMS = new Set([
   'darwin-arm64',
@@ -348,6 +349,22 @@ function assertRegularRequiredFile(root, file, platform) {
 function expectedComponents(sourceLock, platform) {
   const override = sourceLock.platforms?.[platform]?.components;
   return override ? { ...sourceLock.components, ...override } : sourceLock.components;
+}
+
+// A bundle pins one platform. Unrelated platform updates and overridden
+// defaults must not invalidate it; every effective build input still must match.
+export function verifySourceLockCompatibility(localLock, archiveLock, platform) {
+  assertPlatform(platform);
+  const effectiveLock = (lock) => ({
+    ...lock,
+    components: expectedComponents(lock, platform),
+    platforms: { [platform]: lock.platforms?.[platform] ?? {} },
+  });
+  if (!isDeepStrictEqual(effectiveLock(localLock), effectiveLock(archiveLock))) {
+    throw new Error(
+      `Media bundle source-lock.json does not match this checkout for ${platform}; update trust metadata separately.`,
+    );
+  }
 }
 
 export function verifyBundle({ root, platform, execute = true }) {
