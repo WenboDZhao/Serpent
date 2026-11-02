@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import { entityAppearanceSchema } from './entity-appearance';
+import { animationSummarySchema } from './animation-assets';
 
 const nonBlankString = z.string().min(1).refine((value) => value.trim().length > 0);
 const boundedSearchValue = nonBlankString.max(512);
@@ -251,6 +252,7 @@ export const assetSummarySchema = z.strictObject({
   height: z.number().int().positive().nullable(),
   durationMs: z.number().int().nonnegative().nullable().optional().default(null),
   sequence: imageSequenceSummarySchema.nullable().optional(),
+  animation: animationSummarySchema.nullable().optional(),
 });
 
 export type AssetSummary = z.infer<typeof assetSummarySchema>;

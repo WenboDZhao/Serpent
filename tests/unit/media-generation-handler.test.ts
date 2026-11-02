@@ -19,6 +19,7 @@ function hooks() {
 
 test('media.generate-thumbnail publishes a ready event when an artifact is produced', async () => {
   const libraryService = {
+    animationRepository: () => ({ row: () => undefined }),
     generateThumbnail: vi.fn(async () => ({ artifactId: 'art-1' })),
     isModelAsset: vi.fn(() => false),
   } as unknown as LibraryService;
@@ -49,6 +50,7 @@ test('media.generate-thumbnail publishes a ready event when an artifact is produ
 
 test('media.generate-thumbnail schedules a mutation scene for model assets without an artifact', async () => {
   const libraryService = {
+    animationRepository: () => ({ row: () => undefined }),
     generateThumbnail: vi.fn(async () => null),
     isModelAsset: vi.fn(() => true),
   } as unknown as LibraryService;
@@ -72,6 +74,7 @@ test('media.generate-thumbnail schedules a mutation scene for model assets witho
 
 test('media.retry-artifact uses the urgent secondary queue for proxies', async () => {
   const libraryService = {
+    animationRepository: () => ({ row: () => undefined }),
     enqueueArtifactRetry: vi.fn(),
   } as unknown as LibraryService;
   const generationHooks = hooks();
@@ -95,4 +98,17 @@ test('media.retry-artifact uses the urgent secondary queue for proxies', async (
     assetId: 'asset-1',
     urgent: true,
   });
+});
+
+test('a managed animation thumbnail never calls a renderer/provider or native generator', async () => {
+  const libraryService = {
+    animationRepository: () => ({ row: () => ({ poster_artifact_id: 'managed-poster' }) }),
+    generateThumbnail: vi.fn(),
+  } as unknown as LibraryService;
+  const generationHooks = hooks();
+  expect(await executeMediaGenerationWorkerCommand(libraryService,
+    generationRequest({ type: 'media.generate-thumbnail', libraryId: 'lib-1', assetId: 'animation' }), generationHooks))
+    .toMatchObject({ artifactId: 'managed-poster' });
+  expect(generationHooks.writePluginMediaArtifact).not.toHaveBeenCalled();
+  expect(libraryService.generateThumbnail).not.toHaveBeenCalled();
 });

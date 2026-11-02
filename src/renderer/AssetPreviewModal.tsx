@@ -485,6 +485,13 @@ const AssetPreviewModalContent = forwardRef<
   );
 
   useEffect(() => {
+    if (!asset.animation) return;
+    return api.onAssetsChanged((event) => {
+      if (event.libraryId === libraryId) void resolvePreview(true);
+    });
+  }, [api, asset.animation, libraryId, resolvePreview]);
+
+  useEffect(() => {
     viewerSessionController.cancelTask("proxy-fallback");
     setResolution(null);
     setLoading(true);
@@ -985,12 +992,13 @@ const AssetPreviewModalContent = forwardRef<
   const viewerTransformable =
     Boolean(asset.sequence) ||
     asset.mediaType === "image" ||
+    Boolean(asset.animation) ||
     asset.mediaType === "video" ||
     illustratorPdfPreview;
   const fitShortcut = viewerTransformable ? "Numpad ." : undefined;
   const playbackMenu = viewerShowsPlaybackMenu({
     mediaType: ready ? resolution?.mediaType : null,
-    gif: showImage && isGifDisplayName(asset.displayName) && !preloadOnly,
+    gif: showImage && (Boolean(asset.animation) || isGifDisplayName(asset.displayName)) && !preloadOnly,
   });
   const shortcutPlatform = isMacPlatform(navigator.userAgent) ? "mac" : "windows";
   const copyShortcut = shortcutPlatform === "mac" ? "⌘C" : "Ctrl+C";
@@ -1440,7 +1448,7 @@ const AssetPreviewModalContent = forwardRef<
               onPresentationReady={notifyPresentationReady}
               onSaved={() => setDirectApproved(true)}
             />
-          ) : showImage && imageSrc && isGifDisplayName(asset.displayName) && !preloadOnly ? (
+          ) : showImage && imageSrc && (Boolean(asset.animation) || isGifDisplayName(asset.displayName)) && !preloadOnly ? (
             <GifViewerPlayer
               alt={asset.displayName}
               autoPlay
@@ -1484,7 +1492,7 @@ const AssetPreviewModalContent = forwardRef<
               onSwipeNext={onNext}
               onSwipePrevious={onPrevious}
               placeholderSrc={placeholderUrl ?? undefined}
-              isAnimated={isGifDisplayName(asset.displayName)}
+              isAnimated={(Boolean(asset.animation) || isGifDisplayName(asset.displayName))}
               onPresentationReady={notifyPresentationReady}
               preloadOnly={preloadOnly}
               src={imageSrc}

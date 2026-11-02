@@ -156,6 +156,7 @@ function waitForChildExit(child: ChildProcess, timeoutMs = 5_000): Promise<void>
 }
 
 function removeWriteCoordinationSchema(database: TestDatabaseConnection): void {
+  database.exec('DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets;');
   const triggers = database.prepare(
     `SELECT name FROM sqlite_master
       WHERE type = 'trigger'
@@ -187,6 +188,7 @@ function downgradeLibraryToV1(libraryPath: string, createMigrationBlocker = fals
   const database = new TestDatabase(path.join(libraryPath, '.serpent', 'library.db'));
   removeWriteCoordinationSchema(database);
   database.exec(`
+    DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets;
     DROP INDEX IF EXISTS revisions_size_fingerprint_idx;
     -- Reverse v6: drop FTS5 tables and triggers.
     DROP TABLE IF EXISTS asset_search;
@@ -228,6 +230,7 @@ function downgradeLibraryToV2(libraryPath: string): void {
   const database = new TestDatabase(path.join(libraryPath, '.serpent', 'library.db'));
   removeWriteCoordinationSchema(database);
   database.exec(`
+    DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets;
     DROP INDEX IF EXISTS revisions_size_fingerprint_idx;
     -- better-sqlite3 defaults foreign_keys = ON (unlike SQLite's default OFF);
     -- disable during this raw downgrade so DROP TABLE assets does not cascade
@@ -497,7 +500,8 @@ describe('LibraryService lifecycle', () => {
     const database = new TestDatabase(path.join(created.libraryPath, '.serpent', 'library.db'));
     removeWriteCoordinationSchema(database);
     database.exec(`
-      DROP INDEX IF EXISTS revisions_size_fingerprint_idx;
+      DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets;
+    DROP INDEX IF EXISTS revisions_size_fingerprint_idx;
       DELETE FROM schema_migrations WHERE version >= 24;
       PRAGMA user_version = 23;
     `);
@@ -528,7 +532,8 @@ describe('LibraryService lifecycle', () => {
 
     const database = new TestDatabase(path.join(created.libraryPath, '.serpent', 'library.db'));
     database.exec(`
-      DROP INDEX IF EXISTS revisions_size_fingerprint_idx;
+      DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets;
+    DROP INDEX IF EXISTS revisions_size_fingerprint_idx;
       DROP TABLE explicit_ignored_paths;
       DROP TABLE gitignore_ignored_paths;
       DELETE FROM schema_migrations WHERE version >= 24;
@@ -578,7 +583,8 @@ describe('LibraryService lifecycle', () => {
     const database = new TestDatabase(path.join(created.libraryPath, '.serpent', 'library.db'));
     removeWriteCoordinationSchema(database);
     database.exec(`
-      DROP INDEX IF EXISTS revisions_size_fingerprint_idx;
+      DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets;
+    DROP INDEX IF EXISTS revisions_size_fingerprint_idx;
       DELETE FROM schema_migrations WHERE version >= 24;
       PRAGMA user_version = 23;
     `);
@@ -795,7 +801,8 @@ describe('LibraryService lifecycle', () => {
       CREATE INDEX jobs_library_status_priority
         ON jobs(library_id, status, priority DESC, created_at);
 
-      DROP INDEX IF EXISTS revisions_size_fingerprint_idx;
+      DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets;
+    DROP INDEX IF EXISTS revisions_size_fingerprint_idx;
       DELETE FROM schema_migrations WHERE version >= 14;
       PRAGMA user_version = 13;
     `);

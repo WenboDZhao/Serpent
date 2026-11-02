@@ -77,6 +77,23 @@ Agent 工作流始终传显式路径，不调用原生文件选择器：
 
 Windows 路径必须按 Windows 语义传递：盘符、反斜杠、UNC、长路径、大小写不敏感、保留名和 junction/reparse point 均由 Main/Worker 校验。
 
+## 动画包
+
+动画源（`.aseprite`／`.ase`）是唯一资产，GIF、代表帧封面、预览配置和生成记录由 Worker 托管保存。动画生成和增量更新由项目内 [Aseprite Skill](../../../.agents/skills/aseprite-animation-assets/SKILL.md) 主动完成；浏览、扫描或打开查看器不会生成动画。普通 GIF 保持原行为。
+
+| MCP 工具 | 输入与结果 |
+| --- | --- |
+| `serpent_animation_import` | `sourcePath`、`previewPath`、`sourceSha256`、`previewSha256`、`recipe`、`generatorVersion`、`idempotencyKey`，可选 `targetFolderId`；返回持久关联。 |
+| `serpent_animation_get` | `assetId`；返回关联或 null，包括当前源版本/摘要、预览和封面 ID、`stale`、`previewMissing`、`recipe`、`generation`。 |
+| `serpent_animation_read` | `assetId`、`kind: source/preview`、`expectedSha256`，可选 `offsetBytes`、`maxBytes`；返回围栏保护的 base64 分块及 `truncated`，默认 256 KiB，最多 512 KiB。 |
+| `serpent_animation_preview_stage` | `assetId`、UUID `stagingId`、`expectedRevisionId`、`expectedSourceSha256`、`offsetBytes`、`dataBase64`、`complete`；每块最多 1 MiB，相同偏移相同内容可重试。 |
+| `serpent_animation_preview_publish` | `assetId`、`stagingId`、`recipe`、`generatorVersion`、`previewSha256`、`idempotencyKey`；原子发布，保留源 ID、标签、评分和收藏。 |
+| `serpent_animation_preview_cancel` | `assetId`、`stagingId`；幂等取消并清理该次暂存。 |
+
+每次调用都需要 `libraryId`。读操作需要 `library.read/asset.read/content.read`；导入需要 `file.import`；暂存、发布和取消需要 `content.write`。预览总大小不受插件 inline 256 KiB 限制。发布同时校验记录版本与源实际内容；`ANIMATION_SOURCE_CHANGED` 时保留旧预览，重新读取源后再生成。`ANIMATION_IDEMPOTENCY_CONFLICT` 表示同一键绑定了不同参数；`ANIMATION_STAGING_INCOMPLETE` 表示缺块或未完成；`ANIMATION_INVALID_PREVIEW` 表示 GIF 或摘要无效。
+
+recipe v1 明确记录 1–2 个动作（`name/frames/durationsMs`）、1–4 个组合（`name/layers?`，一基层级路径）、固定 `crop`、`layout.columns/scale/padding` 和零基 `posterFrame`。generation 记录 `sourceRevisionId/sourceSha256/recipeSha256/previewSha256/generatorVersion/generatedAt/byteSize/width/height`。完整约束和失败恢复见 [动画资产开发说明](../../developer/animation-assets.md)。
+
 ## 权限模式
 
 权限绑定 MCP credential，跨 transport 重连、Serpent 重启和多个客户端连接保持一致。设置页里每个凭据有：复制 Agent 连接信息、权限档选择、删除按钮；主界面可以添加新客户端。两种权限档：

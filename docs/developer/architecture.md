@@ -86,3 +86,7 @@ docs/              # 文档（本目录、ADR、实施规格、QA）
 - 平台原生构建（无交叉打包），发布流水线带全链路门禁
 
 按具体需求查源码入口、关联影响和测试，见[需求代码导航](architecture-code-map.zh-CN.md)。
+
+## 动画资产
+
+Aseprite 动画包由核心 Worker 托管，源资产与唯一 GIF 通过稳定 asset ID 关联；预览配置和生成记录随库保存。Codex 项目 Skill 负责制作与主动更新，Serpent 负责单卡片展示、GIF 播放及外部源文件打开。预览发布使用源版本和内容摘要围栏，旧预览保留到新结果成功提交。接口、迁移和恢复见[动画资产](animation-assets.md)。

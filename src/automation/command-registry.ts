@@ -1,4 +1,9 @@
 import { z } from 'zod';
+import {
+  animationImportInputSchema, animationGetInputSchema, animationReadInputSchema,
+  animationStageInputSchema, animationPublishInputSchema, animationCancelInputSchema,
+  animationInfoSchema, animationReadResultSchema, animationStageResultSchema, animationCancelResultSchema,
+} from '../shared/animation-assets';
 
 import {
   assetMetadataResultSchema,
@@ -483,6 +488,12 @@ export interface AutomationHistoryDescriptor {
 }
 
 export const automationCommandInputSchemas = {
+  'animation.import': animationImportInputSchema,
+  'animation.get': animationGetInputSchema,
+  'animation.read': animationReadInputSchema,
+  'animation.preview.stage': animationStageInputSchema,
+  'animation.preview.publish': animationPublishInputSchema,
+  'animation.preview.cancel': animationCancelInputSchema,
   'library.create': z.strictObject({
     displayName: nonBlankString.max(255),
     selectedParentPath: nonBlankString,
@@ -1368,6 +1379,12 @@ const mediaJobsAutomationResultSchema = paginatedResultSchema(mediaJobSchema).ex
 });
 
 export const automationCommandResultSchemas = {
+  'animation.import': animationInfoSchema,
+  'animation.get': animationInfoSchema.nullable(),
+  'animation.read': animationReadResultSchema,
+  'animation.preview.stage': animationStageResultSchema,
+  'animation.preview.publish': animationInfoSchema,
+  'animation.preview.cancel': animationCancelResultSchema,
   'library.create': z.strictObject({
     libraryId: nonBlankString,
     displayName: nonBlankString,
@@ -1721,6 +1738,82 @@ const allInteractiveSources = ['desktop-console', 'script', 'mcp', 'test', 'plug
 const lifecycleSources = ['desktop-console', 'script', 'mcp', 'test'] as const;
 
 export const automationCommandRegistry = [
+  {
+    apiVersion: AUTOMATION_API_VERSION, deprecated: false, impact: 'file-write',
+    supportsDryRun: false, supportsIdempotencyKey: true,
+    supportsCancellation: false, supportsDetach: false, supportsUndo: false,
+    atomicity: 'recoverable-file-operation', approvalPolicy: 'execution', history: { policy: 'none' },
+    commandId: 'animation.import', summary: '动画包托管导入；只收录一个源资产，GIF 与配置作为关联预览保存。',
+    inputSchema: automationCommandInputSchemas['animation.import'], resultSchema: automationCommandResultSchemas['animation.import'],
+    workerResultSchema: z.strictObject({ ok: z.literal(true), type: z.literal('animation.imported'), animation: animationInfoSchema }),
+    requiredCapabilities: ['library.read', 'asset.read', 'file.import'], allowedSources: allInteractiveSources,
+    targetScope: 'library', supportsBatch: false,
+    mcp: { public: true, toolName: 'serpent_animation_import', outputLimit: 1 },
+    toWorkerCommand: (libraryId, input: AutomationCommandInput<'animation.import'>) => ({ ...input, type: 'animation.import', libraryId }),
+    projectResult: (result) => result.ok && result.type === 'animation.imported' ? result.animation : undefined,
+  },
+  readDescriptor({
+    commandId: 'animation.get', summary: '读取动画关联、源摘要、预览配置和生成记录；不生成预览。',
+    inputSchema: automationCommandInputSchemas['animation.get'], resultSchema: automationCommandResultSchemas['animation.get'],
+    workerResultSchema: z.strictObject({ ok: z.literal(true), type: z.literal('animation.got'), animation: animationInfoSchema.nullable() }),
+    requiredCapabilities: ['library.read', 'asset.read', 'content.read'], allowedSources: allReadSources,
+    targetScope: 'asset', supportsBatch: false,
+    mcp: { public: true, toolName: 'serpent_animation_get', outputLimit: 1 },
+    toWorkerCommand: (libraryId, input: AutomationCommandInput<'animation.get'>) => ({ ...input, type: 'animation.get', libraryId }),
+    projectResult: (result) => result.ok && result.type === 'animation.got' ? result.animation : undefined,
+  }),
+  readDescriptor({
+    commandId: 'animation.read', summary: '校验内容摘要后分块读取库内动画源文件或 GIF。',
+    inputSchema: automationCommandInputSchemas['animation.read'], resultSchema: automationCommandResultSchemas['animation.read'],
+    workerResultSchema: animationReadResultSchema.extend({ ok: z.literal(true), type: z.literal('animation.read') }),
+    requiredCapabilities: ['library.read', 'asset.read', 'content.read'], allowedSources: allReadSources,
+    targetScope: 'asset', supportsBatch: false,
+    mcp: { public: true, toolName: 'serpent_animation_read', outputLimit: 1 },
+    toWorkerCommand: (libraryId, input: AutomationCommandInput<'animation.read'>) => ({ ...input, type: 'animation.read', libraryId }),
+    projectResult: (result) => result.ok && result.type === 'animation.read' ? { assetId: result.assetId, revisionId: result.revisionId, sha256: result.sha256, byteSize: result.byteSize, offsetBytes: result.offsetBytes, dataBase64: result.dataBase64, truncated: result.truncated } : undefined,
+  }),
+  {
+    apiVersion: AUTOMATION_API_VERSION, deprecated: false, impact: 'file-write',
+    supportsDryRun: false, supportsIdempotencyKey: false,
+    supportsCancellation: false, supportsDetach: false, supportsUndo: false,
+    atomicity: 'recoverable-file-operation', approvalPolicy: 'execution', history: { policy: 'none' },
+    commandId: 'animation.preview.stage', summary: '按偏移暂存 GIF 分块；相同分块可重试，尚不发布。',
+    inputSchema: automationCommandInputSchemas['animation.preview.stage'], resultSchema: automationCommandResultSchemas['animation.preview.stage'],
+    workerResultSchema: animationStageResultSchema.extend({ ok: z.literal(true), type: z.literal('animation.preview.staged') }),
+    requiredCapabilities: ['library.read', 'asset.read', 'content.write'], allowedSources: allInteractiveSources,
+    targetScope: 'asset', supportsBatch: false,
+    mcp: { public: true, toolName: 'serpent_animation_preview_stage', outputLimit: 1 },
+    toWorkerCommand: (libraryId, input: AutomationCommandInput<'animation.preview.stage'>) => ({ ...input, type: 'animation.preview.stage', libraryId }),
+    projectResult: (result) => result.ok && result.type === 'animation.preview.staged' ? { assetId: result.assetId, stagingId: result.stagingId, byteSize: result.byteSize, complete: result.complete } : undefined,
+  },
+  {
+    apiVersion: AUTOMATION_API_VERSION, deprecated: false, impact: 'file-write',
+    supportsDryRun: false, supportsIdempotencyKey: true,
+    supportsCancellation: false, supportsDetach: false, supportsUndo: false,
+    atomicity: 'recoverable-file-operation', approvalPolicy: 'execution', history: { policy: 'none' },
+    commandId: 'animation.preview.publish', summary: '校验预期源版本和摘要后原子发布预览，保留源 ID 与元数据。',
+    inputSchema: automationCommandInputSchemas['animation.preview.publish'], resultSchema: automationCommandResultSchemas['animation.preview.publish'],
+    workerResultSchema: z.strictObject({ ok: z.literal(true), type: z.literal('animation.preview.published'), animation: animationInfoSchema }),
+    requiredCapabilities: ['library.read', 'asset.read', 'content.write'], allowedSources: allInteractiveSources,
+    targetScope: 'asset', supportsBatch: false,
+    mcp: { public: true, toolName: 'serpent_animation_preview_publish', outputLimit: 1 },
+    toWorkerCommand: (libraryId, input: AutomationCommandInput<'animation.preview.publish'>) => ({ ...input, type: 'animation.preview.publish', libraryId }),
+    projectResult: (result) => result.ok && result.type === 'animation.preview.published' ? result.animation : undefined,
+  },
+  {
+    apiVersion: AUTOMATION_API_VERSION, deprecated: false, impact: 'file-write',
+    supportsDryRun: false, supportsIdempotencyKey: false,
+    supportsCancellation: false, supportsDetach: false, supportsUndo: false,
+    atomicity: 'recoverable-file-operation', approvalPolicy: 'execution', history: { policy: 'none' },
+    commandId: 'animation.preview.cancel', summary: '取消并清理指定动画预览的暂存内容。',
+    inputSchema: automationCommandInputSchemas['animation.preview.cancel'], resultSchema: automationCommandResultSchemas['animation.preview.cancel'],
+    workerResultSchema: animationCancelResultSchema.extend({ ok: z.literal(true), type: z.literal('animation.preview.cancelled') }),
+    requiredCapabilities: ['library.read', 'asset.read', 'content.write'], allowedSources: allInteractiveSources,
+    targetScope: 'asset', supportsBatch: false,
+    mcp: { public: true, toolName: 'serpent_animation_preview_cancel', outputLimit: 1 },
+    toWorkerCommand: (libraryId, input: AutomationCommandInput<'animation.preview.cancel'>) => ({ ...input, type: 'animation.preview.cancel', libraryId }),
+    projectResult: (result) => result.ok && result.type === 'animation.preview.cancelled' ? { cancelled: true as const } : undefined,
+  },
   {
     commandId: 'library.create',
     apiVersion: AUTOMATION_API_VERSION,
@@ -2465,6 +2558,7 @@ export const automationCommandRegistry = [
       libraryId,
       assetId: input.assetId,
       maxBytes: input.maxBytes,
+      offsetBytes: input.offsetBytes,
     }),
     projectResult: (result) => {
       const parsed = assetContentReadWorkerResultSchema.safeParse(result);

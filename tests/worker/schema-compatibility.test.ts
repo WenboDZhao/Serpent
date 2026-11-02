@@ -327,7 +327,7 @@ describe('sync-first v37/v38 migration fork (Serpent-e0dw)', () => {
 
     // 模拟 v38 分叉库：先把新建库回退到 v38，再交换 v37/v38 校验和。
     const db = new Database(libraryFilePath(created.libraryPath));
-    db.exec('DROP INDEX IF EXISTS revisions_size_fingerprint_idx');
+    db.exec('DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets; DROP INDEX IF EXISTS revisions_size_fingerprint_idx');
     db.prepare('DELETE FROM schema_migrations WHERE version >= 39').run();
     db.pragma('user_version = 38');
     db.prepare('UPDATE schema_migrations SET checksum = ? WHERE version = 37').run(syncChecksum);
@@ -366,7 +366,7 @@ describe('sync-first v37/v38 migration fork (Serpent-e0dw)', () => {
     creating.closeAll();
 
     const db = new Database(libraryFilePath(created.libraryPath));
-    db.exec('DROP INDEX IF EXISTS revisions_size_fingerprint_idx');
+    db.exec('DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets; DROP INDEX IF EXISTS revisions_size_fingerprint_idx');
     db.exec('DROP TABLE IF EXISTS asset_auto_analysis_suppression');
     db.prepare('DELETE FROM schema_migrations WHERE version >= 37').run();
     db.prepare(

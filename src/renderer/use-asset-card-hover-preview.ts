@@ -141,6 +141,16 @@ export function useAssetCardHoverPreview(input: {
 
   useEffect(() => {
     if (!api || !libraryId) return;
+    return api.onAssetsChanged((event) => {
+      if (event.libraryId !== libraryId) return;
+      requestSeqRef.current += 1;
+      window.clearTimeout(debounceTimerRef.current);
+      setResolutionsByAssetId(new Map());
+    });
+  }, [api, libraryId]);
+
+  useEffect(() => {
+    if (!api || !libraryId) return;
     return api.onThumbnailEvent((event) => {
       if (event.libraryId !== libraryId) return;
       if (

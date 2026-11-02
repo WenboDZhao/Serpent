@@ -89,6 +89,7 @@ import { executeExtensionWorkerCommand } from './handlers/extension';
 import { executeFolderWorkerCommand } from './handlers/folders';
 import { executeLinkedFolderWorkerCommand } from './handlers/linked-folders';
 import { executeAssetIngestionWorkerCommand } from './handlers/asset-ingestion';
+import { executeAnimationAssetCommand } from './handlers/animation-assets';
 import { executeIgnoreWorkerCommand } from './handlers/ignore';
 import { executeTagWorkerCommand } from './handlers/tags';
 import { executeCollectionWorkerCommand } from './handlers/collections';
@@ -2314,6 +2315,16 @@ async function handleRequest(request: WorkerRequest): Promise<WorkerResult> {
   const automationResult = dispatchAutomationReadOnlyRequest(libraryService, request);
   if (automationResult) return automationResult;
 
+  if (request.command.type === 'animation.import' || request.command.type === 'animation.preview.stage'
+    || request.command.type === 'animation.preview.publish' || request.command.type === 'animation.preview.cancel') {
+    const lease = await libraryService.acquireWriteLease(request.command.libraryId);
+    try {
+      const result = await executeAnimationAssetCommand(libraryService, request.command);
+      if (!result) throw new Error('Unhandled animation mutation');
+      return result;
+    } finally { lease.release(); }
+  }
+
   const destructiveLibraryId = destructiveBackupLibraryId(request.command);
   if (destructiveLibraryId) {
     // Keep a verified online snapshot immediately before an irreversible
@@ -2870,6 +2881,16 @@ async function handleRequestWithoutWriteLease(request: WorkerRequest): Promise<W
       if (result === undefined) {
         throw new Error(`Unhandled media generation command: ${request.command.type}`);
       }
+      return result;
+    }
+    case 'animation.import':
+    case 'animation.get':
+    case 'animation.read':
+    case 'animation.preview.stage':
+    case 'animation.preview.publish':
+    case 'animation.preview.cancel': {
+      const result = await executeAnimationAssetCommand(libraryService, request.command);
+      if (!result) throw new Error('Unhandled animation command');
       return result;
     }
     case 'model.convert-fbx':

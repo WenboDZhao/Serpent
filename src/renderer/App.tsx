@@ -15683,6 +15683,11 @@ function AppInner() {
                             {formatDuration(asset.durationMs)}
                           </span>
                         )}
+                        {asset.animation?.stale && (
+                          <span className="asset-duration-badge" title={t("animation.previewStale")}>
+                            {t("animation.previewStale")}
+                          </span>
+                        )}
                         {asset.sequence && (
                           <span className="asset-duration-badge asset-sequence-badge">
                             {asset.sequence.frameCount}F · {asset.sequence.fps} FPS ·{" "}

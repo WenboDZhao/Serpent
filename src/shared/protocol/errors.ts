@@ -64,6 +64,10 @@ export const PUBLIC_ERROR_MESSAGES = {
     'Creating the library failed, and leftover temporary files could not be removed automatically. Delete any `.serpent-create-*.partial` folder next to the chosen location, then retry with a writable folder.',
   LIBRARY_NOT_OPEN: 'That library is not open in this window. Open it again, then retry the action.',
   ASSET_NOT_FOUND: 'The requested asset could not be found.',
+  ANIMATION_SOURCE_CHANGED: 'The animation source changed during generation. Read the current source and rebuild the preview.',
+  ANIMATION_IDEMPOTENCY_CONFLICT: 'This animation request key was already used with different content.',
+  ANIMATION_STAGING_INCOMPLETE: 'The animation preview upload is incomplete. Resume the upload or cancel it.',
+  ANIMATION_INVALID_PREVIEW: 'The animation preview is not a readable GIF or its checksum does not match.',
   // Serpent-50c466: trash / restore / delete state conflicts had no code of
   // their own and fell back to INVALID_IMPORT_DECISION ("invalid import
   // conflict decision"), which told the user nothing about what happened.

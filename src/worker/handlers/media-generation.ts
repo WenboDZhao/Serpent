@@ -32,6 +32,11 @@ export async function executeMediaGenerationWorkerCommand(
 ): Promise<WorkerResult | undefined> {
   switch (request.command.type) {
     case 'media.generate-thumbnail': {
+      const animation = libraryService.animationRepository(request.command.libraryId).row(request.command.assetId);
+      if (animation) return {
+        ok: true, type: 'media.thumbnail.generated', assetId: request.command.assetId,
+        artifactId: animation.poster_artifact_id,
+      };
       const pluginArtifact = await hooks.writePluginMediaArtifact({
         libraryId: request.command.libraryId,
         assetId: request.command.assetId,

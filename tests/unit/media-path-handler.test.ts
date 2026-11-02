@@ -18,6 +18,7 @@ function hooks() {
 
 test('media.get-artifact-path returns the absolute artifact path', async () => {
   const libraryService = {
+    animationRepository: () => ({ row: () => undefined }),
     getArtifactAbsolutePath: vi.fn(() => 'C:\\libraries\\studio\\artifacts\\a.webp'),
   } as unknown as LibraryService;
 
@@ -40,6 +41,7 @@ test('media.get-artifact-path returns the absolute artifact path', async () => {
 
 test('media.get-thumbnail-artifact throws when the asset is missing', async () => {
   const libraryService = {
+    animationRepository: () => ({ row: () => undefined }),
     getThumbnailArtifact: vi.fn(() => null),
   } as unknown as LibraryService;
 
@@ -56,6 +58,7 @@ test('media.get-thumbnail-artifact throws when the asset is missing', async () =
 
 test('media.get-asset-drag-infos yields between sub-batches', async () => {
   const libraryService = {
+    animationRepository: () => ({ row: () => undefined }),
     resolveAssetDragInfos: vi.fn((_libraryId: string, assetIds: string[]) => (
       assetIds.map((assetId) => ({ assetId }))
     )),
@@ -75,4 +78,17 @@ test('media.get-asset-drag-infos yields between sub-batches', async () => {
     entries: Array.from({ length: 33 }, (_, index) => ({ assetId: `asset-${index + 1}` })),
   });
   expect(libraryService.resolveAssetDragInfos).toHaveBeenCalledTimes(2);
+});
+
+test('opening a managed animation only reads its last preview and never schedules generation', async () => {
+  const libraryService = {
+    animationRepository: () => ({ row: () => ({ preview_artifact_id: 'managed-gif' }) }),
+    resolvePreviewArtifact: vi.fn(async () => ({ mediaType: 'image', status: 'ready', kind: 'thumbnail', mimeType: 'image/gif', artifactId: 'managed-gif' })),
+  } as unknown as LibraryService;
+  const mediaHooks = hooks();
+  expect(await executeMediaPathWorkerCommand(libraryService,
+    mediaPathRequest({ type: 'media.get-preview-artifact', libraryId: 'lib-1', assetId: 'animation' }), mediaHooks))
+    .toMatchObject({ artifactId: 'managed-gif', mimeType: 'image/gif' });
+  expect(mediaHooks.writePluginMediaArtifact).not.toHaveBeenCalled();
+  expect(mediaHooks.scheduleThumbnails).not.toHaveBeenCalled();
 });

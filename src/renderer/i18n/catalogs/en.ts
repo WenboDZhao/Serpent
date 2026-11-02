@@ -24,6 +24,7 @@ type CatalogMessages<T> = {
 
  */
 export const en = {
+  animation: { previewStale: "Preview needs updating" },
   tabs: {
     label: "Workspace tabs",
     add: "New tab",

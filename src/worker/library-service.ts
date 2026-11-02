@@ -47,6 +47,10 @@ import { isIP } from 'node:net';
 import { hostname, tmpdir } from 'node:os';
 
 import BetterSqlite3 from 'better-sqlite3';
+import {
+  AnimationAssetRepository, ANIMATION_ASSETS_SCHEMA_SQL, ANIMATION_ASSETS_SCHEMA_CHECKSUM,
+  animationFileSha256,
+} from './animation-assets';
 
 import {
   resolveBundledFontPath,
@@ -914,7 +918,7 @@ import {
   type ImageSequenceFrameCandidate,
 } from '../shared/image-sequence';
 import { discoverSelectedImageSequenceFrames } from './image-sequence-import-discovery';
-import { isImportConflictPlan, isImportSourceFailurePlan } from '../shared/import-outcome';
+import { isImportCompletion, isImportConflictPlan, isImportSourceFailurePlan } from '../shared/import-outcome';
 import {
   ImportSourceFailurePause,
   isSkippableImportSourceFailure,
@@ -3820,6 +3824,7 @@ export const MIGRATIONS = [
     sql: REVISION_SIZE_FINGERPRINT_INDEX_SCHEMA_SQL,
     checksum: REVISION_SIZE_FINGERPRINT_INDEX_SCHEMA_CHECKSUM,
   },
+  { version: 60, sql: ANIMATION_ASSETS_SCHEMA_SQL, checksum: ANIMATION_ASSETS_SCHEMA_CHECKSUM },
 ] as const;
 export const SUPPORTED_SCHEMA_VERSION = MIGRATIONS.at(-1)!.version;
 
@@ -19045,6 +19050,7 @@ export class LibraryService {
     assets: readonly AssetSummary[],
   ): AssetSummary[] {
     if (assets.length === 0) return [];
+    assets = this.animationRepository(openLibrary.summary.libraryId).summaries(assets);
     // Serpent-verg.2 — lenient read (0031 §1): libraries predating the
     // sequence tables have no memberships; return assets unchanged.
     if (
@@ -29506,6 +29512,31 @@ export class LibraryService {
       .run(artifactId, revisionId, kind, mimeType, filePath, generatorVersion, errorCode, new Date().toISOString());
   }
 
+  /** Worker-owned animation storage. Callers never receive managed filesystem paths. */
+  animationRepository(libraryId: string, writable = false): AnimationAssetRepository {
+    const openLibrary = this.requireOpenLibrary(libraryId);
+    if (writable) this.assertLibraryWritable(openLibrary);
+    return new AnimationAssetRepository({
+      connection: writable ? openLibrary.writeConnection : openLibrary.connection,
+      libraryPath: openLibrary.summary.libraryPath,
+      resolveSource: (assetId) => this.resolveAssetPath(libraryId, assetId),
+      importSource: (sourcePath, targetFolderId) => {
+        const imported = this.prepareOrExecuteImport({ libraryId, sourceKind: 'files', sourcePaths: [sourcePath], targetFolderId });
+        if (!isImportCompletion(imported)) throw new LibraryServiceError('INVALID_IMPORT_SOURCE');
+        const asset = imported.assets[0] ?? this.listAssets({ libraryId, recursive: true }).find((item) =>
+          item.managedFolderId === (targetFolderId ?? null)
+          && item.displayName === path.basename(sourcePath)
+          && animationFileSha256(this.resolveAssetPath(libraryId, item.assetId)) === animationFileSha256(sourcePath));
+        if (!asset) throw new LibraryServiceError('IMPORT_APPLY_FAILED');
+        return asset.assetId;
+      },
+      error: (code) => new LibraryServiceError(code),
+      changed: () => this.options.onAssetsChanged?.({
+        type: 'asset.changed', libraryId, changedCount: 1, missingCount: 0, source: 'client',
+      }),
+    });
+  }
+
   /**
    * Return the current card image artifact for an asset's current revision.
    * Videos use `video_poster`; other card media uses `thumbnail`.
@@ -29520,6 +29551,11 @@ export class LibraryService {
     height: number | null;
   } | null {
     const openLibrary = this.requireOpenLibrary(libraryId);
+    const animation = this.animationRepository(libraryId).row(assetId);
+    if (animation) return {
+      artifactId: animation.poster_artifact_id, filePath: animation.poster_path,
+      width: animation.width, height: animation.height,
+    };
     const assetRow = openLibrary.connection
       .prepare('SELECT current_revision_id, relative_file_path FROM assets WHERE asset_id = ?')
       .get(assetId) as { current_revision_id: string | null; relative_file_path: string } | undefined;
@@ -30349,6 +30385,17 @@ export class LibraryService {
       throw new LibraryServiceError('ASSET_NOT_FOUND', { reason: 'SOURCE_NOT_FOUND' });
     }
 
+    const animation = this.animationRepository(libraryId).row(assetId);
+    if (animation) {
+      try {
+        this.getArtifactAbsolutePath(libraryId, animation.preview_artifact_id, 'preview');
+        return { mediaType: 'image', status: 'ready', kind: 'thumbnail',
+          artifactId: animation.preview_artifact_id, mimeType: 'image/gif',
+          posterArtifactId: animation.poster_artifact_id };
+      } catch {
+        return { mediaType: 'image', status: 'missing', kind: 'thumbnail', mimeType: 'image/gif' };
+      }
+    }
     const mediaType = LibraryService.detectMediaType(asset.relative_file_path);
     const kind = mediaType === 'video'
       ? 'webm_proxy'
@@ -30868,6 +30915,11 @@ export class LibraryService {
     usage?: 'preview' | 'proxy',
   ): string {
     const openLibrary = this.requireOpenLibrary(libraryId);
+    const animation = this.animationRepository(libraryId).artifactRows([artifactId])[0];
+    if (animation) {
+      this.assertArtifactUsage(animation.kind, usage);
+      return this.artifactFilePathFromRow(openLibrary, animation.file_path);
+    }
     const cacheKey = `${libraryId}\u0000${artifactId}`;
     const currentChangeSequence = openLibrary.changeSubscription.lastSequence;
     const cached = this.artifactPathCache.get(cacheKey);
@@ -30918,6 +30970,7 @@ export class LibraryService {
           AND ra.status = 'ready'
           AND ra.invalidated_at IS NULL`,
     ).all(...ids) as Array<{ artifact_id: string; file_path: string; kind: string }>;
+    rows.push(...this.animationRepository(libraryId).artifactRows(ids));
     const byId = new Map(rows.map((row) => [row.artifact_id, row] as const));
     const artifactsRoot = this.artifactRootPath(openLibrary);
     const changeSequence = openLibrary.changeSubscription.lastSequence;
@@ -35569,7 +35622,7 @@ export class LibraryService {
         items: [],
         total,
         offset: 0,
-        layout: layout as BrowseLayoutEntry[],
+        layout: this.animationRepository(input.libraryId).decorateLayout(layout as BrowseLayoutEntry[]),
       };
     }
 

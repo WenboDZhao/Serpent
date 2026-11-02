@@ -1,4 +1,8 @@
 import { z } from 'zod';
+import {
+  animationImportInputSchema, animationGetInputSchema, animationReadInputSchema,
+  animationStageInputSchema, animationPublishInputSchema, animationCancelInputSchema,
+} from '../animation-assets';
 
 import {
   filterClauseSchema,
@@ -1514,6 +1518,12 @@ export function parseRendererRequest(input: unknown): RendererRequest {
 }
 
 export const workerCommandSchema = z.discriminatedUnion('type', [
+  animationImportInputSchema.extend({ type: z.literal('animation.import'), libraryId: identifierSchema }),
+  animationGetInputSchema.extend({ type: z.literal('animation.get'), libraryId: identifierSchema }),
+  animationReadInputSchema.extend({ type: z.literal('animation.read'), libraryId: identifierSchema }),
+  animationStageInputSchema.extend({ type: z.literal('animation.preview.stage'), libraryId: identifierSchema }),
+  animationPublishInputSchema.extend({ type: z.literal('animation.preview.publish'), libraryId: identifierSchema }),
+  animationCancelInputSchema.extend({ type: z.literal('animation.preview.cancel'), libraryId: identifierSchema }),
   z.strictObject({
     type: z.literal('library.create'),
     displayName: displayNameSchema,

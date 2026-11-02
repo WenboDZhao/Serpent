@@ -15,6 +15,7 @@ import type { MessageTree } from '../types';
  *   call-site migration should compose with placeholders rather than one mega-template.
  */
 export const zhCN = {
+  animation: { previewStale: "预览待更新" },
   tabs: {
     label: "工作区标签页",
     add: "新建标签页",

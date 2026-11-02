@@ -150,7 +150,7 @@ const emptyHistoryStatus = {
 
 describe('Automation Command Registry', () => {
   it('contains complete read/write descriptors and exports JSON/TypeScript contracts', () => {
-    expect(automationCommandRegistry).toHaveLength(87);
+    expect(automationCommandRegistry).toHaveLength(93);
     expect(new Set(automationCommandRegistry.map((command) => command.commandId)).size)
       .toBe(automationCommandRegistry.length);
     const registryIds = new Set(automationCommandRegistry.map((command) => command.commandId));
@@ -221,6 +221,7 @@ describe('Automation Command Registry', () => {
         expect(command.approvalPolicy).toBe('none');
         expect(command.mcp.public).toBe(false);
       } else if ([
+        'animation.import', 'animation.preview.stage', 'animation.preview.publish', 'animation.preview.cancel',
         'library.close', 'library.rename', 'library.delete-from-disk', 'library.export', 'library.import-folder', 'library.import-zip',
         'folder.rename', 'folder.move', 'folder.delete-empty',
         'linked-folder.create', 'linked-folder.relink', 'linked-folder.remove', 'linked-folder.rules.set', 'linked-folder.refresh',

@@ -20,6 +20,8 @@ export const AUTOMATION_READ_ONLY_WORKER_COMMAND_TYPES = [
   'asset.list-trash',
   'asset.palette.aggregate-recent',
   'asset.content.read',
+  'animation.get',
+  'animation.read',
   'automation.file-operation-plan',
   'tag.list',
   'tag.cooccurrence',
@@ -59,6 +61,10 @@ export function executeAutomationReadOnlyWorkerCommand(
   if (!isAutomationReadOnlyWorkerCommand(command)) return undefined;
 
   switch (command.type) {
+    case 'animation.get':
+      return { ok: true, type: 'animation.got', animation: libraryService.animationRepository(command.libraryId).info(command.assetId) };
+    case 'animation.read':
+      return { ok: true, type: 'animation.read', ...libraryService.animationRepository(command.libraryId).read(command) };
     case 'library.list':
       return { ok: true, type: 'library.list', libraries: libraryService.listLibraries() };
     case 'library.change-sequence':

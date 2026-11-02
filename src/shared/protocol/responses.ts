@@ -1,4 +1,7 @@
 import { z } from 'zod';
+import {
+  animationInfoSchema, animationReadResultSchema, animationStageResultSchema, animationCancelResultSchema,
+} from '../animation-assets';
 
 import { EMBEDDING_HTTP_ADAPTERS } from '../embedding/http-service';
 import {
@@ -1776,6 +1779,12 @@ const assetOperationSuccessSchemas = [
 ] as const;
 
 const workerSuccessResultSchema = z.discriminatedUnion('type', [
+  z.strictObject({ ok: z.literal(true), type: z.literal('animation.imported'), animation: animationInfoSchema }),
+  z.strictObject({ ok: z.literal(true), type: z.literal('animation.got'), animation: animationInfoSchema.nullable() }),
+  animationReadResultSchema.extend({ ok: z.literal(true), type: z.literal('animation.read') }),
+  animationStageResultSchema.extend({ ok: z.literal(true), type: z.literal('animation.preview.staged') }),
+  z.strictObject({ ok: z.literal(true), type: z.literal('animation.preview.published'), animation: animationInfoSchema }),
+  animationCancelResultSchema.extend({ ok: z.literal(true), type: z.literal('animation.preview.cancelled') }),
   z.strictObject({
     ok: z.literal(true),
     type: z.literal('asset.relink-batch.preview'),

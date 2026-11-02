@@ -8,12 +8,14 @@ export function isCardHoverPreviewable(asset: {
   availability?: "available" | "missing";
   deletedAt?: string | null;
   sequence?: { frameCount: number } | null;
+  animation?: { previewArtifactId: string } | null;
 }): boolean {
   if (asset.deletedAt) return false;
   if (asset.availability === "missing") return false;
   // Sequences animate from thumbnail artifacts in AssetCardMedia; do not also
   // request client preview (that stacks a second layer and flickers).
   if (asset.sequence && asset.sequence.frameCount >= 3) return false;
+  if (asset.animation) return true;
   if (asset.mediaType === "video") return true;
   // Audio plays in-place on hover (Serpent hover 音频工单).
   if (asset.mediaType === "audio") return true;

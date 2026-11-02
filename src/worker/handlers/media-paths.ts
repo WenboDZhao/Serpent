@@ -83,7 +83,8 @@ export async function executeMediaPathWorkerCommand(
       };
     }
     case 'media.get-preview-artifact': {
-      const pluginArtifact = await hooks.writePluginMediaArtifact({
+      const manualAnimation = libraryService.animationRepository(request.command.libraryId).row(request.command.assetId);
+      const pluginArtifact = manualAnimation ? null : await hooks.writePluginMediaArtifact({
         libraryId: request.command.libraryId,
         assetId: request.command.assetId,
         kind: 'preview',
@@ -104,7 +105,7 @@ export async function executeMediaPathWorkerCommand(
       // the request, so avoid enqueueing a native job that could overwrite it.
       // Serpent-tz35: the viewer wave stays at priority 350 and skips repair
       // scans, but it is deliberately detached from the first-paint request.
-      if (!pluginArtifact) {
+      if (!pluginArtifact && !manualAnimation) {
         const previewLibraryId = request.command.libraryId;
         const previewAssetId = request.command.assetId;
         setTimeout(() => {

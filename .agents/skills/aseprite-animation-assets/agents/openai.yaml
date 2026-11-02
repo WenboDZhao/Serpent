@@ -1,0 +1,4 @@
+interface:
+  display_name: "Aseprite 动画资产"
+  short_description: "将 PNG 分帧整理为 Aseprite，生成唯一 GIF 并托管到 Serpent"
+  default_prompt: "使用 $aseprite-animation-assets 整理动画源文件、生成预览并通过 MCP 核验入库。"
