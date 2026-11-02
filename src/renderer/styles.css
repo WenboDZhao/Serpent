@@ -84,6 +84,16 @@
   --viewer-stage: var(--ui-surface-canvas, #16171a);
   /* PDF page paper stays white in both themes (document content, not chrome). */
   --viewer-document-page: #fff;
+  /* Viewer navigation contrasts against the media surface in both themes. */
+  --viewer-nav-on-dark-outline: #000;
+  --viewer-nav-on-dark-fg: #fff;
+  --viewer-nav-on-light-outline: #fff;
+  --viewer-nav-on-light-fg: #111;
+  --viewer-nav-on-dark-disabled-outline: #2a2a2a;
+  --viewer-nav-on-dark-disabled-fg: #8d8d8d;
+  --viewer-nav-on-light-disabled-outline: #f3f3f3;
+  --viewer-nav-on-light-disabled-fg: #8a8a8a;
+
   /* Serpent-627: viewer bottom chrome (zoom bar / video transport /
      fullscreen chip) is semi-transparent rather than near-opaque —
      moderate enough to still read clearly over any media, in both themes. */
@@ -6700,32 +6710,32 @@ body.serpent-modal-open .app-shell {
   grid-area: 1 / 1;
 }
 .preview-nav.is-on-dark .preview-nav-glyph .icon:first-child {
-  color: #000;
+  color: var(--viewer-nav-on-dark-outline);
   stroke-width: 3.5;
 }
 .preview-nav.is-on-dark .preview-nav-glyph .icon:last-child {
-  color: #fff;
+  color: var(--viewer-nav-on-dark-fg);
   stroke-width: 2.85;
 }
 .preview-nav.is-on-light .preview-nav-glyph .icon:first-child {
-  color: #fff;
+  color: var(--viewer-nav-on-light-outline);
   stroke-width: 3.5;
 }
 .preview-nav.is-on-light .preview-nav-glyph .icon:last-child {
-  color: #111;
+  color: var(--viewer-nav-on-light-fg);
   stroke-width: 2.85;
 }
 .preview-nav.is-on-dark:disabled .preview-nav-glyph .icon:first-child {
-  color: #2a2a2a;
+  color: var(--viewer-nav-on-dark-disabled-outline);
 }
 .preview-nav.is-on-dark:disabled .preview-nav-glyph .icon:last-child {
-  color: #8d8d8d;
+  color: var(--viewer-nav-on-dark-disabled-fg);
 }
 .preview-nav.is-on-light:disabled .preview-nav-glyph .icon:first-child {
-  color: #f3f3f3;
+  color: var(--viewer-nav-on-light-disabled-outline);
 }
 .preview-nav.is-on-light:disabled .preview-nav-glyph .icon:last-child {
-  color: #8a8a8a;
+  color: var(--viewer-nav-on-light-disabled-fg);
 }
 .preview-exr-plane-selector {
   position: absolute;
@@ -6756,10 +6766,10 @@ body.serpent-modal-open .app-shell {
   box-shadow: 0 0 0 2px var(--accent);
 }
 .preview-nav.is-on-dark {
-  color: #fff;
+  color: var(--viewer-nav-on-dark-fg);
 }
 .preview-nav.is-on-light {
-  color: #111;
+  color: var(--viewer-nav-on-light-fg);
 }
 .preview-nav:hover:not(:disabled),
 .preview-nav:focus-visible:not(:disabled) {

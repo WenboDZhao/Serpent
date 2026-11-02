@@ -67,6 +67,7 @@ const TestDatabase = require('better-sqlite3') as new (
 ) => TestDatabaseConnection;
 
 function removeWriteCoordinationSchema(database: TestDatabaseConnection): void {
+  database.exec('DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets;');
   const triggers = database.prepare(
     `SELECT name FROM sqlite_master
       WHERE type = 'trigger'
