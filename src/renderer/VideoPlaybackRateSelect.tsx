@@ -1,6 +1,7 @@
 import {
   useEffect,
   useId,
+  useLayoutEffect,
   useRef,
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
@@ -44,10 +45,12 @@ export function VideoPlaybackRateSelect({
   const hostRef = useRef<HTMLDivElement>(null);
   const valueRef = useRef(value);
   const echoedValueRef = useRef(value);
-  if (value !== echoedValueRef.current) {
-    valueRef.current = value;
-    echoedValueRef.current = value;
-  }
+  useLayoutEffect(() => {
+    if (value !== echoedValueRef.current) {
+      valueRef.current = value;
+      echoedValueRef.current = value;
+    }
+  }, [value]);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const listId = useId();
   const rateLabel = t("preview.playbackRateOption", { rate: value });

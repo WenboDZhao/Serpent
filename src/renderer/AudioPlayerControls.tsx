@@ -182,16 +182,16 @@ export function AudioPlayerControls({
   }, [duration]);
 
   useEffect(() => {
-    const slot = playbackHandleRef;
-    if (!slot) return;
-    slot.current = {
+    const slotRef = playbackHandleRef;
+    if (!slotRef) return;
+    slotRef.current = {
       stepRate: () => undefined,
       seekBy(direction, unit) {
         seekByConfiguredJump(direction, unit);
       },
     };
     return () => {
-      slot.current = null;
+      slotRef.current = null;
     };
   }, [playbackHandleRef, seekByConfiguredJump]);
 

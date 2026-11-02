@@ -323,9 +323,9 @@ function GifAnimatedStage({
   }, []);
 
   useEffect(() => {
-    const slot = playbackHandleRef;
-    if (!slot) return;
-    slot.current = {
+    const slotRef = playbackHandleRef;
+    if (!slotRef) return;
+    slotRef.current = {
       stepRate(direction) {
         applyPlaybackRate(stepVideoPlaybackRate(playbackRateRef.current, direction));
       },
@@ -345,7 +345,7 @@ function GifAnimatedStage({
       },
     };
     return () => {
-      slot.current = null;
+      slotRef.current = null;
     };
   }, [applyPlaybackRate, playbackHandleRef, seekToMs]);
 

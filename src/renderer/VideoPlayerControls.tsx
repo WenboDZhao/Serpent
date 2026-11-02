@@ -427,9 +427,9 @@ export function VideoPlayerControls({
   }, [src]);
 
   useEffect(() => {
-    const slot = playbackHandleRef;
-    if (!slot) return;
-    slot.current = {
+    const slotRef = playbackHandleRef;
+    if (!slotRef) return;
+    slotRef.current = {
       stepRate(direction) {
         applyPlaybackRate(stepVideoPlaybackRate(playbackRateRef.current, direction));
       },
@@ -456,7 +456,7 @@ export function VideoPlayerControls({
       },
     };
     return () => {
-      slot.current = null;
+      slotRef.current = null;
     };
   }, [applyPlaybackRate, playbackHandleRef]);
 

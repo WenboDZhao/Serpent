@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { iconActionAttrs } from "./icon-action-attrs";
 import { useT } from "./i18n";
@@ -29,10 +29,12 @@ export function ViewerVolumeControls({
   const trackRef = useRef<HTMLDivElement>(null);
   const volumeRef = useRef(volume);
   const echoedVolumeRef = useRef(volume);
-  if (volume !== echoedVolumeRef.current) {
-    volumeRef.current = volume;
-    echoedVolumeRef.current = volume;
-  }
+  useLayoutEffect(() => {
+    if (volume !== echoedVolumeRef.current) {
+      volumeRef.current = volume;
+      echoedVolumeRef.current = volume;
+    }
+  }, [volume]);
   const scrubbingPointerId = useRef<number | null>(null);
   const [scrubRatio, setScrubRatio] = useState<number | null>(null);
   const [adjusting, setAdjusting] = useState(false);
