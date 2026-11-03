@@ -21,6 +21,8 @@
 
 `path` 必须为绝对路径。多个 PNG：每帧指定文件；精灵图：同一文件每帧指定不同 `rect`。矩形不能越界，不自动去透明边或移动基准点。缺省位置为 (0,0)。图层由下至上，`layer` 为一基索引，动作范围包含两端。分部件素材使用多个图层，不能为了预览把源文件扁平化。复杂层级可由 Codex 基于同一 Aseprite Lua API 扩展制作，再按已有源文件模式导入。
 
+PNG 按显式清单逐文件读取单帧，不让 Aseprite 自动展开相邻编号文件；否则不同尺寸的分帧会被扩展到同一隐式画布，改变 cel 边界。源位置和尺寸必须按每张 PNG 自身验证。
+
 ## 可重建预览配置
 
 ```json
@@ -56,3 +58,5 @@ python3 scripts/assets.py resume --aseprite /absolute/aseprite --run /absolute/s
 导入使用 `{sourcePath,previewPath,sourceSha256,previewSha256,recipe,generatorVersion,idempotencyKey,targetFolderId?}`。读取使用 `{assetId,kind:"source"|"preview",expectedSha256,offsetBytes,maxBytes}`，建议 256 KiB。get 返回 recipe、generation（源摘要/版本、配置摘要、GIF 摘要、生成器版本、生成时间、尺寸）、当前源摘要以及 stale/previewMissing。
 
 更新暂存使用 `{assetId,stagingId,expectedRevisionId,expectedSourceSha256,offsetBytes,dataBase64,complete}`；最后一块 `complete:true`。相同偏移和内容可重试，禁止空洞及覆盖不同内容。发布使用 `{assetId,stagingId,recipe,generatorVersion,previewSha256,idempotencyKey}`。取消使用 `{assetId,stagingId}`。原始输入和发布键绑定内容，不允许同键改参；冲突或源变化必须报告并保留恢复资料。
+
+恢复更新时，只有 generation 的源摘要与源 revision、GIF 摘要、配置摘要和生成器版本均匹配本次运行，才能跳过发布。新增隐藏层或源内补充帧可能保持 GIF 字节不变，仍须发布对应新源的生成记录，避免错误保留 stale 状态。

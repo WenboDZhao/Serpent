@@ -3,6 +3,7 @@
 !.agents/skills/
 .agents/skills/*
 !.agents/skills/aseprite-animation-assets/
+!.agents/skills/serpent-resource-import/
 **/__pycache__/
 .claude/
 .kimi/

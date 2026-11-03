@@ -53,6 +53,34 @@ def decode_aseprite(file):
 
 @unittest.skipUnless(BIN, 'ASEPRITE_BIN is required for real Aseprite conversion checks')
 class ConversionTests(unittest.TestCase):
+    def test_numbered_pngs_with_different_sizes_keep_explicit_cel_bounds(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            small = Image.new('RGBA', (2, 2), (210, 20, 30, 255))
+            large = Image.new('RGBA', (5, 4), (20, 190, 70, 127))
+            small.save(root / 'frame01.png'); large.save(root / 'frame02.png')
+            manifest = dict(name='numbered.aseprite', canvas=dict(width=6, height=6), layers=[dict(name='body')],
+                            frames=[dict(durationMs=100, cels=[dict(layer=1, path=str(root/'frame01.png'), position=dict(x=4,y=4))]),
+                                    dict(durationMs=140, cels=[dict(layer=1, path=str(root/'frame02.png'), position=dict(x=0,y=0))])],
+                            actions=[dict(name='motion', **{'from':1,'to':2})])
+            recipe = dict(version=1,actions=[dict(name='motion',frames=[1,2],durationsMs=[100,140])],
+                          combinations=[dict(name='original')],crop=dict(x=0,y=0,width=6,height=6),
+                          layout=dict(columns=1,scale=1,padding=0),posterFrame=0)
+            assets.write_json(root/'manifest.json',manifest); assets.write_json(root/'recipe.json',recipe)
+            result = subprocess.run([os.sys.executable,str(SCRIPT),'prepare','--aseprite',BIN,'--manifest',str(root/'manifest.json'),
+                                     '--recipe',str(root/'recipe.json'),'--work-parent',str(root)],check=True,text=True,capture_output=True)
+            run=assets.load_run(json.loads(result.stdout)['run'])
+            frames=decode_aseprite(Path(run['root'])/run['sourceName'])
+            self.assertEqual([frame['duration'] for frame in frames],[100,140])
+            for frame,image,position in zip(frames,[small,large],[(4,4),(0,0)]):
+                self.assertEqual(len(frame['cels']),1)
+                cel=frame['cels'][0]
+                self.assertEqual((cel['x'],cel['y']),position)
+                self.assertEqual((cel['width'],cel['height']),image.size)
+                self.assertEqual(cel['pixels'],image.tobytes())
+            with Image.open(root/'frame01.png') as original:
+                self.assertEqual(original.size,(2,2))
+
     def test_multiple_png_and_sheet_preserve_rgba_position_order_and_timing(self):
         for use_sheet in (False, True):
             with self.subTest(use_sheet=use_sheet), tempfile.TemporaryDirectory() as directory:
@@ -141,6 +169,27 @@ class LifecycleTests(unittest.TestCase):
             client.return_value.call.return_value=info
             assets.update(args)
             new_run.assert_not_called()
+
+    def test_resume_publishes_new_source_even_when_preview_bytes_are_unchanged(self):
+        recipe = dict(version=1,actions=[dict(name='idle',frames=[1],durationsMs=[100])],combinations=[dict(name='body')],crop=dict(x=0,y=0,width=1,height=1),layout=dict(columns=1,scale=1,padding=0),posterFrame=0)
+        with tempfile.TemporaryDirectory() as directory:
+            run = assets.new_run(directory); root = Path(run['root'])
+            (root/'source.aseprite').write_bytes(b'new source with an additional hidden layer')
+            (root/'preview.gif').write_bytes(b'unchanged preview bytes')
+            assets.write_json(root/'recipe.json',recipe)
+            run.update(mode='update',libraryId='lib',assetId='asset',sourceName='source.aseprite',sourceSha256=assets.digest(root/'source.aseprite'),sourceRevisionId='revision-new',previewSha256=assets.digest(root/'preview.gif'),generatorVersion='same')
+            assets.save_run(run)
+            info = dict(previewMissing=False,sourceSha256=run['sourceSha256'],generation=dict(sourceSha256='a'*64,sourceRevisionId='revision-old',previewSha256=run['previewSha256'],recipeSha256=assets.json_hash(recipe),generatorVersion='same'))
+            args = type('Args', (), dict(run=run['root'],keep_work=True))()
+            with patch.object(assets,'Mcp') as client, patch.object(assets,'finish') as finish:
+                client.return_value.call.return_value=info
+                assets.resume_run(args,run)
+                calls=client.return_value.call.call_args_list
+                stage=next(call for call in calls if call.args[0]=='serpent_animation_preview_stage')
+                self.assertEqual(stage.kwargs['expectedRevisionId'],'revision-new')
+                self.assertEqual(stage.kwargs['expectedSourceSha256'],run['sourceSha256'])
+                self.assertTrue(any(call.args[0]=='serpent_animation_preview_publish' for call in calls))
+                finish.assert_called_once()
 
 
 if __name__ == '__main__':

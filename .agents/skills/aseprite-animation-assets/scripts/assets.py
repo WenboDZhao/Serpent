@@ -342,6 +342,8 @@ def resume_run(args, run=None):
             current = client.call('serpent_animation_get', run['libraryId'], assetId=run['assetId'])
             record = current['generation'] if current else {}
             if (current and not current['previewMissing'] and current['sourceSha256'] == run['sourceSha256']
+                    and record.get('sourceSha256') == run['sourceSha256']
+                    and record.get('sourceRevisionId') == run['sourceRevisionId']
                     and record['previewSha256'] == run['previewSha256'] and record['recipeSha256'] == json_hash(recipe)
                     and record['generatorVersion'] == run['generatorVersion']):
                 if run.get('stagingId'):

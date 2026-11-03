@@ -41,7 +41,8 @@ elseif mode == 'build' then
     if i>1 then sprite:newEmptyFrame(i) end
     sprite.frames[i].duration=frame.durationMs/1000
     for _, cel in ipairs(frame.cels) do
-      local imageSprite = assert(app.open(cel.path))
+      -- A numbered PNG is one explicit cel, not an implicitly expanded file sequence.
+      local imageSprite = assert(Sprite{fromFile=cel.path,oneFrame=true})
       local flat = Image(imageSprite.width,imageSprite.height,ColorMode.RGB)
       flat:drawSprite(imageSprite,1)
       local image=flat
