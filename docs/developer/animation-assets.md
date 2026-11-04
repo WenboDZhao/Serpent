@@ -7,7 +7,7 @@
 - 项目 Skill：[aseprite-animation-assets](../../.agents/skills/aseprite-animation-assets/SKILL.md)。Codex 理解和整理 PNG/精灵图/部件，调用 Aseprite CLI 维护源文件、抽样并更新 GIF。Serpent 没有生成按钮、Aseprite 插件或外部编码器依赖。
 - [共享契约](../../src/shared/animation-assets.ts)约束最多四种组合、两种动作，明确帧号、时长、层级路径及固定裁切。各格共用时间轴，配置通过规范化 JSON 的 SHA-256 判断变化。
 - Gateway Registry → Worker 协议 → [动画 handler](../../src/worker/handlers/animation-assets.ts) → [Worker repository](../../src/worker/animation-assets.ts)。只有 Worker 访问文件和 SQLite；写命令持有每库 writer lease，查询走 automation-readonly dispatcher，不排媒体任务。
-- 新增迁移 v60，保留既有迁移及 checksum。`animation_assets` 用 asset ID 关联最后成功 GIF、PNG 封面、配置和生成记录；`animation_requests` 保存幂等请求；`animation_preview_staging` 保存上传进度。源沿用普通托管导入和文件操作恢复，复制至 `Assets/`；GIF 和封面写入 `.serpent/artifacts/`，不会作为第二项被扫描入库。
+- 动画迁移保持 v60 及原 checksum；上游同号目录索引迁移合流为 v61，两种已发布 v60 库均可事务化升级，见 [v60 分叉库兼容](schema-v60-compatibility.md)。`animation_assets` 用 asset ID 关联最后成功 GIF、PNG 封面、配置和生成记录；`animation_requests` 保存幂等请求；`animation_preview_staging` 保存上传进度。源沿用普通托管导入和文件操作恢复，复制至 `Assets/`；GIF 和封面写入 `.serpent/artifacts/`，不会作为第二项被扫描入库。
 - 预览生命周期属于资产，独立于通常按 revision 失效的缓存。源版本变化时卡片标记「预览待更新」，继续服务上次成功的 GIF/封面。重命名和托管移动不会丢失关联。已永久删除的资产不再解析预览 URL。后台孤立文件清理同时读取动画关联中的 GIF 和封面路径，不能仅依据 `revision_artifacts` 判断引用。
 - 替换预览先写入并 flush 不可变文件，再在事务内切换关联、配置、生成记录和完成收据。旧文件进入 `animation_retired_files`，发布后清理；锁定的文件保留记录，下一次发布重试。源资产永久删除也会把关联文件加入该队列。
 
@@ -38,7 +38,7 @@ Skill 依赖用户提供的 Aseprite CLI；主体 Python 仅用标准库，像�
 - 接口与 Worker：`tests/unit/animation-assets.test.ts`、`tests/worker/animation-assets.test.ts`，另有 Gateway/MCP、browse、managed-move、derived-artifact 回归。
 - 隔离 Electron：`node scripts/run-e2e-isolated.mjs tests/e2e/animation-assets.test.ts`。默认测试普通包；设置 `SERPENT_ANIMATION_SAMPLE_RUN`、`ASEPRITE_BIN`、`SERPENT_SKILL_PYTHON` 可消费真实 Skill 运行，覆盖 MCP 导入、回读后清理、跳过、配置更新、悬停、GIF 查看器、外部源路径和重启。设置 `SERPENT_ANIMATION_SAMPLE_LIBRARY_PARENT` 可保留正式样板库。
 - 打包后可设置 `SERPENT_E2E_ELECTRON_EXECUTABLE` 为包内可执行文件、`SERPENT_E2E_APP_DIRECTORY` 为包目录，直接运行同一 Playwright 用例。发行包不会启用未打包环境的原生选择器测试入口；用例与 `packaged-startup.test.ts` 一样替换 Electron 原生文件选择器，并等待资源库可用后发起 MCP 请求。默认夹具使用两个不同的 GIF 帧，确保覆盖动画查看器。
-- 迁移完整门禁：`npm run test:library-availability`。旧库 fixture 的逆向迁移同步移除 v60 表和触发器。
+- 迁移完整门禁：`npm run test:library-availability`。旧库 fixture 的逆向迁移同步移除动画 v60、目录索引 v61 的表和触发器；两种已发布 v60 的兼容用例保留各自的真实历史。
 
 首轮只做可复用功能和样板，不批量迁移资源目录。跨平台 Aseprite CLI、真实 OS 编辑器启动、NAS 和打包发行版应分别验证；Electron E2E 的 OS open 使用捕获路径的桩，以免打开用户的编辑器。macOS 隔离 runner 在仅有一块显示器时会回退至主屏，profile 和资源库仍隔离。
 

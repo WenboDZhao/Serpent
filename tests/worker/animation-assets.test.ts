@@ -159,7 +159,7 @@ describe('managed animation assets', () => {
     const f = await fixture(); const imported = await executeAnimationAssetCommand(f.service, { ...f.input, libraryId: f.library.libraryId, type: 'animation.import' });
     expect(imported?.ok).toBe(true);
     const info = f.service.listAssets({ libraryId: f.library.libraryId, recursive: true })[0]!;
-    const result = dispatchAutomationReadOnlyRequest(f.service, { requestId: randomUUID(), dispatch: 'automation-readonly', command: {
+    const result = await dispatchAutomationReadOnlyRequest(f.service, { requestId: randomUUID(), dispatch: 'automation-readonly', command: {
       type: 'animation.read', libraryId: f.library.libraryId, assetId: info.assetId, kind: 'source', offsetBytes: 2, maxBytes: 5, expectedSha256: f.input.sourceSha256,
     } });
     expect(result).toMatchObject({ ok: true, type: 'animation.read', truncated: true, dataBase64: readFileSync(f.input.sourcePath).subarray(2, 7).toString('base64') });

@@ -1,4 +1,4 @@
-import { mkdirSync, mkdtempSync, renameSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, realpathSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { opendir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -79,7 +79,7 @@ it('does not make navigation or source lookup wait on a stalled directory scan',
     expect(result.linkedFolders.some((folder) => folder.relativePath === 'empty/nested')).toBe(true);
     expect(result.linkedFolders.some((folder) => folder.relativePath === 'new-empty')).toBe(false);
     const asset = service.listAssets({ libraryId: library.libraryId, recursive: true })[0]!;
-    expect(service.resolveAssetPath(library.libraryId, asset.assetId)).toBe(path.join(sourceRoot, 'sample.txt'));
+    expect(service.resolveAssetPath(library.libraryId, asset.assetId)).toBe(realpathSync(path.join(sourceRoot, 'sample.txt')));
   } finally {
     clearTimeout(deadline);
     release();

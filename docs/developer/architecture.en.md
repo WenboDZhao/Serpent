@@ -67,6 +67,7 @@ docs/              # documentation (this tree, ADRs, specs, QA)
 
 - Library catalog metadata lives in `.serpent/library.db`. The supported schema version is derived from the last `MIGRATIONS` entry by `SUPPORTED_SCHEMA_VERSION` in `src/worker/library-service.ts`. The derived semantic index has a separate database at `.serpent/semantic/index.sqlite` and its own `SEMANTIC_SCHEMA_VERSION` in `src/worker/semantic-index-store.ts`
 - Asset files live in `Assets/`; derived data (thumbnails/proxies) in `.serpent/artifacts/`
+- The released animation v60 and upstream directory-index v60 histories converge transactionally on v61, preserving both SQL checksums and user data. See [v60 fork compatibility (Chinese)](schema-v60-compatibility.md) for recognition, rollback and acceptance coverage.
 - **Data-compatibility discipline**: migrations are add-only (no dropping/renaming existing tables, columns, indexes or triggers); new builds must open old libraries (lenient reads — missing columns degrade to defaults, never crash); Desktop does not offer read-only libraries — damage is repaired from backups then Assets rescue. Library availability is the hardest baseline: any library-related change must fully run `npm run test:library-availability`. See [ADR-0028](../internal/adr/0028-schema-compatibility-read-only-degrade.md) and [0031](../internal/implementation/0031-schema-compatibility-guarantee.md)
 
 ## Media pipeline

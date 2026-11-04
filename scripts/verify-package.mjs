@@ -145,18 +145,6 @@ if (missingAsarEntries.length > 0) {
   );
 }
 
-const registrySource = readFileSync(
-  path.join(projectRoot, 'src', 'automation', 'command-registry.ts'),
-  'utf8',
-);
-const apiVersionMatch = registrySource.match(
-  /export const AUTOMATION_API_VERSION = (\d+) as const;/u,
-);
-if (!apiVersionMatch) {
-  throw new Error('Could not determine AUTOMATION_API_VERSION from the Registry source.');
-}
-const apiVersion = Number(apiVersionMatch[1]);
-
 const mainEntry = asarFiles.find((entry) => {
   const normalized = String(entry).replaceAll('\\', '/').replace(/^\.\//u, '');
   return normalized.endsWith('/main.js') || normalized === 'main.js';

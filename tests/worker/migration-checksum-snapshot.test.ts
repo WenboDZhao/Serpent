@@ -75,6 +75,8 @@ const GOLDEN_CHECKSUMS: Record<number, string> = {
   58: '05723c948856bc143275f1d60acda9661b5d9730331d0a95138b70276e529dbc',
   59: '26bd0ca9abcba142766fa3d9d3cb3b53db260b7c789a6ba28df6d4c2f2de9b94',
   60: '7ffdea1d4456adb955462918c54c6a7f5ca8c157da34460c3d898328d58efa7b',
+  // Byte-for-byte upstream's released linked-directory v60, appended here.
+  61: 'ec395b8324fb1c87710ec597dff5915f8f669f52a815033700d15c97e444125d',
 };
 
 describe('golden migration checksum snapshot (Serpent-033e)', () => {

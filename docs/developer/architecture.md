@@ -67,6 +67,7 @@ docs/              # 文档（本目录、ADR、实施规格、QA）
 
 - 资源库目录元数据存于 `.serpent/library.db`。支持的 schema 版本由 `src/worker/library-service.ts` 中 `SUPPORTED_SCHEMA_VERSION` 取 `MIGRATIONS` 最后一项；派生语义索引另存于 `.serpent/semantic/index.sqlite`，独立版本见 `src/worker/semantic-index-store.ts` 的 `SEMANTIC_SCHEMA_VERSION`
 - 资产文件存 `Assets/`，派生数据（缩略图/代理）存 `.serpent/artifacts/`
+- 动画 v60 与上游目录索引 v60 通过精确历史识别合流到统一 v61，保留两份已发布 SQL、checksum 和业务数据；事务、回滚与验收见 [v60 分叉库兼容](schema-v60-compatibility.md)。
 - **数据兼容纪律**：迁移只加不改（禁删改现有表/列/索引/触发器）；新代码必须能打开旧库（宽容读取：缺列降级默认值，不崩溃）；Desktop 不提供只读资源库，损坏走备份再 Assets 抢救。资源库可用性是项目最重要底线，相关改动必须完整跑完 `npm run test:library-availability`。见 [ADR-0028](../internal/adr/0028-schema-compatibility-read-only-degrade.md) 与 [0031](../internal/implementation/0031-schema-compatibility-guarantee.md)
 
 ## 媒体管线

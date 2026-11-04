@@ -3,7 +3,7 @@ interface FixtureConnection {
   prepare(sql: string): { all(...parameters: unknown[]): unknown };
 }
 
-/** Raw historical-schema fixtures must remove objects introduced by v60. */
+/** Remove directory objects from upstream v60 / the merged canonical v61. */
 export function removeLinkedDirectoryIndexFixture(database: FixtureConnection): void {
   const triggers = database.prepare(
     "SELECT name FROM sqlite_master WHERE type = 'trigger' AND name LIKE 'linked_directory_%'",
