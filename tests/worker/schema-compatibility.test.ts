@@ -2,7 +2,8 @@
 // inside a transaction so a mid-migration failure leaves user_version
 // unchanged, no half-applied schema, and a library that can be reopened and
 // retried.
-import { mkdirSync, mkdtempSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -15,6 +16,10 @@ import {
   SUPPORTED_SCHEMA_VERSION,
 } from '../../src/worker/library-service';
 import { removePathWithSyncRetry } from '../../src/worker/windows-fs-retry';
+import { animationFileSha256 } from '../../src/worker/animation-assets';
+import { LINKED_DIRECTORY_INDEX_SQL } from '../../src/worker/linked-directory-index';
+import { MAX_MIGRATION_ATTEMPTS } from '../../src/worker/schema-failure';
+import { removeLinkedDirectoryIndexFixture } from './remove-linked-directory-index';
 
 const temporaryRoots: string[] = [];
 const services: LibraryService[] = [];
@@ -160,7 +165,7 @@ describe('legacy plugin-first v28 migration', () => {
     const libraryPath = buildLegacyPluginFirstV28(root);
     const service = newService();
 
-    expect(() => service.openLibrary(libraryPath)).not.toThrow();
+    service.openLibrary(libraryPath);
     const libraryId = 'lib_23';
     const receipt = service.recordOperationHistoryBarrier({
       libraryId,
@@ -218,11 +223,224 @@ describe('legacy plugin-first v28 migration', () => {
     expect(historyRows.at(-1)?.checksum).toBe(
       MIGRATIONS.find((migration) => migration.version === SUPPORTED_SCHEMA_VERSION)!.checksum,
     );
+    expect(db.prepare("SELECT name FROM sqlite_master WHERE name IN ('animation_assets', 'linked_directory_snapshots') ORDER BY name").all())
+      .toEqual([{ name: 'animation_assets' }, { name: 'linked_directory_snapshots' }]);
     const persistedHistory = db
       .prepare("SELECT source, state, policy FROM operation_history WHERE label_key = 'history.compatibility-test'")
       .get() as { source: string; state: string; policy: string } | undefined;
     expect(persistedHistory).toEqual({ source: 'script', state: 'applied', policy: 'barrier' });
     db.close();
+  });
+});
+
+describe('released animation / linked-directory v60 fork', () => {
+  const directoryChecksum = 'ec395b8324fb1c87710ec597dff5915f8f669f52a815033700d15c97e444125d';
+  const appliedAt = '2026-11-01T00:00:00.000Z';
+
+  function buildDirectoryV60(root: string): string {
+    const libraryPath = buildLibraryAtVersion(root, 59);
+    const db = new Database(libraryFilePath(libraryPath));
+    db.exec(LINKED_DIRECTORY_INDEX_SQL);
+    db.prepare('INSERT INTO schema_migrations (version, checksum, applied_at) VALUES (?, ?, ?)')
+      .run(60, directoryChecksum, appliedAt);
+    db.pragma('user_version = 60');
+    db.close();
+    return libraryPath;
+  }
+
+  function history(db: TestDatabaseConnection) {
+    return db.prepare('SELECT version, checksum, applied_at FROM schema_migrations ORDER BY version').all();
+  }
+
+  function assertCanonicalHistory(db: TestDatabaseConnection): void {
+    expect(db.pragma('user_version', { simple: true })).toBe(SUPPORTED_SCHEMA_VERSION);
+    expect(db.prepare('SELECT version, checksum FROM schema_migrations ORDER BY version').all())
+      .toEqual(MIGRATIONS.map(({ version, checksum }) => ({ version, checksum })));
+    expect(db.pragma('foreign_key_check')).toEqual([]);
+  }
+
+  it('keeps both released SQL identities immutable', () => {
+    expect(MIGRATIONS[59].checksum).toBe('7ffdea1d4456adb955462918c54c6a7f5ca8c157da34460c3d898328d58efa7b');
+    expect(createHash('sha256').update(LINKED_DIRECTORY_INDEX_SQL).digest('hex')).toBe(directoryChecksum);
+    expect(MIGRATIONS[60]).toMatchObject({ version: 61, sql: LINKED_DIRECTORY_INDEX_SQL, checksum: directoryChecksum });
+  });
+
+  it('upgrades animation v60 without losing the source, GIF, generation, tags or metadata', async () => {
+    const root = temporaryRoot();
+    const creating = newService({ observerFactory: () => ({ close() {} }) });
+    const library = creating.createLibrary({ displayName: 'Animation v60', selectedParentPath: root });
+    const sourcePath = path.join(root, 'character.aseprite');
+    const previewPath = path.join(root, 'character.gif');
+    writeFileSync(sourcePath, 'opaque Aseprite source fixture');
+    writeFileSync(previewPath, Buffer.from('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', 'base64'));
+    const info = await creating.animationRepository(library.libraryId, true).importBundle({
+      sourcePath, previewPath, sourceSha256: animationFileSha256(sourcePath),
+      previewSha256: animationFileSha256(previewPath), generatorVersion: 'v60-fixture', idempotencyKey: 'v60-import',
+      recipe: { version: 1, actions: [{ name: 'idle', frames: [1], durationsMs: [100] }],
+        combinations: [{ name: 'original' }], crop: { x: 0, y: 0, width: 1, height: 1 },
+        layout: { columns: 1, scale: 1, padding: 0 }, posterFrame: 0 },
+    });
+    creating.setAssetsRating({ libraryId: library.libraryId, assetIds: [info.assetId], rating: 4 });
+    const metadata = creating.getAssetMetadata({ libraryId: library.libraryId, assetId: info.assetId });
+    creating.setAssetMetadata({ libraryId: library.libraryId, assetId: info.assetId, expectedVersion: metadata.entityVersion, favorite: true });
+    const tag = creating.createTag({ libraryId: library.libraryId, name: 'Preserved' });
+    creating.assignTags({ libraryId: library.libraryId, assetIds: [info.assetId], tagIds: [tag.tagId] });
+    const expectedMetadata = creating.getAssetMetadata({ libraryId: library.libraryId, assetId: info.assetId });
+    creating.closeAll();
+
+    const fixture = new Database(libraryFilePath(library.libraryPath));
+    removeLinkedDirectoryIndexFixture(fixture);
+    fixture.prepare('DELETE FROM schema_migrations WHERE version > 60').run();
+    fixture.pragma('user_version = 60');
+    const originalHistory = history(fixture);
+    const animation = fixture.prepare('SELECT * FROM animation_assets').all();
+    fixture.close();
+
+    const service = newService();
+    const opened = service.openLibrary(library.libraryPath);
+    expect(opened).toMatchObject({ libraryId: library.libraryId });
+    expect(opened.recovery).toBeUndefined();
+    expect(opened.readOnly).toBeFalsy();
+    expect(service.animationRepository(opened.libraryId).info(info.assetId)).toEqual(info);
+    expect(service.getAssetMetadata({ libraryId: opened.libraryId, assetId: info.assetId })).toEqual(expectedMetadata);
+    expect(readFileSync(service.resolveAssetPath(opened.libraryId, info.assetId))).toEqual(readFileSync(sourcePath));
+    expect(animationFileSha256(service.getArtifactAbsolutePath(opened.libraryId, info.previewArtifactId))).toBe(info.generation.previewSha256);
+    service.closeAll();
+
+    const verified = new Database(libraryFilePath(library.libraryPath));
+    assertCanonicalHistory(verified);
+    expect(history(verified).slice(0, 60)).toEqual(originalHistory);
+    expect(verified.prepare('SELECT * FROM animation_assets').all()).toEqual(animation);
+    verified.close();
+  });
+
+  it('bridges upstream directory v60 and preserves snapshots, source files, IDs and original history timestamps', () => {
+    const root = temporaryRoot();
+    const creating = newService({ observerFactory: () => ({ close() {} }) });
+    const library = creating.createLibrary({ displayName: 'Directory v60', selectedParentPath: root });
+    const sourceRoot = path.join(root, 'linked');
+    mkdirSync(path.join(sourceRoot, 'empty', 'nested'), { recursive: true });
+    writeFileSync(path.join(sourceRoot, 'keep.txt'), 'keep source bytes');
+    const linked = creating.importFolderAsLinked({ libraryId: library.libraryId, sourceRootPath: sourceRoot });
+    const assets = creating.listAssets({ libraryId: library.libraryId, recursive: true });
+    expect(assets).toHaveLength(1);
+    creating.setAssetsRating({ libraryId: library.libraryId, assetIds: [assets[0]!.assetId], rating: 3 });
+    const metadata = creating.getAssetMetadata({ libraryId: library.libraryId, assetId: assets[0]!.assetId });
+    creating.closeAll();
+
+    const fixture = new Database(libraryFilePath(library.libraryPath));
+    fixture.exec('DROP TABLE animation_retired_files; DROP TABLE animation_requests; DROP TABLE animation_preview_staging; DROP TABLE animation_assets');
+    fixture.prepare('DELETE FROM schema_migrations WHERE version = 60').run();
+    fixture.prepare('UPDATE schema_migrations SET version = 60, applied_at = ? WHERE version = 61').run(appliedAt);
+    fixture.pragma('user_version = 60');
+    const snapshots = fixture.prepare('SELECT * FROM linked_directory_snapshots ORDER BY linked_folder_id').all();
+    const entries = fixture.prepare('SELECT * FROM linked_directory_entries ORDER BY linked_folder_id, generation, path_identity').all();
+    expect(snapshots).toHaveLength(1);
+    expect(entries).toHaveLength(2);
+    const prefix = history(fixture).slice(0, 59);
+    fixture.close();
+
+    const service = newService({ observerFactory: () => ({ close() {} }) });
+    const opened = service.openLibrary(library.libraryPath);
+    expect(opened.recovery).toBeUndefined();
+    expect(opened.readOnly).toBeFalsy();
+    expect(service.listAssets({ libraryId: opened.libraryId, recursive: true })[0]?.assetId).toBe(assets[0]!.assetId);
+    expect(service.getAssetMetadata({ libraryId: opened.libraryId, assetId: assets[0]!.assetId })).toEqual(metadata);
+    expect(readFileSync(service.resolveAssetPath(opened.libraryId, assets[0]!.assetId), 'utf8')).toBe('keep source bytes');
+    expect(service.listFolderBrowseEntries({ libraryId: opened.libraryId, parentFolderId: linked.folderId }).map((entry) => entry.name)).toEqual(['empty']);
+    service.closeAll();
+
+    const verified = new Database(libraryFilePath(library.libraryPath));
+    assertCanonicalHistory(verified);
+    expect(history(verified).slice(0, 59)).toEqual(prefix);
+    expect(verified.prepare('SELECT * FROM schema_migrations WHERE version = 61').get())
+      .toEqual({ version: 61, checksum: directoryChecksum, applied_at: appliedAt });
+    expect(verified.prepare('SELECT * FROM linked_directory_snapshots ORDER BY linked_folder_id').all()).toEqual(snapshots);
+    expect(verified.prepare('SELECT * FROM linked_directory_entries ORDER BY linked_folder_id, generation, path_identity').all()).toEqual(entries);
+    expect(verified.prepare('SELECT COUNT(*) AS count FROM animation_assets').get()).toEqual({ count: 0 });
+    const upgradedHistory = history(verified);
+    verified.close();
+
+    expect(service.openLibrary(library.libraryPath).recovery).toBeUndefined();
+    service.closeAll();
+    const reopened = new Database(libraryFilePath(library.libraryPath));
+    expect(history(reopened)).toEqual(upgradedHistory);
+    reopened.close();
+  });
+
+  it.each(['animation', 'directory'] as const)('rolls back the entire %s v60 upgrade on a history write failure and retries cleanly', (kind) => {
+    const root = temporaryRoot();
+    const libraryPath = kind === 'animation' ? buildLibraryAtVersion(root, 60) : buildDirectoryV60(root);
+    const fixture = new Database(libraryFilePath(libraryPath));
+    const original = history(fixture);
+    fixture.exec(`CREATE TRIGGER fail_v60_bridge BEFORE INSERT ON schema_migrations
+      WHEN NEW.version = ${kind === 'animation' ? 61 : 60}
+      BEGIN SELECT RAISE(ABORT, 'injected history failure'); END`);
+    fixture.close();
+
+    const failing = newService();
+    expect(() => failing.openLibrary(libraryPath)).toThrow('LIBRARY_MIGRATION_FAILED');
+    failing.closeAll();
+    const rolledBack = new Database(libraryFilePath(libraryPath));
+    expect(rolledBack.pragma('user_version', { simple: true })).toBe(60);
+    expect(history(rolledBack)).toEqual(original);
+    const missingTable = kind === 'animation' ? 'linked_directory_snapshots' : 'animation_assets';
+    expect(rolledBack.prepare('SELECT name FROM sqlite_master WHERE name = ?').get(missingTable)).toBeUndefined();
+    rolledBack.exec('DROP TRIGGER fail_v60_bridge');
+    rolledBack.close();
+
+    const retry = newService();
+    expect(retry.openLibrary(libraryPath).recovery).toBeUndefined();
+    retry.closeAll();
+    const verified = new Database(libraryFilePath(libraryPath));
+    assertCanonicalHistory(verified);
+    verified.close();
+  });
+
+  it.each(['animation', 'directory'] as const)('keeps %s v60 writable without rescue after the migration retry cap', (kind) => {
+    const root = temporaryRoot();
+    const libraryPath = kind === 'animation' ? buildLibraryAtVersion(root, 60) : buildDirectoryV60(root);
+    const fixture = new Database(libraryFilePath(libraryPath));
+    const original = history(fixture);
+    fixture.close();
+
+    for (let attempt = 0; attempt < MAX_MIGRATION_ATTEMPTS; attempt += 1) {
+      const failing = newService({ afterSchemaMigrationTransactionBegin: () => { throw new Error('injected migration failure'); } });
+      expect(() => failing.openLibrary(libraryPath)).toThrow('LIBRARY_MIGRATION_FAILED');
+      failing.closeAll();
+    }
+    const service = newService();
+    const opened = service.openLibrary(libraryPath);
+    expect(opened.recovery).toBeUndefined();
+    expect(opened.migrationStuck).toBe(true);
+    expect(opened.readOnly).toBeFalsy();
+    service.renameLibrary({ libraryId: opened.libraryId, displayName: 'Still writable' });
+    expect(service.listAssets({ libraryId: opened.libraryId, recursive: true })).toEqual([]);
+    service.closeAll();
+    const verified = new Database(libraryFilePath(libraryPath));
+    expect(verified.pragma('user_version', { simple: true })).toBe(60);
+    expect(history(verified)).toEqual(original);
+    expect(verified.prepare('SELECT display_name FROM library').get()).toEqual({ display_name: 'Still writable' });
+    verified.close();
+  });
+
+  it.each(['unknown checksum', 'damaged prefix', 'missing directory table'] as const)('does not normalize a v60 with %s', (damage) => {
+    const libraryPath = buildDirectoryV60(temporaryRoot());
+    const fixture = new Database(libraryFilePath(libraryPath));
+    if (damage === 'unknown checksum') fixture.prepare('UPDATE schema_migrations SET checksum = ? WHERE version = 60').run('0'.repeat(64));
+    if (damage === 'damaged prefix') fixture.prepare('UPDATE schema_migrations SET checksum = ? WHERE version = 59').run('0'.repeat(64));
+    if (damage === 'missing directory table') fixture.exec('DROP TABLE linked_directory_entries');
+    const original = history(fixture);
+    fixture.close();
+
+    const service = newService({ beforeLibraryRescueForTests: () => { throw new Error('stop rescue of damaged test fixture'); } });
+    expect(() => service.openLibrary(libraryPath)).toThrow('LIBRARY_CORRUPT');
+    service.closeAll();
+    const verified = new Database(libraryFilePath(libraryPath));
+    expect(verified.pragma('user_version', { simple: true })).toBe(60);
+    expect(history(verified)).toEqual(original);
+    expect(verified.prepare("SELECT name FROM sqlite_master WHERE name = 'animation_assets'").get()).toBeUndefined();
+    verified.close();
   });
 });
 
@@ -327,6 +545,7 @@ describe('sync-first v37/v38 migration fork (Serpent-e0dw)', () => {
 
     // 模拟 v38 分叉库：先把新建库回退到 v38，再交换 v37/v38 校验和。
     const db = new Database(libraryFilePath(created.libraryPath));
+    removeLinkedDirectoryIndexFixture(db);
     db.exec('DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets; DROP INDEX IF EXISTS revisions_size_fingerprint_idx');
     db.prepare('DELETE FROM schema_migrations WHERE version >= 39').run();
     db.pragma('user_version = 38');
@@ -366,6 +585,7 @@ describe('sync-first v37/v38 migration fork (Serpent-e0dw)', () => {
     creating.closeAll();
 
     const db = new Database(libraryFilePath(created.libraryPath));
+    removeLinkedDirectoryIndexFixture(db);
     db.exec('DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets; DROP INDEX IF EXISTS revisions_size_fingerprint_idx');
     db.exec('DROP TABLE IF EXISTS asset_auto_analysis_suppression');
     db.prepare('DELETE FROM schema_migrations WHERE version >= 37').run();

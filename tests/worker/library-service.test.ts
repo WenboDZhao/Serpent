@@ -28,6 +28,7 @@ import { publicErrorForWorkerFailure } from '../../src/worker/public-error';
 import { PUBLIC_ERROR_MESSAGES } from '../../src/shared/protocol/errors';
 import { removePathWithSyncRetry } from '../../src/worker/windows-fs-retry';
 import { build } from 'vite';
+import { removeLinkedDirectoryIndexFixture } from './remove-linked-directory-index';
 
 const temporaryRoots: string[] = [];
 
@@ -156,6 +157,7 @@ function waitForChildExit(child: ChildProcess, timeoutMs = 5_000): Promise<void>
 }
 
 function removeWriteCoordinationSchema(database: TestDatabaseConnection): void {
+  removeLinkedDirectoryIndexFixture(database);
   database.exec('DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets;');
   const triggers = database.prepare(
     `SELECT name FROM sqlite_master
@@ -531,6 +533,7 @@ describe('LibraryService lifecycle', () => {
     creatingService.closeAll();
 
     const database = new TestDatabase(path.join(created.libraryPath, '.serpent', 'library.db'));
+    removeLinkedDirectoryIndexFixture(database);
     database.exec(`
       DROP TABLE IF EXISTS animation_retired_files; DROP TABLE IF EXISTS animation_requests; DROP TABLE IF EXISTS animation_preview_staging; DROP TABLE IF EXISTS animation_assets;
     DROP INDEX IF EXISTS revisions_size_fingerprint_idx;
